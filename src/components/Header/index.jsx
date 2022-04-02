@@ -23,7 +23,9 @@ import {
     Nav,
     LinksList,
     ItemList,
-    ActionButtons
+    ActionButtons,
+    Cart,
+    ProductsTotal
 } from "./styles";
 
 export default function Header() {
@@ -62,7 +64,7 @@ export default function Header() {
                         themes.type === "light" ? <BsBrightnessHigh /> : <BsMoonFill />
                     }
                 </button>
-                <button><span>{total}</span><BsCart2 /></button>
+                <Cart><ProductsTotal>{total}</ProductsTotal><BsCart2 /></Cart>
             </ActionButtons>
             
         </Container>

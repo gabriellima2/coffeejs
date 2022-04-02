@@ -129,3 +129,17 @@ export const ActionButtons = styled.div`
         background: none;
     }
 `;
+
+export const Cart = styled.button`
+    position: relative;
+`;
+
+export const ProductsTotal = styled.span`
+    position: absolute;
+    top: -5px;
+    right: 0;
+    padding: 2px 6px;
+    font-size: 0.9em;
+    border-radius: 50%;
+    background-color: ${colors.blue};
+`;
