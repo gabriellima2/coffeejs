@@ -13,9 +13,9 @@ export default function Wrapper({ children }) {
     return (
         <ThemeProvider theme={themes.currentTheme}>
             <WrapperStyle>
-                    <Header />
-                    {children}
-                    <Footer /> 
+                <Header />
+                {children}
+                <Footer /> 
             </WrapperStyle>
         </ThemeProvider>
     );

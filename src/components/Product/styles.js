@@ -22,7 +22,7 @@ export const ProductStyle = styled.div`
     align-items: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border-top: 1px solid ${colors.green};
+    border-top: 1px solid ${colors.blue};
 
     &:hover, &:active {
         transition: all 0.1s ease-in;
@@ -69,7 +69,7 @@ export const Name = styled.h3`
 export const Price = styled.p`
     font-size: 1.2em;
     font-weight: bold;
-    color: #F5A507;
+    color: ${colors.orange.default};
     margin-bottom: 15px;
 
     @media screen and (min-width: ${media.default}) {

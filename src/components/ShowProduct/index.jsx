@@ -33,7 +33,7 @@ export default function ShowProduct({ currentProduct }) {
         <>
             {
                 currentProduct.map((product) => (
-                    <>
+                    <div key={product.id}>
                         <Main>
                             <img src={product.image.src}/>
                             <Property>
@@ -56,7 +56,7 @@ export default function ShowProduct({ currentProduct }) {
                                 <p>{product.description}</p>
                             </ContentDescription>
                         </Description>
-                    </>
+                    </div>
                 ))
             }
         </>

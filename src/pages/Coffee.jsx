@@ -15,17 +15,15 @@ export default function Coffee() {
         setCurrentProduct(products.filter((product) => {
             return product ? product.id === Number(id) : null;
         }));
-
-        return () => setCurrentProduct(null);
     }, []);
 
-
-    if (!currentProduct) {
+    if (!currentProduct || currentProduct == []) {
+        console.log("ola")
         return (
             <Wrapper>
                 <h1>Produto não encontrado!</h1>
             </Wrapper>
-        )
+        );
     }
 
     return (

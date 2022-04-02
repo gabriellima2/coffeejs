@@ -96,7 +96,7 @@ export const ItemList = styled.li`
 
         &:active, &:hover {
             transition: all 0.2s ease-in;
-            color: ${colors.green};;
+            color: ${colors.blue};;
         }
 
         @media screen and (min-width: ${media.default}) {
@@ -140,6 +140,7 @@ export const ProductsTotal = styled.span`
     right: 0;
     padding: 2px 6px;
     font-size: 0.9em;
+    color: #000;
     border-radius: 50%;
     background-color: ${colors.blue};
 `;

@@ -71,8 +71,13 @@ export const MostSoldButton = styled.a`
     margin-top: 60px;
     font-size: 0.9em;
     color: #000;
-    background-color: ${colors.yellow};
     cursor: pointer;
+    background-color: ${colors.orange.default};
+
+    &:hover {
+        transition: all 0.1s ease-in;
+        background-color: ${colors.orange.hover};
+    }
 
     @media screen and (min-width: ${media.default}) {
         padding: 12px 25px;
