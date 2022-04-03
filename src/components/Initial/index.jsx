@@ -33,7 +33,6 @@ export default function Initial() {
                                     alt: product.image.alt
                                 },
                                 name: product.name,
-                                rating: product.rating,
                                 price: product.price,
                                 id: product.id
                             }} key={product.id} />

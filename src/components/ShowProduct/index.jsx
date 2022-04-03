@@ -1,7 +1,5 @@
 import { useState, useContext } from "react";
 
-import Rating from "../Rating";
-
 import { addToCartContext } from "../../context/addToCartContext";
 
 import {
@@ -28,7 +26,12 @@ export default function ShowProduct({ currentProduct }) {
         setQuantity((prevState) => prevState > 0 ? prevState - 1 : prevState);
     }
 
-    const handleAddToCart = () => quantity !== 0 ? addNewTotal(quantity) : null;
+    const handleAddToCart = () => {
+        if (quantity !== 0) {
+            addNewTotal(quantity);
+            setQuantity(0);
+        }
+    }
 
     if (currentProduct.length === 0) {
         return (
@@ -44,12 +47,13 @@ export default function ShowProduct({ currentProduct }) {
                 currentProduct.map((product) => (
                     <Main key={product.id}>
                         <Content>
+
                             <img src={product.image.src}/>
                             <Property>
                                 <p>{product.name}</p>
-                                <Rating rating={product.rating}/>
                                 <p>R${product.price.toFixed(2)}</p>
                             </Property>
+
                             <Actions>
                                 <HandleQuantity>
                                     <Decrement onClick={handleDecrement}>-</Decrement>
@@ -59,6 +63,7 @@ export default function ShowProduct({ currentProduct }) {
                                 <AddToCart onClick={handleAddToCart}>ADICIONAR AO CARRINHO</AddToCart>
                             </Actions>
                         </Content>
+
                         <Description>
                             <ContentDescription>
                                 <h1>Descrição</h1>

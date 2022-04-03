@@ -4,7 +4,7 @@ const light = {
         second: "#EAEAEA",
         third: "#E0E0E0",
     },
-    gradient: "linear-gradient(to top left, #E0E0E0 0%, #f1f1f1 100%)",
+    gradient: "linear-gradient(to bottom, #E0E0E0 0%, #f1f1f1 100%)",
     fontColor: "#111111",
     transparent: "rgba(0, 0, 0, 0.2)"
 };

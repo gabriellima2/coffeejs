@@ -95,18 +95,19 @@ export const AddToCart = styled.button`
 `;
 
 export const Description = styled.section`
-    padding: 15px;
     display: flex;
     justify-content: center;
+    background: ${({theme}) => theme.defaultColors.first};
 `;
 
 export const ContentDescription = styled.div`
     max-width: fit-content;
     padding: 30px 20px;
+    margin: 20px 0px;
     text-align: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background: ${({theme}) => theme.defaultColors.third};
+    background: ${({theme}) => theme.gradient};
 
     h1 {
         margin-bottom: 20px;

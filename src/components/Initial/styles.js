@@ -85,10 +85,14 @@ export const MostSoldButton = styled.a`
 `;
 
 export const Catalog = styled.section`
-    padding: 0px 15px;
+    height: 100%;
+    padding: 40px 15px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-color: ${({theme}) => theme.defaultColors.first};
 `;
 
 export const CatalogContent = styled.div`
@@ -96,7 +100,6 @@ export const CatalogContent = styled.div`
     height: 100%;
     padding: 5px 15px 15px 15px;
     margin-top: 50px;
-    margin-bottom: 10px;
 
     display: grid;
     grid-template-columns: repeat(2, minmax(auto, 340px));

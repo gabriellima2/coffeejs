@@ -15,14 +15,11 @@ export const Container = styled.li`
 `;
 
 export const ProductStyle = styled.div`
-    height: 100%;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-top: 1px solid ${colors.blue};
 
     &:hover, &:active {
         transition: all 0.1s ease-in;
