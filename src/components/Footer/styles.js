@@ -4,7 +4,6 @@ import media from "../../assets/mediaQueries";
 import colors from "../../assets/colors";
 
 export const FooterStyle = styled.footer`
-    grid-area: footer;
     display: grid;
     grid-template-rows: 120px auto;
     background-color: ${({theme}) => theme.defaultColors.second};

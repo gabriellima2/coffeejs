@@ -7,8 +7,7 @@ import image from "../../img/background-image.jpg";
 import imageDesktop from "../../img/background-image-desktop.jpg";
 
 export const Main = styled.main`
-    width: 100%;
-    height: 80vh;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;

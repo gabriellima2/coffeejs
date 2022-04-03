@@ -6,6 +6,7 @@ import { addToCartContext } from "../../context/addToCartContext";
 
 import {
     Main,
+    Content,
     Property,
     Actions,
     HandleQuantity,
@@ -29,12 +30,20 @@ export default function ShowProduct({ currentProduct }) {
 
     const handleAddToCart = () => quantity !== 0 ? addNewTotal(quantity) : null;
 
+    if (currentProduct.length === 0) {
+        return (
+            <Main>
+                <h1>Produto não encontrado!</h1>
+            </Main>
+        );
+    }
+
     return (
         <>
             {
                 currentProduct.map((product) => (
-                    <div key={product.id}>
-                        <Main>
+                    <Main key={product.id}>
+                        <Content>
                             <img src={product.image.src}/>
                             <Property>
                                 <p>{product.name}</p>
@@ -49,14 +58,14 @@ export default function ShowProduct({ currentProduct }) {
                                 </HandleQuantity>
                                 <AddToCart onClick={handleAddToCart}>ADICIONAR AO CARRINHO</AddToCart>
                             </Actions>
-                        </Main>
+                        </Content>
                         <Description>
                             <ContentDescription>
                                 <h1>Descrição</h1>
                                 <p>{product.description}</p>
                             </ContentDescription>
                         </Description>
-                    </div>
+                    </Main>
                 ))
             }
         </>

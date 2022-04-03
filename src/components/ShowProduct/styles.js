@@ -4,6 +4,10 @@ import colors from "../../assets/colors";
 import media from "../../assets/mediaQueries";
 
 export const Main = styled.main`
+    flex-grow: 1;
+`;
+
+export const Content = styled.section`
     display: flex;
     flex-direction: column;
     gap: 15px;

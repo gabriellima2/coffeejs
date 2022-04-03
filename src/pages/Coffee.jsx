@@ -8,23 +8,14 @@ import { useParams } from "react-router-dom";
 import products from "../data/products";
 
 export default function Coffee() {
-    const [ currentProduct, setCurrentProduct ] = useState(null);
+    const [ currentProduct, setCurrentProduct ] = useState([]);
     const { id } = useParams();
 
     useEffect(() => {
         setCurrentProduct(products.filter((product) => {
-            return product ? product.id === Number(id) : null;
+            return product.id === Number(id) ? product : null;
         }));
     }, []);
-
-    if (!currentProduct || currentProduct == []) {
-        console.log("ola")
-        return (
-            <Wrapper>
-                <h1>Produto não encontrado!</h1>
-            </Wrapper>
-        );
-    }
 
     return (
         <Wrapper>
