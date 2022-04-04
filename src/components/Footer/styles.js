@@ -3,7 +3,7 @@ import styled from "styled-components";
 import media from "../../assets/mediaQueries";
 import colors from "../../assets/colors";
 
-export const FooterStyle = styled.footer`
+export const Container = styled.footer`
     display: grid;
     grid-template-rows: 120px auto;
     background-color: ${({theme}) => theme.defaultColors.second};

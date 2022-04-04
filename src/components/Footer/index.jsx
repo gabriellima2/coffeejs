@@ -1,12 +1,12 @@
 import Logo from "../Logo"
 
-import { FooterStyle, MainInformation, Nav, List, ListItem, AreaDev, Name } from "./styles";
+import { Container, MainInformation, Nav, List, ListItem, AreaDev, Name } from "./styles";
 
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 export default function Footer() {
     return (
-        <FooterStyle>
+        <Container>
             <MainInformation>
                 <Logo />
                 <Nav id="contact">
@@ -19,6 +19,6 @@ export default function Footer() {
             <AreaDev>
                 <Name>Gabriel</Name>
             </AreaDev>
-        </FooterStyle>
+        </Container>
     );
 }

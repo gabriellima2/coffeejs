@@ -1,6 +1,8 @@
-import { useState, useContext } from "react";
+import { useState, useContext, createRef } from "react";
 
 import { addToCartContext } from "../../context/addToCartContext";
+
+import Popup from "../Popup";
 
 import {
     Main,
@@ -17,6 +19,7 @@ import {
 
 export default function ShowProduct({ currentProduct }) {
     const [quantity, setQuantity] = useState(0);
+    const popupRef = createRef(null);
 
     const { addNewTotal } = useContext(addToCartContext);
 
@@ -30,6 +33,7 @@ export default function ShowProduct({ currentProduct }) {
         if (quantity !== 0) {
             addNewTotal(quantity);
             setQuantity(0);
+            popupRef.current?.handleVisibility();
         }
     }
 
@@ -70,6 +74,8 @@ export default function ShowProduct({ currentProduct }) {
                                 <p>{product.description}</p>
                             </ContentDescription>
                         </Description>
+
+                        <Popup ref={popupRef}/>
                     </Main>
                 ))
             }
