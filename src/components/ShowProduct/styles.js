@@ -12,6 +12,7 @@ export const Content = styled.section`
     flex-direction: column;
     gap: 15px;
     padding: 25px 15px;
+    background: ${({theme}) => theme.defaultColors.first};
 
     @media screen and (min-width: ${media.default}) {
         height: 90vh;

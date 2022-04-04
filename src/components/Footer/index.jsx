@@ -11,8 +11,8 @@ export default function Footer() {
                 <Logo />
                 <Nav id="contact">
                     <List>
-                        <ListItem><a href=""><BsGithub /></a></ListItem>
-                        <ListItem><a href=""><BsLinkedin /></a></ListItem>
+                        <ListItem><a target="_blank" href="https://github.com/gabriellima2"><BsGithub /></a></ListItem>
+                        <ListItem><a target="_blank" href="https://www.linkedin.com/in/gabriel-lima-860612236/"><BsLinkedin /></a></ListItem>
                     </List>
                 </Nav>
             </MainInformation>

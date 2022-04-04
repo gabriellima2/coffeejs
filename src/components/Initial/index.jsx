@@ -1,5 +1,3 @@
-import { useState, useRef } from "react";
-
 import Product from "../Product";
 
 import products from "../../data/products";
