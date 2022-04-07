@@ -1,5 +1,6 @@
 import Home from "./pages/Home";
 import Coffee from "./pages/Coffee";
+import Cart from "./pages/Cart";
 
 import {
     BrowserRouter as Router,
@@ -13,6 +14,7 @@ export default function AppRoutes() {
             <Routes>
                 <Route path="/" exact element={<Home />}/>
                 <Route path="/:id" element={<Coffee />}/>
+                <Route path="/cart" element={<Cart />}/>
             </Routes>
         </Router>
     );

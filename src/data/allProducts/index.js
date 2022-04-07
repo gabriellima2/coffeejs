@@ -1,7 +1,7 @@
-const products = [
+const allProducts = [
     {
         image: {
-            src: "src/data/products/img/coffee1.jpg",
+            src: "src/data/allProducts/img/coffee1.jpg",
             alt: "O famoso Café Preto.",
         },
         id: 0,
@@ -11,7 +11,7 @@ const products = [
     },
     {
         image: {
-            src: "src/data/products/img/coffee2.jpg",
+            src: "src/data/allProducts/img/coffee2.jpg",
             alt: "Copo de Café com Chocolate e Caramelo.",
         },
         id: 1,
@@ -21,7 +21,7 @@ const products = [
     },
     {
         image: {
-            src: "src/data/products/img/coffee3.jpg",
+            src: "src/data/allProducts/img/coffee3.jpg",
             alt: "Xícara de Cappuccino com espuma no formato de flor.",
         },
         id: 2,
@@ -32,7 +32,7 @@ const products = [
 
     {
         image: {
-            src: "src/data/products/img/coffee1.jpg",
+            src: "src/data/allProducts/img/coffee1.jpg",
             alt: "O famoso Café Preto.",
         },
         id: 3,
@@ -42,7 +42,7 @@ const products = [
     },
     {
         image: {
-            src: "src/data/products/img/coffee2.jpg",
+            src: "src/data/allProducts/img/coffee2.jpg",
             alt: "Copo de Café com Chocolate e Caramelo.",
         },
         id: 4,
@@ -52,7 +52,7 @@ const products = [
     },
     {
         image: {
-            src: "src/data/products/img/coffee3.jpg",
+            src: "src/data/allProducts/img/coffee3.jpg",
             alt: "Xícara de Cappuccino com espuma no formato de flor.",
         },
         id: 5,
@@ -62,4 +62,4 @@ const products = [
     }
 ];
 
-export default products;
+export default allProducts;

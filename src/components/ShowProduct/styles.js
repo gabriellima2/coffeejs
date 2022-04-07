@@ -15,7 +15,6 @@ export const Content = styled.section`
     background: ${({theme}) => theme.defaultColors.first};
 
     @media screen and (min-width: ${media.default}) {
-        height: 90vh;
         align-items: center;
 
         img {

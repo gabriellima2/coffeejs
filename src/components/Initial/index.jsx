@@ -1,6 +1,6 @@
 import Product from "../Product";
 
-import products from "../../data/products";
+import allProducts from "../../data/allProducts";
 
 import {
     Main,
@@ -24,7 +24,7 @@ export default function Initial() {
             <Catalog id="catalog">
                 <CatalogContent>
                     {
-                        products.map((product) => (
+                        allProducts.map((product) => (
                             <Product attributes={{
                                 image: {
                                     src: product.image.src,

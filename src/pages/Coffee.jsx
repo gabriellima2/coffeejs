@@ -5,14 +5,14 @@ import ShowProduct from "../components/ShowProduct";
 
 import { useParams } from "react-router-dom";
 
-import products from "../data/products";
+import allProducts from "../data/allProducts";
 
 export default function Coffee() {
     const [ currentProduct, setCurrentProduct ] = useState([]);
     const { id } = useParams();
 
     useEffect(() => {
-        setCurrentProduct(products.filter((product) => {
+        setCurrentProduct(allProducts.filter((product) => {
             return product.id === Number(id) ? product : null;
         }));
     }, []);

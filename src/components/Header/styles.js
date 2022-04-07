@@ -20,7 +20,7 @@ export const MenuMobileButton = styled.button`
     display: flex;
     border: none;
     padding: 5px;
-    color: ${({ active }) => !active ? ({theme}) => theme.fontColor : "#f1f1f1"};
+    color: ${({ menuIsActive }) => !menuIsActive ? ({theme}) => theme.fontColor : "#f1f1f1"};
     font-size: 2.5em;
     background: none;
     z-index: 4000;
@@ -33,13 +33,13 @@ export const MenuMobileButton = styled.button`
 `;
 
 export const MenuMobile = styled.div`
-    width: ${({ active }) => !active ? 0 : 100}vw;
+    width: ${({ menuIsActive }) => !menuIsActive ? 0 : 100}vw;
     height: 100%;
     position: absolute;
-    right: ${({ active }) => !active ? -60 : 0}%;
+    right: ${({ menuIsActive }) => !menuIsActive ? -60 : 0}%;
     top: 0;
     background-color: rgba(0, 0, 0, 0.9);
-    display: ${({ active }) => !active ? "none" : "flex"};
+    display: ${({ menuIsActive }) => !menuIsActive ? "none" : "flex"};
     z-index: 3000;
 
     @media screen and (min-width: ${media.default}) {
@@ -55,7 +55,7 @@ export const Nav = styled.nav`
     position: absolute;
     right: 0;
     top: 160px;
-    visibility: ${({ active }) => !active ? "hidden" : "visible"};
+    visibility: ${({ menuIsActive }) => !menuIsActive ? "hidden" : "visible"};
     z-index: 4000;
 
     @media screen and (min-width: ${media.default}) {
@@ -132,7 +132,7 @@ export const ActionButtons = styled.div`
     }
 `;
 
-export const Cart = styled.button`
+export const Cart = styled.div`
     position: relative;
 `;
 

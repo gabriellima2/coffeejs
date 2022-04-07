@@ -1,10 +1,12 @@
 import { useState, useContext } from "react";
 
+import { useSelector } from "react-redux";
+import { dataProductSelector } from "../../redux/reducers/dataProducts";
+
 import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
 
-import { addToCartContext } from "../../context/addToCartContext";
 import { themeContext } from "../../context/themeContext";
 
 import {
@@ -28,28 +30,29 @@ import {
     ProductsTotal
 } from "./styles";
 
+
 export default function Header() {
-    const [ active, setActive ] = useState(false);
-
+    const [ menuIsActive, setMenuIsActive ] = useState(false);
     const { changeTheme, themes } = useContext(themeContext);
-    const { total } = useContext(addToCartContext);
 
-    const handleActive = () => setActive(!active);
+    const { productsToCart } = useSelector(dataProductSelector);
+
+    const handleMenu = () => setMenuIsActive(!menuIsActive);
 
     return (
         <Container>
             <Logo />
 
             <MenuMobileButton
-            onClick={handleActive}
-            active={active}>
+            onClick={handleMenu}
+            menuIsActive={menuIsActive}>
                 {
-                    !active ? <BsList /> : <BsX />
+                    !menuIsActive ? <BsList /> : <BsX />
                 }
             </MenuMobileButton>
-            <MenuMobile active={active}></MenuMobile>
+            <MenuMobile menuIsActive={menuIsActive}></MenuMobile>
 
-            <Nav active={active}>
+            <Nav menuIsActive={menuIsActive}>
                 <LinksList>
                     <ItemList><Link to="/">Início</Link></ItemList>
                     <ItemList><a href="#catalog">Catálogo</a></ItemList>
@@ -64,7 +67,7 @@ export default function Header() {
                         themes.type === "light" ? <BsBrightnessHigh /> : <BsMoonFill />
                     }
                 </button>
-                <Cart><ProductsTotal>{total}</ProductsTotal><BsCart2 /></Cart>
+                <Cart><Link to="/cart"><ProductsTotal>{productsToCart.totalQuantity}</ProductsTotal><BsCart2 /></Link></Cart>
             </ActionButtons>
             
         </Container>

@@ -2,17 +2,19 @@ import AppRoutes from "./Routes";
 import GlobalStyles from "./GlobalStyles";
 
 import { ThemeContextProvider } from "./context/themeContext";
-import { AddToCartContextProvider } from "./context/addToCartContext";
+
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   return (
     <>
-      <AddToCartContextProvider>
+      <Provider store={store}>
         <ThemeContextProvider>
             <GlobalStyles />
               <AppRoutes />  
           </ThemeContextProvider>
-      </AddToCartContextProvider>
+      </Provider>
     </>
   );
 }

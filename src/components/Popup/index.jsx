@@ -1,15 +1,9 @@
-import { useState, useEffect, useImperativeHandle, forwardRef } from "react";
+import { useState, useEffect } from "react";
 
 import { Container } from "./styles";
 
-function Popup(props, ref) {
+export default function Popup() {
     const [ isVisible, setIsVisible ] = useState(false);
-
-    const handleVisibility = () => setIsVisible((prevState) => !prevState);
-
-    useImperativeHandle(ref, () => {
-        return { handleVisibility };
-    });
 
     useEffect(() => {
         if (isVisible) {
@@ -27,5 +21,3 @@ function Popup(props, ref) {
         </Container>
     );
 }
-
-export default forwardRef(Popup);

@@ -1,6 +1,8 @@
-import { useState, useContext, createRef } from "react";
+import { useState, useEffect } from "react";
 
-import { addToCartContext } from "../../context/addToCartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { dataProductSelector } from "../../redux/reducers/dataProducts";
+import { addProductToCart, changeQuantityProduct } from "../../redux/actions/dataProducts";
 
 import Popup from "../Popup";
 
@@ -18,22 +20,20 @@ import {
 } from "./styles";
 
 export default function ShowProduct({ currentProduct }) {
-    const [quantity, setQuantity] = useState(0);
-    const popupRef = createRef(null);
+    const [ productQuantity, setProductQuantity ] = useState(0);
 
-    const { addNewTotal } = useContext(addToCartContext);
-
-    const handleIncrement = () => setQuantity((prevState) => prevState + 1);
-
+    const { productsToCart } = useSelector(dataProductSelector);
+    const dispatch = useDispatch();
+    
     const handleDecrement = () => {
-        setQuantity((prevState) => prevState > 0 ? prevState - 1 : prevState);
+        setProductQuantity(productQuantity !== 0 ? (prevState) => prevState - 1 : 0);
     }
 
-    const handleAddToCart = () => {
-        if (quantity !== 0) {
-            addNewTotal(quantity);
-            setQuantity(0);
-            popupRef.current?.handleVisibility();
+    const handleIncrement = () => setProductQuantity((prevState) => prevState + 1);
+
+    const handleAddToCart = (product) => {
+        if (productQuantity !== 0) {
+            dispatch(addProductToCart(product, productQuantity));
         }
     }
 
@@ -61,10 +61,10 @@ export default function ShowProduct({ currentProduct }) {
                             <Actions>
                                 <HandleQuantity>
                                     <Decrement onClick={handleDecrement}>-</Decrement>
-                                    <p>{quantity}</p>
+                                    <p>{productQuantity}</p>
                                     <Increment onClick={handleIncrement}>+</Increment>
                                 </HandleQuantity>
-                                <AddToCart onClick={handleAddToCart}>ADICIONAR AO CARRINHO</AddToCart>
+                                <AddToCart onClick={() => handleAddToCart(product)}>ADICIONAR AO CARRINHO</AddToCart>
                             </Actions>
                         </Content>
 
@@ -75,7 +75,7 @@ export default function ShowProduct({ currentProduct }) {
                             </ContentDescription>
                         </Description>
 
-                        <Popup ref={popupRef}/>
+                        <Popup />
                     </Main>
                 ))
             }
