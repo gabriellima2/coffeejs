@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+
+import { popup } from "../../context/popup";
 
 import { Container } from "./styles";
 
 export default function Popup() {
-    const [ isVisible, setIsVisible ] = useState(false);
+    const { isVisible, hidePopup } = useContext(popup);
 
     useEffect(() => {
         if (isVisible) {
-            const time = setTimeout(() => setIsVisible(false), 3000);
+            const time = setTimeout(() => hidePopup(), 3000);
 
             return () => clearTimeout(time);
         }

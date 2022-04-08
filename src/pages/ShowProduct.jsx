@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 import Wrapper from "../components/Wrapper";
-import ShowProduct from "../components/ShowProduct";
+import Product from "../components/Product";
 
 import { useParams } from "react-router-dom";
 
 import allProducts from "../data/allProducts";
 
-export default function Coffee() {
+export default function ShowProduct() {
     const [ currentProduct, setCurrentProduct ] = useState([]);
     const { id } = useParams();
 
@@ -19,7 +19,7 @@ export default function Coffee() {
 
     return (
         <Wrapper>
-            <ShowProduct currentProduct={currentProduct}/>
+            <Product currentProduct={currentProduct}/>
         </Wrapper>
     );
 }

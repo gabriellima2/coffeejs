@@ -1,18 +1,17 @@
-import Product from "../Product";
+import ListProduct from "../ListProduct";
 
-import allProducts from "../../data/allProducts";
+import Container from "../Container";
 
 import {
     Main,
     TextArea,
     MostSoldButton,
-    Catalog,
-    CatalogContent
+    Catalog
 } from "./styles";
 
 export default function Initial() {
     return (
-        <>
+        <Container>
             <Main>
                 <TextArea>
                     <h1>Café para começar seu dia</h1>
@@ -21,23 +20,9 @@ export default function Initial() {
                 <MostSoldButton href="#">Mais vendidos</MostSoldButton>
             </Main>
 
-            <Catalog id="catalog">
-                <CatalogContent>
-                    {
-                        allProducts.map((product) => (
-                            <Product attributes={{
-                                image: {
-                                    src: product.image.src,
-                                    alt: product.image.alt
-                                },
-                                name: product.name,
-                                price: product.price,
-                                id: product.id
-                            }} key={product.id} />
-                        ))
-                    }
-                </CatalogContent>
+            <Catalog>
+                <ListProduct />
             </Catalog>
-        </>
+        </Container>
     );
 }

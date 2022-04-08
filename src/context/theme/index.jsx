@@ -3,9 +3,9 @@ import { createContext, useState } from "react";
 import light from "../../assets/style/themes/light";
 import dark from "../../assets/style/themes/dark";
 
-export const themeContext = createContext({});
+export const theme = createContext({});
 
-export function ThemeContextProvider({ children }) {
+export function ThemeContext({ children }) {
     const [themes, setThemes] = useState({
         type: "light",
         currentTheme: light
@@ -25,8 +25,8 @@ export function ThemeContextProvider({ children }) {
     }
 
     return (
-        <themeContext.Provider value={{themes, changeTheme}}>
+        <theme.Provider value={{themes, changeTheme}}>
             {children}
-        </themeContext.Provider>
+        </theme.Provider>
     );
 }

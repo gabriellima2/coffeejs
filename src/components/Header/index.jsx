@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
 
-import { themeContext } from "../../context/themeContext";
+import { theme } from "../../context/theme";
 
 import {
     BsList,
@@ -33,9 +33,9 @@ import {
 
 export default function Header() {
     const [ menuIsActive, setMenuIsActive ] = useState(false);
-    const { changeTheme, themes } = useContext(themeContext);
+    const { changeTheme, themes } = useContext(theme);
 
-    const { productsToCart } = useSelector(dataProductSelector);
+    const { cartData } = useSelector(dataProductSelector);
 
     const handleMenu = () => setMenuIsActive(!menuIsActive);
 
@@ -67,7 +67,7 @@ export default function Header() {
                         themes.type === "light" ? <BsBrightnessHigh /> : <BsMoonFill />
                     }
                 </button>
-                <Cart><Link to="/cart"><ProductsTotal>{productsToCart.totalQuantity}</ProductsTotal><BsCart2 /></Link></Cart>
+                <Cart><Link to="/cart"><ProductsTotal>{cartData.totalQuantity}</ProductsTotal><BsCart2 /></Link></Cart>
             </ActionButtons>
             
         </Container>

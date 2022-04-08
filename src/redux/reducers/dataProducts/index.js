@@ -4,7 +4,7 @@ import productsActions from "../../constants/actions";
 
 const INITIAL_STATE = {
     allProducts,
-    productsToCart: {
+    cartData: {
         products: [],
         totalPrice: 0,
         totalQuantity: 0
@@ -14,14 +14,14 @@ const INITIAL_STATE = {
 const dataProduct = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case productsActions.ADD_TO_CART: 
-            const { price, quantity } = action.product;
+            const { product } = action.payload;
 
             return {
                 ...state,
-                productsToCart: {
-                    products: [...state.productsToCart.products, action.product],
-                    totalPrice: state.productsToCart.totalPrice + price,
-                    totalQuantity: state.productsToCart.totalQuantity + quantity
+                cartData: {
+                    products: [ ...state.cartData.products, product ],
+                    totalPrice: state.cartData.totalPrice + product.price,
+                    totalQuantity: state.cartData.totalQuantity + product.quantity
                 }
             };
         case productsActions.CHANGE_QUANTITY_PRODUCT:

@@ -7,8 +7,8 @@ import image from "../../img/background-image.jpg";
 import imageDesktop from "../../img/background-image-desktop.jpg";
 
 export const Main = styled.main`
-    height: 100vh;
-
+    width: 100%;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,32 +85,7 @@ export const MostSoldButton = styled.a`
 `;
 
 export const Catalog = styled.section`
-    height: 100%;
-    padding: 40px 15px;
-
+    height: fit-content;
     display: flex;
-    align-items: center;
     justify-content: center;
-
-    background-color: ${({theme}) => theme.defaultColors.first};
-`;
-
-export const CatalogContent = styled.div`
-    max-width: max-content;
-    height: 100%;
-    padding: 5px 15px 15px 15px;
-    margin-top: 50px;
-
-    display: grid;
-    grid-template-columns: repeat(2, minmax(auto, 340px));
-    gap: 60px 25px;
-    justify-content: center;
-
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background: ${({theme}) => theme.gradient};
-
-    @media screen and (min-width: ${media.default}) {
-        grid-template-columns: repeat(3, minmax(auto, 360px));
-    }
 `;

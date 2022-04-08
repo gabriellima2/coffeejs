@@ -1,76 +1,83 @@
 import styled from "styled-components";
 
-import colors from "../../assets/colors";
 import media from "../../assets/mediaQueries";
 
-export const Container = styled.li`
-    width: 100%;
-    height: 100%;
-    color: ${({theme}) => theme.fontColor};
-
-    a {
-        width: 100%;
-        height: 100%;
-    }
-`;
-
-export const ProductStyle = styled.div`
-    width: 100%;
-    height: 100%;
+export const Main = styled.main`
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    &:hover, &:active {
-        transition: all 0.1s ease-in;
-        background-color: ${({theme}) => theme.transparent};
-    }
-`;
-
-export const Image = styled.img`
-    max-width: 90px;
-    height: 90px;
-    clip-path: circle();
-    transform: translateY(-40px);
+    gap: 15px;
+    padding: 25px 15px;
+    background: ${({theme}) => theme.defaultColors.first};
 
     @media screen and (min-width: ${media.default}) {
-        max-width: 110px;
-        height: 110px;
+        align-items: center;
+
+        img {
+            max-width: 700px;
+        }
     }
 `;
 
 export const Property = styled.div`
+    margin: 0 auto;
+    text-align: center;
+
+    p {
+        margin: 10px;
+    }
+`;
+
+export const Actions = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: ${({theme}) => theme.fontColor};
     gap: 30px;
 `;
 
-export const Name = styled.h3`
-    width: 100%;
-    max-width: 120px;
-    height: 45px;
+export const AddToCart = styled.button`
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
 
-    font-size: 0.9em;
-    letter-spacing: 2px;
-    font-weight: 400;
-    text-align: center;
-
-    @media screen and (min-width: ${media.default}) {
-        height: 50px;
-        font-size: 1em;
-    }
-`;
-
-export const Price = styled.p`
-    font-size: 1.2em;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7em;
     font-weight: bold;
-    color: ${colors.orange.default};
-    margin-bottom: 15px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    background-color: #F8A423;
+
+    &:hover {
+        transition: all 0.2s ease;
+        background-color: #D68C18;
+    }
 
     @media screen and (min-width: ${media.default}) {
-        font-size: 1.4em;
+        font-size: 0.8em;
+        padding: 15px 20px;
     }
 `;
 
+export const Description = styled.section`
+    display: flex;
+    justify-content: center;
+    background: ${({theme}) => theme.defaultColors.first};
+`;
+
+export const ContentDescription = styled.div`
+    max-width: fit-content;
+    padding: 30px 20px;
+    margin: 20px 0px;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: ${({theme}) => theme.gradient};
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    p {
+        max-width: 800px;
+    }
+`;

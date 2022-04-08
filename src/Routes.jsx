@@ -1,6 +1,9 @@
 import Home from "./pages/Home";
-import Coffee from "./pages/Coffee";
-import Cart from "./pages/Cart";
+import ShowProduct from "./pages/ShowProduct";
+import ShowCart from "./pages/ShowCart";
+
+import { ThemeContext } from "./context/theme";
+import { PopupContext } from "./context/popup";
 
 import {
     BrowserRouter as Router,
@@ -10,12 +13,17 @@ import {
 
 export default function AppRoutes() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" exact element={<Home />}/>
-                <Route path="/:id" element={<Coffee />}/>
-                <Route path="/cart" element={<Cart />}/>
-            </Routes>
-        </Router>
+        <ThemeContext>
+            <PopupContext>
+                <Router>
+                    <Routes>
+                        <Route path="/" exact element={<Home />}/>
+                        <Route path="/:id" element={<ShowProduct />}/>
+                        <Route path="/cart" element={<ShowCart />}/>
+                    </Routes>
+                </Router>
+            </PopupContext>
+        </ThemeContext>
+
     );
 }
