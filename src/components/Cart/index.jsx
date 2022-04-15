@@ -1,17 +1,33 @@
-import { useSelector } from "react-redux";
-import { dataProductSelector } from "../../redux/reducers/dataProducts";
+import { useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+
+import { BsXLg } from "react-icons/bs";
 
 import NotFound from "../NotFound";
 import Container from "../Container";
-import HandleQuantity from "../HandleQuantity";
+import ActionsButtons from "../ActionsButtons";
 
-import { Title, Main, Product, DataContainer, Remove } from "./styles";
+import { cartSelect } from "../../redux/reducers/cart";
+import { removeProducts, updateTotal } from "../../redux/actions/cart";
+
+import types from "../../assets/constants/types";
+
+import { Title, Main, Product, Data, Remove } from "./styles";
 
 export default function Cart() {
-    const { cartData } = useSelector(dataProductSelector);
+    const products = useSelector(cartSelect.products);
+    const { price, quantity } = useSelector(cartSelect.total);
+    
+    const dispatch = useDispatch();
 
+    useEffect(() => dispatch(updateTotal()), [products]);
 
-    if (cartData.products.length === 0) {
+    const handleRemove = (product) => {
+        dispatch(removeProducts(product));
+    }
+
+    if (products.length === 0) {
         return <NotFound text="Carrinho Vazio!"/>
     }
 
@@ -20,25 +36,22 @@ export default function Cart() {
             <Title>Seu Carrinho</Title>
             <Main>
                 {
-                    cartData.products.map((product) => (
+                    products.map((product) => (
                         <Product key={product.id}>
                             <img src={product.image.src} alt={product.image.alt} />
-                            <DataContainer>
-                                <div>
-                                    <p>{product.name}</p>
-                                    <p>R$19.30</p>
-                                </div>
-                                <div>
-                                    <HandleQuantity />
-                                    <Remove>Remover</Remove>
-                                </div>
-                            </DataContainer>
+                            <Data>
+                                <p>{product.name}</p>
+                                <p>R${product.totalPrice.toFixed(2)}</p>
+                            </Data>
+                            <ActionsButtons type={types.ON_CART} product={product}/>
+                            <Remove onClick={() => handleRemove(product)}><BsXLg /></Remove>
                         </Product>
                     ))
                 }
             </Main>
             <section>
-
+                <p>Quantidade Total: {quantity}</p>
+                <p>Valor Total: R${price.toFixed(2)}</p>
             </section>
         </Container>
     );

@@ -1,6 +1,8 @@
-const productsActions = {
+const cartActions = {
     ADD_TO_CART: "ADD_TO_CART",
-    CHANGE_QUANTITY_PRODUCT: "CHANGE_QUANTITY_PRODUCT"
+    UPDATE_TOTAL: "UPDATE_TOTAL",
+    REMOVE_PRODUCTS: "REMOVE_PRODUCTS",
+    UPDATE_PRODUCTS_IN_CART: "UPDATE_PRODUCTS_IN_CART"
 };
 
-export default productsActions;
+export { cartActions };

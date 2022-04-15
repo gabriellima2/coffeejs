@@ -134,15 +134,25 @@ export const ActionButtons = styled.div`
 
 export const Cart = styled.div`
     position: relative;
+    display: flex;
+    align-items: center;
+
+    a {
+        color: ${({theme}) => theme.fontColor};
+        font-size: 1.1em;
+    }
 `;
 
 export const ProductsTotal = styled.span`
     position: absolute;
-    top: -5px;
-    right: 0;
-    padding: 2px 6px;
-    font-size: 0.9em;
+    top: -8px;
+    right: -10px;
+
+    padding: 2px 5px;
+
+    font-size: 0.7em;
     color: #000;
+
     border-radius: 50%;
     background-color: ${colors.blue};
 `;

@@ -3,7 +3,10 @@ import styled from "styled-components";
 import media from "../../assets/mediaQueries";
 
 export const Title = styled.h1`
-    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.8em;
+
+    padding: 20px;
 `;
 
 export const Main = styled.main`
@@ -12,69 +15,84 @@ export const Main = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 
-    padding: 20px;
+    padding: 5px 15px;
 
     @media screen and (min-width: ${media.default}) {
-        
+        max-width: 1200px;
+        max-height: 760px;
+
+        padding: 5px 40px;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+
+        align-self: center;
+        overflow-y: auto;
     }
 `;
 
 export const Product = styled.section`
     width: 100%;
+    max-width: 450px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: minmax(80px, 130px) 1fr;
+    grid-template-rows: minmax(80px, auto);
+    gap: 15px;
 
-    padding: 15px;
+    border-top: 1px solid ${({theme}) => theme.transparent};
+    border-bottom: 1px solid ${({theme}) => theme.transparent};
+
+    padding: 10px 5px;
+    position: relative;
 
     img {
-        max-width: 100px;
+        width: 100%;
+        height: 100%;
     }
+`;
 
-    @media screen and (min-width: ${media.default}) {
-        max-width: 600px;
-        justify-content: space-between;
+export const Data = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr);
+    place-items: center;
+    gap: 10px;
 
-        img {
-            max-width: 150px;
+    @media screen and (max-width: ${media.small}) {
+        p {
+            font-size: 0.9em;
         }
     }
 `;
 
-export const DataContainer = styled.div`
-    height: 100px;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100%;
-    gap: 15px;
-
-    padding: 5px;
-
-    div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-`;
-
 export const Remove = styled.button`
-    padding: 10px 0px;
+    padding: 8px;
 
-    font-size: 0.9em;
-    color: #fff;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+
+    color: ${({theme}) => theme.fontColor};
+    font-size: 1.2em;
 
     border: none;
-    border-radius: 5px;
+    background: none;
 
-    cursor: pointer;
-    background-color: red;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
 
     &:hover {
-        transition: all 0.2s ease;
-        background-color: orangered;
+        font-size: 1.3em;
+    }
+
+    @media screen and (max-width: ${media.small}) {
+        top: 0px;
+        background: ${({theme}) => theme.defaultColors.first};
     }
 `;

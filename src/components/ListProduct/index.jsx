@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 
-import allProducts from "../../data/allProducts";
+import { useSelector } from "react-redux";
+import { productsSelect } from "../../redux/reducers/products";
 
 import { List, Product, ProductStyle, Image, Property, Name, Price } from "./styles";
 
 export default function ListProduct() {
+    const products = useSelector(productsSelect.products);
+
     return (
         <List>
             {
-                allProducts.map((product) => (
+                products.map((product) => (
                     <Product key={product.id}>
                         <Link to={`/${product.id}`}>
                             <ProductStyle>

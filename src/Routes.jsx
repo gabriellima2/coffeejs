@@ -2,8 +2,8 @@ import Home from "./pages/Home";
 import ShowProduct from "./pages/ShowProduct";
 import ShowCart from "./pages/ShowCart";
 
-import { ThemeContext } from "./context/theme";
-import { PopupContext } from "./context/popup";
+import { ThemeContextProvider } from "./context/ThemeContext";
+import { PopupContextProvider } from "./context/PopupContext";
 
 import {
     BrowserRouter as Router,
@@ -13,8 +13,8 @@ import {
 
 export default function AppRoutes() {
     return (
-        <ThemeContext>
-            <PopupContext>
+        <ThemeContextProvider>
+            <PopupContextProvider>
                 <Router>
                     <Routes>
                         <Route path="/" exact element={<Home />}/>
@@ -22,8 +22,8 @@ export default function AppRoutes() {
                         <Route path="/cart" element={<ShowCart />}/>
                     </Routes>
                 </Router>
-            </PopupContext>
-        </ThemeContext>
+            </PopupContextProvider>
+        </ThemeContextProvider>
 
     );
 }

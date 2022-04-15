@@ -1,11 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 
-import { popup } from "../../context/popup";
+import { PopupContext } from "../../context/PopupContext";
 
 import { Container } from "./styles";
 
 export default function Popup() {
-    const { isVisible, hidePopup } = useContext(popup);
+    const { isVisible, hidePopup } = useContext(PopupContext);
 
     useEffect(() => {
         if (isVisible) {

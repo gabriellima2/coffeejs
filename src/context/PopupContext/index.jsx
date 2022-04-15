@@ -2,9 +2,9 @@ import { createContext, useState } from "react";
 
 import Popup from "../../components/Popup";
 
-export const popup = createContext({});
+export const PopupContext = createContext({});
 
-export function PopupContext({children}) {
+export function PopupContextProvider({children}) {
     const [ isVisible, setIsVisible ] = useState(false);
 
     const showPopup = () => setIsVisible(true);
@@ -12,13 +12,13 @@ export function PopupContext({children}) {
     const hidePopup = () => setIsVisible(false);
 
     return (
-        <popup.Provider value={{
+        <PopupContext.Provider value={{
             isVisible,
             showPopup,
             hidePopup
         }}>
             {children}
             <Popup />
-        </popup.Provider>
+        </PopupContext.Provider>
     );
 }
