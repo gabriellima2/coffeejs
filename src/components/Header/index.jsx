@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
 import { useSelector } from "react-redux";
 import { cartSelect } from "../../redux/reducers/cart";
@@ -7,15 +7,11 @@ import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
 
-import { ThemeContext } from "../../context/ThemeContext";
-
 import {
     BsList,
     BsX,
     BsCart2,
-    BsSearch,
-    BsBrightnessHigh,
-    BsMoonFill
+    BsSearch
 } from "react-icons/bs";
 
 import {
@@ -33,7 +29,6 @@ import {
 
 export default function Header() {
     const [ menuIsActive, setMenuIsActive ] = useState(false);
-    const { changeTheme, themes } = useContext(ThemeContext);
 
     const { quantity } = useSelector(cartSelect.total);
 
@@ -62,11 +57,6 @@ export default function Header() {
 
             <ActionButtons>
                 <button><BsSearch /></button>
-                <button onClick={changeTheme}>
-                    {
-                        themes.type === "light" ? <BsBrightnessHigh /> : <BsMoonFill />
-                    }
-                </button>
                 <Cart><Link to="/cart"><ProductsTotal>{quantity}</ProductsTotal><BsCart2 /></Link></Cart>
             </ActionButtons>
             

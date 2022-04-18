@@ -3,12 +3,11 @@ import styled from "styled-components";
 import media from "../../assets/mediaQueries";
 import colors from "../../assets/colors";
 
-import image from "../../img/background-image.jpg";
-import imageDesktop from "../../img/background-image-desktop.jpg";
+import image from "./img/pizza-bg.jpg";
 
 export const Main = styled.main`
     width: 100%;
-    height: 90vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,16 +21,6 @@ export const Main = styled.main`
     background-position: center;
     background-size: cover;
     position: relative;
-
-    @media screen and (min-width: ${media.default}) {
-        background: linear-gradient(
-            to bottom right, #0F0F0Fe3 0%, #000000d0 100%
-        ), url(${imageDesktop});
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
 `;
 
 export const TextArea = styled.div`
@@ -39,13 +28,13 @@ export const TextArea = styled.div`
 
     h1 {
         width: 100%;
-        max-width: 300px;
-        font-size: 1.8em;
+        max-width: 350px;
+        font-size: 1.9em;
         text-align: center;
         margin: 0 auto;
 
         @media screen and (min-width: ${media.default}) {
-            max-width: 400px;
+            max-width: 500px;
             font-size: 2.3em;
         }
     }
@@ -54,7 +43,7 @@ export const TextArea = styled.div`
         width: 90%;
         margin: 0 auto;
         text-align: center;
-        font-size: 0.7em;
+        font-size: 0.8em;
         font-weight: 400;
         margin-top: 10px;
 
@@ -85,6 +74,7 @@ export const MostSoldButton = styled.a`
 `;
 
 export const Catalog = styled.section`
+    width: 100%;
     height: fit-content;
     display: flex;
     justify-content: center;

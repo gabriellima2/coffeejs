@@ -10,16 +10,25 @@ const GlobalStyles = createGlobalStyle`
     body {
         width: 100%;
         height: 100%;
+
+        color: ${({ theme }) => theme.fontColor};
         font-family: 'Space Mono', monospace;
+
         overflow-x: hidden;
+        background-color: ${({ theme }) => theme.bgColors.second};
     }
 
     a {
         text-decoration: none;
+        color: ${({ theme }) => theme.fontColor};
     }
 
     li {
         list-style: none;
+    }
+
+    button {
+        color: ${({ theme }) => theme.fontColor};
     }
 `;
 

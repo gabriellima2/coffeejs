@@ -1,9 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { cartSelect } from "../../redux/reducers/cart";
 
-import { addToCart, updateTotal, updateProductsInCart } from "../../redux/actions/cart";
+import { cartSelect } from "../../redux/reducers/cart";
+import { 
+    addToCart,
+    updateTotal,
+    updateProductsInCart
+} from "../../redux/actions/cart";
+
+import { types, actions } from "./constants";
 
 import { PopupContext } from "../../context/PopupContext";
 
@@ -15,11 +21,6 @@ import {
     ToggleQuantity
 } from "./styles.js";
 
-const actionsType = {
-    DECREMENT: "DECREMENT",
-    INCREMENT: "INCREMENT"
-}
-
 export default function ActionsButtons({ type, product }) {
     const [ quantity, setQuantity ] = useState(product.totalQuantity || 1);
     const { showPopup } = useContext(PopupContext);
@@ -29,10 +30,20 @@ export default function ActionsButtons({ type, product }) {
 
     useEffect(() => dispatch(updateTotal()), [productsInCart]);
 
+    useEffect(() => {
+        if (type === types.ON_CART) dispatch(updateProductsInCart(product, quantity));
+    }, [ quantity ]);
+
     const handleAddToCart = (product) => {
         const haveSameProduct = productsInCart.reduce((acc, prod) => {
-            return prod.id === product.id;
+            console.log(prod.id, product.id);
+            if (prod.ic === product.id) {
+                return acc = true;
+            }
         }, false);
+
+        console.log(product)
+        console.log(haveSameProduct)
 
         if (haveSameProduct) {
             dispatch(updateProductsInCart(product, quantity));
@@ -44,10 +55,9 @@ export default function ActionsButtons({ type, product }) {
     }
 
     const handleQuantity = (action) => {
-        if (action === actionsType.DECREMENT) {
+        if (action === actions.DECREMENT) {
             setQuantity((prevState) => prevState > 1 ? prevState - 1 : prevState);
-
-        } else if (action === actionsType.INCREMENT) {
+        } else if (action === actions.INCREMENT) {
             setQuantity((prevState) => prevState + 1);
         }
     }
@@ -55,13 +65,13 @@ export default function ActionsButtons({ type, product }) {
     return (
         <Container>
             <ToggleQuantity>
-                <Decrement onClick={() => handleQuantity(actionsType.DECREMENT)}>-</Decrement>
+                <Decrement onClick={() => handleQuantity(actions.DECREMENT)}>-</Decrement>
                 <p>{quantity}</p>
-                <Increment onClick={() => handleQuantity(actionsType.INCREMENT)}>+</Increment>             
+                <Increment onClick={() => handleQuantity(actions.INCREMENT)}>+</Increment>             
             </ToggleQuantity>
 
             {
-                type === "PAGE_PRODUCT" ? 
+                type === types.PAGE_PRODUCT ? 
                 <AddToCart onClick={() => handleAddToCart(product)}>ADICIONAR AO CARRINHO</AddToCart>
                 :
                 null

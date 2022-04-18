@@ -5,7 +5,7 @@ export default function Logo() {
         <LogoStyle
             target="_blank"
             href="https://github.com/gabriellima2/coffeejs"
-        >Coffee
+        >PIZZAJS
         </LogoStyle>
     );
 }

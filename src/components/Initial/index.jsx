@@ -14,10 +14,10 @@ export default function Initial() {
         <Container>
             <Main>
                 <TextArea>
-                    <h1>Café para começar seu dia</h1>
+                    <h1>Não precisa de motivos para pedir pizza</h1>
                     <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, maiores?</h2>
                 </TextArea>
-                <MostSoldButton href="#">Mais vendidos</MostSoldButton>
+                <MostSoldButton href="#">Mais vendidas</MostSoldButton>
             </Main>
 
             <Catalog>

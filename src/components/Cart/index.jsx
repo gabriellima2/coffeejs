@@ -11,7 +11,7 @@ import ActionsButtons from "../ActionsButtons";
 import { cartSelect } from "../../redux/reducers/cart";
 import { removeProducts, updateTotal } from "../../redux/actions/cart";
 
-import types from "../../assets/constants/types";
+import { types } from "../ActionsButtons/constants";
 
 import { Title, Main, Product, Data, Remove } from "./styles";
 

@@ -21,12 +21,14 @@ export const ToggleQuantity = styled.span`
 
 export const Decrement = styled.button`
     padding: 10px 15px;
-    border: 1px solid ${({theme}) => theme.transparent};
+
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
-    color: ${({theme}) => theme.fontColor};;
+
     cursor: pointer;
     background: none;
+
+    border: 1px solid ${({ theme }) => theme.transparent};
 
     &:active {
         background-color: ${colors.blue};
@@ -50,6 +52,7 @@ export const AddToCart = styled.button`
     font-size: 0.7em;
     font-weight: bold;
     letter-spacing: 2px;
+    color: #000;
 
     cursor: pointer;
     background-color: #F8A423;

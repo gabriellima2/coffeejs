@@ -2,7 +2,7 @@ import NotFound from "../NotFound";
 import Container from "../Container";
 import ActionsButtons from "../ActionsButtons";
 
-import types from "../../assets/constants/types";
+import { types } from "../ActionsButtons/constants";
 
 import {
     Main,

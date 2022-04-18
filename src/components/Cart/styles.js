@@ -44,9 +44,6 @@ export const Product = styled.section`
     grid-template-rows: minmax(80px, auto);
     gap: 15px;
 
-    border-top: 1px solid ${({theme}) => theme.transparent};
-    border-bottom: 1px solid ${({theme}) => theme.transparent};
-
     padding: 10px 5px;
     position: relative;
 
@@ -76,7 +73,6 @@ export const Remove = styled.button`
     display: flex;
     align-items: center;
 
-    color: ${({theme}) => theme.fontColor};
     font-size: 1.2em;
 
     border: none;
@@ -93,6 +89,5 @@ export const Remove = styled.button`
 
     @media screen and (max-width: ${media.small}) {
         top: 0px;
-        background: ${({theme}) => theme.defaultColors.first};
     }
 `;

@@ -7,7 +7,6 @@ export const Main = styled.main`
     flex-direction: column;
     gap: 15px;
     padding: 25px 15px;
-    background: ${({theme}) => theme.defaultColors.first};
 
     @media screen and (min-width: ${media.default}) {
         align-items: center;
@@ -30,17 +29,20 @@ export const Property = styled.div`
 export const Description = styled.section`
     display: flex;
     justify-content: center;
-    background: ${({theme}) => theme.defaultColors.first};
 `;
 
 export const ContentDescription = styled.div`
     max-width: fit-content;
+
     padding: 30px 20px;
     margin: 20px 0px;
+
     text-align: center;
+
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background: ${({theme}) => theme.gradient};
+
+    background: ${({ theme }) => theme.gradient};
 
     h1 {
         margin-bottom: 20px;

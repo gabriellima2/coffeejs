@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { productsSelect } from "../../redux/reducers/products";
 
-import { List, Product, ProductStyle, Image, Property, Name, Price } from "./styles";
+import { List, Image, Product, ProductData, Title }  from "./styles";
 
 export default function ListProduct() {
     const products = useSelector(productsSelect.products);
@@ -14,13 +14,11 @@ export default function ListProduct() {
                 products.map((product) => (
                     <Product key={product.id}>
                         <Link to={`/${product.id}`}>
-                            <ProductStyle>
+                            <ProductData>
                                 <Image src={product.image.src} alt={product.image.alt} />
-                                <Property>
-                                    <Name>{product.name}</Name>
-                                    <Price>R${product.price.toFixed(2)}</Price>
-                                </Property>
-                            </ProductStyle>
+                                <Title>{product.name}</Title>
+                                <h2><span>R$</span>{product.price.toFixed(2)}</h2>
+                            </ProductData>
                         </Link>
                     </Product>
                 ))

@@ -13,7 +13,8 @@ export const Container = styled.header`
     flex-wrap: wrap;
     
     padding: 10px 40px;
-    background-color: ${({theme}) => theme.defaultColors.second};
+
+    background-color: ${({ theme }) => theme.bgColors.third};
 `;
 
 export const MenuMobileButton = styled.button`
@@ -103,7 +104,6 @@ export const ItemList = styled.li`
 
         @media screen and (min-width: ${media.default}) {
             font-size: 1em;
-            color: ${({theme}) => theme.fontColor};
         }
     }
 `;
@@ -125,7 +125,6 @@ export const ActionButtons = styled.div`
     button {
         padding: 5px 10px;
         border: none;
-        color: ${({theme}) => theme.fontColor};
         font-size: 1em;
         cursor: pointer;
         background: none;
@@ -138,7 +137,6 @@ export const Cart = styled.div`
     align-items: center;
 
     a {
-        color: ${({theme}) => theme.fontColor};
         font-size: 1.1em;
     }
 `;

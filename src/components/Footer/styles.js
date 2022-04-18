@@ -6,7 +6,8 @@ import colors from "../../assets/colors";
 export const Container = styled.footer`
     display: grid;
     grid-template-rows: 120px auto;
-    background-color: ${({theme}) => theme.defaultColors.second};
+
+    background-color: ${({ theme }) => theme.bgColors.third};
 `;
 
 export const MainInformation = styled.div`
@@ -39,7 +40,6 @@ export const ListItem = styled.li`
         border: 2px solid ${colors.blue};
         padding: 6px;
         font-size: 0.9em;
-        color: ${({theme}) => theme.fontColor};
 
         &:hover {
             transition: all 0.2s ease-in;

@@ -7,9 +7,6 @@ const WrapperStyle = styled.div`
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 100px minmax(100vh, auto) 155px;
-
-    color: ${({theme}) => theme.fontColor};
-    background-color: ${({theme}) => theme.defaultColors.first};
 `;
 
 export default WrapperStyle;
