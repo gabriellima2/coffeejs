@@ -2,80 +2,76 @@ import { useContext, useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
+import { Button } from "../../GlobalStyles";
+
 import { cartSelect } from "../../redux/reducers/cart";
-import { 
-    addToCart,
-    updateTotal,
-    updateProductsInCart
+import {
+	addToCart,
+	updateTotal,
+	updateProductsInCart,
 } from "../../redux/actions/cart";
 
-import { types, actions } from "./constants";
+import { pages, actions } from "./constants";
+import handleProductData from "./functions/handleProductData";
 
 import { PopupContext } from "../../context/PopupContext";
 
-import {
-    Container,
-    Decrement,
-    Increment,
-    AddToCart,
-    ToggleQuantity
-} from "./styles.js";
+import { Container, Decrement, Increment, ToggleQuantity } from "./styles.js";
 
-export default function ActionsButtons({ type, product }) {
-    const [ quantity, setQuantity ] = useState(product.totalQuantity || 1);
-    const { showPopup } = useContext(PopupContext);
+export default function ActionsButtons({ page, product }) {
+	const [quantity, setQuantity] = useState(product.totalQuantity || 1);
+	const { showPopup } = useContext(PopupContext);
 
-    const productsInCart = useSelector(cartSelect.products);
-    const dispatch = useDispatch();
+	const productsInCart = useSelector(cartSelect.products);
+	const dispatch = useDispatch();
 
-    useEffect(() => dispatch(updateTotal()), [productsInCart]);
+	useEffect(() => dispatch(updateTotal()), [productsInCart]);
 
-    useEffect(() => {
-        if (type === types.ON_CART) dispatch(updateProductsInCart(product, quantity));
-    }, [ quantity ]);
+	useEffect(() => {
+		if (page === pages.ON_CART) {
+			handleAddToCart(product);
+		}
+	}, [quantity]);
 
-    const handleAddToCart = (product) => {
-        const haveSameProduct = productsInCart.reduce((acc, prod) => {
-            console.log(prod.id, product.id);
-            if (prod.ic === product.id) {
-                return acc = true;
-            }
-        }, false);
+	const handleAddToCart = (product) => {
+		const sameProduct = productsInCart.find((prod) => prod.id === product.id);
 
-        console.log(product)
-        console.log(haveSameProduct)
+		const updatedProduct = handleProductData(product, quantity);
 
-        if (haveSameProduct) {
-            dispatch(updateProductsInCart(product, quantity));
-            return;
-        }
+		if (sameProduct) {
+			dispatch(updateProductsInCart(updatedProduct));
+			return;
+		}
 
-        dispatch(addToCart(product, quantity));
-        showPopup();
-    }
+		dispatch(addToCart(updatedProduct));
+		showPopup();
+	};
 
-    const handleQuantity = (action) => {
-        if (action === actions.DECREMENT) {
-            setQuantity((prevState) => prevState > 1 ? prevState - 1 : prevState);
-        } else if (action === actions.INCREMENT) {
-            setQuantity((prevState) => prevState + 1);
-        }
-    }
+	const handleQuantity = (action) => {
+		if (action === actions.DECREMENT) {
+			setQuantity((prevState) => (prevState > 1 ? prevState - 1 : prevState));
+		} else if (action === actions.INCREMENT) {
+			setQuantity((prevState) => prevState + 1);
+		}
+	};
 
-    return (
-        <Container>
-            <ToggleQuantity>
-                <Decrement onClick={() => handleQuantity(actions.DECREMENT)}>-</Decrement>
-                <p>{quantity}</p>
-                <Increment onClick={() => handleQuantity(actions.INCREMENT)}>+</Increment>             
-            </ToggleQuantity>
+	return (
+		<Container>
+			<ToggleQuantity>
+				<Decrement onClick={() => handleQuantity(actions.DECREMENT)}>
+					-
+				</Decrement>
+				<p>{quantity}</p>
+				<Increment onClick={() => handleQuantity(actions.INCREMENT)}>
+					+
+				</Increment>
+			</ToggleQuantity>
 
-            {
-                type === types.PAGE_PRODUCT ? 
-                <AddToCart onClick={() => handleAddToCart(product)}>ADICIONAR AO CARRINHO</AddToCart>
-                :
-                null
-            }
-        </Container>
-    );
+			{page === pages.PRODUCT_DETAILS ? (
+				<Button onClick={() => handleAddToCart(product)}>
+					ADICIONAR AO CARRINHO
+				</Button>
+			) : null}
+		</Container>
+	);
 }

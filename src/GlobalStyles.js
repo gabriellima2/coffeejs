@@ -1,35 +1,61 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
-const GlobalStyles = createGlobalStyle`
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    }
+import media from "./assets/mediaQueries";
 
-    body {
-        width: 100%;
-        height: 100%;
+export const GlobalStyles = createGlobalStyle`
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
 
-        color: ${({ theme }) => theme.fontColor};
-        font-family: 'Space Mono', monospace;
+	body {
+		width: 100%;
+		height: 100%;
 
-        overflow-x: hidden;
-        background-color: ${({ theme }) => theme.bgColors.second};
-    }
+		color: ${({ theme }) => theme.fontColor};
+		font-family: 'Space Mono', monospace;
 
-    a {
-        text-decoration: none;
-        color: ${({ theme }) => theme.fontColor};
-    }
+		overflow-x: hidden;
+		background-color: ${({ theme }) => theme.bgColors.second};
+	}
 
-    li {
-        list-style: none;
-    }
+	a {
+		text-decoration: none;
+		color: ${({ theme }) => theme.fontColor};
+	}
 
-    button {
-        color: ${({ theme }) => theme.fontColor};
-    }
+	li {
+		list-style: none;
+	}
+
+	button {
+		color: ${({ theme }) => theme.fontColor};
+	}
 `;
 
-export default GlobalStyles;
+export const Button = styled.button`
+	border: none;
+	padding: 15px;
+	border-radius: 5px;
+
+	font-family: "Space Mono", monospace;
+	text-transform: uppercase;
+	font-size: 0.7em;
+	font-weight: bold;
+	letter-spacing: 2px;
+	color: #000;
+
+	cursor: pointer;
+	background-color: #f8a423;
+
+	&:hover {
+		transition: all 0.2s ease;
+		background-color: #d68c18;
+	}
+
+	@media screen and (min-width: ${media.default}) {
+		font-size: 0.8em;
+		padding: 15px 20px;
+	}
+`;

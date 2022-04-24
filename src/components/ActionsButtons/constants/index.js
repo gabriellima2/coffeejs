@@ -1,11 +1,11 @@
-const types = {
-    ON_CART: "ON_CART",
-    PAGE_PRODUCT: "PAGE_PRODUCT"
+const pages = {
+	ON_CART: "ON_CART",
+	PRODUCT_DETAILS: "PRODUCT_DETAILS",
 };
 
 const actions = {
-    INCREMENT: "INCREMENT",
-    DECREMENT: "DECREMENT" 
-}
+	INCREMENT: "INCREMENT",
+	DECREMENT: "DECREMENT",
+};
 
-export { types, actions };
+export { pages, actions };

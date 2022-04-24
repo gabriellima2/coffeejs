@@ -1,93 +1,189 @@
 import styled from "styled-components";
 
+import { Button } from "../../GlobalStyles";
+
 import media from "../../assets/mediaQueries";
 
-export const Title = styled.h1`
-    text-align: center;
-    font-size: 1.8em;
+const ALPHA = "f2";
 
-    padding: 20px;
+export const Container = styled.main`
+	width: 100%;
+	height: 100%;
+
+	padding: 30px 0px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
 `;
 
-export const Main = styled.main`
-    height: 100%;
+export const Content = styled.section`
+	width: 100%;
+	height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-    padding: 5px 15px;
+	background-color: ${({ theme }) => theme.bgColors.third};
 
-    @media screen and (min-width: ${media.default}) {
-        max-width: 1200px;
-        max-height: 760px;
+	@media screen and (min-width: ${media.medium}) {
+		flex-direction: row;
+		align-items: center;
+		gap: 30px;
 
-        padding: 5px 40px;
+		padding: 20px;
 
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
+		background: none;
+	}
+`;
 
-        align-self: center;
-        overflow-y: auto;
-    }
+export const Products = styled.section`
+	height: fit-content;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+
+	padding: 15px 20px;
+
+	::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: ${({ theme }) => theme.bgColors.third};
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: ${({ theme }) => theme.bgColors.first};
+	}
+
+	@media screen and (min-width: ${media.large}) {
+		width: 100%;
+		max-height: 600px;
+		overflow-y: auto;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
 `;
 
 export const Product = styled.section`
-    width: 100%;
-    max-width: 450px;
+	width: 100%;
+	max-width: 450px;
 
-    display: grid;
-    grid-template-columns: minmax(80px, 130px) 1fr;
-    grid-template-rows: minmax(80px, auto);
-    gap: 15px;
+	display: grid;
+	grid-template-columns: minmax(80px, 130px) 1fr;
+	grid-template-rows: minmax(80px, auto);
+	gap: 15px;
 
-    padding: 10px 5px;
-    position: relative;
+	padding: 10px 5px;
+	position: relative;
 
-    img {
-        width: 100%;
-        height: 100%;
-    }
+	background-color: ${({ theme }) => theme.bgColors.first};
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	@media screen and (min-width: ${media.medium}) {
+		width: 100%;
+		max-width: none;
+	}
 `;
 
 export const Data = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(1fr);
-    place-items: center;
-    gap: 10px;
-
-    @media screen and (max-width: ${media.small}) {
-        p {
-            font-size: 0.9em;
-        }
-    }
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(1fr);
+	place-items: center;
+	gap: 10px;
 `;
 
 export const Remove = styled.button`
-    padding: 8px;
+	display: flex;
+	align-items: center;
 
-    display: flex;
-    align-items: center;
+	font-size: 1.2em;
 
-    font-size: 1.2em;
+	padding: 8px;
 
-    border: none;
-    background: none;
+	border: none;
+	background: none;
 
-    position: absolute;
-    top: 50%;
-    right: -15px;
-    transform: translateY(-50%);
+	position: absolute;
+	bottom: 0px;
+	right: 15px;
+	transform: translateX(50%);
 
-    &:hover {
-        font-size: 1.3em;
-    }
+	&:hover {
+		font-size: 1.3em;
+	}
+`;
 
-    @media screen and (max-width: ${media.small}) {
-        top: 0px;
-    }
+export const Card = styled.section`
+	position: sticky;
+	bottom: 0;
+
+	padding: 20px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	background-color: ${({ theme }) => theme.bgColors.second}${ALPHA};
+
+	a {
+		color: #ccc;
+		position: absolute;
+		left: 15px;
+		font-size: 2em;
+
+		@media screen and (min-width: ${media.default}) {
+			top: 140px;
+			left: 30px;
+		}
+	}
+
+	h1 {
+		text-align: center;
+		font-size: 1.8em;
+	}
+
+	@media screen and (min-width: ${media.medium}) {
+		width: 500px;
+		height: 500px;
+
+		position: static;
+
+		justify-content: space-between;
+
+		padding: 40px 20px;
+
+		background-color: ${({ theme }) => theme.bgColors.first};
+	}
+`;
+
+export const Details = styled.div`
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+
+	@media screen and (min-width: ${media.default}) {
+		gap: 70px;
+	}
+`;
+
+export const BuyButton = styled(Button)`
+	background-color: #0575e6;
+	color: #fff;
 `;

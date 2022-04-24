@@ -2,57 +2,79 @@ import { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { BsXLg } from "react-icons/bs";
+import { BsXLg, BsFillArrowLeftCircleFill } from "react-icons/bs";
 
 import NotFound from "../NotFound";
-import Container from "../Container";
 import ActionsButtons from "../ActionsButtons";
 
 import { cartSelect } from "../../redux/reducers/cart";
 import { removeProducts, updateTotal } from "../../redux/actions/cart";
 
-import { types } from "../ActionsButtons/constants";
+import { pages } from "../ActionsButtons/constants";
 
-import { Title, Main, Product, Data, Remove } from "./styles";
+import {
+	Container,
+	Content,
+	Products,
+	Product,
+	Data,
+	Remove,
+	Details,
+	Card,
+	BuyButton,
+} from "./styles";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
-    const products = useSelector(cartSelect.products);
-    const { price, quantity } = useSelector(cartSelect.total);
-    
-    const dispatch = useDispatch();
+	const products = useSelector(cartSelect.products);
+	const { price, quantity } = useSelector(cartSelect.total);
 
-    useEffect(() => dispatch(updateTotal()), [products]);
+	const dispatch = useDispatch();
 
-    const handleRemove = (product) => {
-        dispatch(removeProducts(product));
-    }
+	useEffect(() => dispatch(updateTotal()), [products]);
 
-    if (products.length === 0) {
-        return <NotFound text="Carrinho Vazio!"/>
-    }
+	const handleRemove = (product) => {
+		dispatch(removeProducts(product));
+	};
 
-    return (
-        <Container>
-            <Title>Seu Carrinho</Title>
-            <Main>
-                {
-                    products.map((product) => (
-                        <Product key={product.id}>
-                            <img src={product.image.src} alt={product.image.alt} />
-                            <Data>
-                                <p>{product.name}</p>
-                                <p>R${product.totalPrice.toFixed(2)}</p>
-                            </Data>
-                            <ActionsButtons type={types.ON_CART} product={product}/>
-                            <Remove onClick={() => handleRemove(product)}><BsXLg /></Remove>
-                        </Product>
-                    ))
-                }
-            </Main>
-            <section>
-                <p>Quantidade Total: {quantity}</p>
-                <p>Valor Total: R${price.toFixed(2)}</p>
-            </section>
-        </Container>
-    );
+	if (products.length === 0) {
+		return <NotFound text="Carrinho Vazio!" />;
+	}
+
+	return (
+		<Container>
+			<h1>Seu Carrinho</h1>
+			<Content>
+				<Products>
+					{products.map((product) => (
+						<Product key={product.id}>
+							<img src={product.image.src} alt={product.image.alt} />
+							<Data>
+								<p>{product.name}</p>
+								<p>R${product.totalPrice.toFixed(2)}</p>
+							</Data>
+							<ActionsButtons page={pages.ON_CART} product={product} />
+							<Remove onClick={() => handleRemove(product)}>
+								<BsXLg />
+							</Remove>
+						</Product>
+					))}
+				</Products>
+
+				<Card>
+					<Link to="/">
+						<BsFillArrowLeftCircleFill />
+					</Link>
+					<h1>Total</h1>
+					<Details>
+						<p>Quantidade: {quantity}</p>
+						<p>Frete: Grátis</p>
+						<p>Valor: R${price.toFixed(2)}</p>
+					</Details>
+
+					<BuyButton>Finalizar Compra!</BuyButton>
+				</Card>
+			</Content>
+		</Container>
+	);
 }

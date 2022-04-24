@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 const WrapperStyle = styled.div`
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100px minmax(100vh, auto) 155px;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 100px minmax(100vh, auto) 155px;
 `;
 
 export default WrapperStyle;
