@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Wrapper from "../components/Wrapper";
-import Product from "../components/Product";
+import ProductDetails from "../components/ProductDetails";
 
 import { useParams } from "react-router-dom";
 
@@ -21,7 +21,7 @@ export default function ShowProduct() {
 
 	return (
 		<Wrapper>
-			<Product currentProduct={currentProduct} />
+			<ProductDetails currentProduct={currentProduct} />
 		</Wrapper>
 	);
 }

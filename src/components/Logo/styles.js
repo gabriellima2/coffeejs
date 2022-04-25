@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import colors from "../../assets/colors";
 
-export const LogoStyle = styled.a`
+export const LogoStyle = styled.span`
 	@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
 
 	display: flex;

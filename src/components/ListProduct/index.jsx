@@ -9,7 +9,7 @@ export default function ListProduct() {
 	const products = useSelector(productsSelect.products);
 
 	return (
-		<List>
+		<List id="catalog">
 			{products.map((product) => (
 				<Product key={product.id}>
 					<Link to={`/${product.id}`}>

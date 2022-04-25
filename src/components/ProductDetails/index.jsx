@@ -6,7 +6,7 @@ import { pages } from "../ActionsButtons/constants";
 
 import { Main, Property, Description, ContentDescription } from "./styles";
 
-export default function Product({ currentProduct }) {
+export default function ProductDetails({ currentProduct }) {
 	if (currentProduct.length === 0) {
 		return <NotFound text="Produto não encontrado!" />;
 	}
