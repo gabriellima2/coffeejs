@@ -20,16 +20,24 @@ import { Container, Decrement, Increment, ToggleQuantity } from "./styles.js";
 
 export default function ActionsButtons({ page, product }) {
 	const [quantity, setQuantity] = useState(product.totalQuantity || 1);
-	const { showPopup } = useContext(PopupContext);
+	const { isVisible, showPopup, hidePopup } = useContext(PopupContext);
 
 	const productsInCart = useSelector(cartSelect.products);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		return () => {
+			if (isVisible) return hidePopup();
+		};
+	}, []);
 
 	useEffect(() => dispatch(updateTotal()), [productsInCart]);
 
 	useEffect(() => {
 		if (page === pages.ON_CART) {
-			handleAddToCart(product);
+			const updatedProduct = handleProductData(product, quantity);
+
+			dispatch(updateProductsInCart(updatedProduct));
 		}
 	}, [quantity]);
 
@@ -40,10 +48,10 @@ export default function ActionsButtons({ page, product }) {
 
 		if (sameProduct) {
 			dispatch(updateProductsInCart(updatedProduct));
-			return;
+		} else {
+			dispatch(addToCart(updatedProduct));
 		}
 
-		dispatch(addToCart(updatedProduct));
 		showPopup();
 	};
 

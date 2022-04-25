@@ -2,6 +2,8 @@ import NotFound from "../NotFound";
 import Container from "../Container";
 import ActionsButtons from "../ActionsButtons";
 
+import { PopupContextProvider } from "../../context/PopupContext";
+
 import { pages } from "../ActionsButtons/constants";
 
 import { Main, Property, Description, ContentDescription } from "./styles";
@@ -21,7 +23,9 @@ export default function ProductDetails({ currentProduct }) {
 					<p>{product.name}</p>
 					<p>R${product.price.toFixed(2)}</p>
 				</Property>
-				<ActionsButtons page={pages.PRODUCT_DETAILS} product={product} />
+				<PopupContextProvider>
+					<ActionsButtons page={pages.PRODUCT_DETAILS} product={product} />
+				</PopupContextProvider>
 			</Main>
 
 			<Description>
