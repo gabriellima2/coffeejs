@@ -30,7 +30,6 @@ export const Content = styled.section`
 
 	@media screen and (min-width: ${media.medium}) {
 		flex-direction: row;
-		align-items: center;
 		gap: 30px;
 
 		padding: 20px;
