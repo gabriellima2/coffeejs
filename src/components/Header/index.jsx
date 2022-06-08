@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { BsCart2, BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-import { cartSelect } from "../../redux/reducers/cart";
+import { cartSelector } from "../../redux/reducers/cart";
 
 import Logo from "../Logo";
 import Nav from "./Nav";
@@ -13,7 +13,7 @@ import { MobileMenuContextProvider } from "../../context/MobileMenuContext";
 import { Container, ActionButtons, Cart, ProductsTotal } from "./styles";
 
 export default function Header() {
-	const { quantity } = useSelector(cartSelect.total);
+	const { quantity } = useSelector(cartSelector.total);
 
 	return (
 		<MobileMenuContextProvider>
@@ -26,7 +26,7 @@ export default function Header() {
 						<BsSearch />
 					</button>
 					<Cart>
-						<Link to="/cart">
+						<Link to="/mycart">
 							<ProductsTotal>{quantity}</ProductsTotal>
 							<BsCart2 />
 						</Link>

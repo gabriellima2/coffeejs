@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "../../GlobalStyles";
 
-import { cartSelect } from "../../redux/reducers/cart";
+import { cartSelector } from "../../redux/reducers/cart";
 import {
 	addToCart,
 	updateTotal,
@@ -20,7 +20,7 @@ import { Container, Decrement, Increment, ToggleQuantity } from "./styles.js";
 export default function ActionsButtons({ page, product }) {
 	const [quantity, setQuantity] = useState(product.totalQuantity || 1);
 
-	const productsInCart = useSelector(cartSelect.products);
+	const productsInCart = useSelector(cartSelector.products);
 	const dispatch = useDispatch();
 
 	useEffect(() => dispatch(updateTotal()), [productsInCart]);

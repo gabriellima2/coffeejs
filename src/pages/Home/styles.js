@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { mediaQueries, colors } from "../../assets/styles";
 
-import image from "../../../public/img/pizza-bg.jpg";
+import image from "../../assets/img/pizza-bg.jpg";
 
 export const Main = styled.main`
 	width: 100%;

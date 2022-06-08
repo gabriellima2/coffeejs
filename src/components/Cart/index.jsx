@@ -7,7 +7,7 @@ import { BsXLg, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import NotFound from "../NotFound";
 import ActionsButtons from "../ActionsButtons";
 
-import { cartSelect } from "../../redux/reducers/cart";
+import { cartSelector } from "../../redux/reducers/cart";
 import { removeProducts, updateTotal } from "../../redux/actions/cart";
 
 import { pages } from "../ActionsButtons/constants";
@@ -26,8 +26,8 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-	const products = useSelector(cartSelect.products);
-	const { price, quantity } = useSelector(cartSelect.total);
+	const products = useSelector(cartSelector.products);
+	const { price, quantity } = useSelector(cartSelector.total);
 
 	const dispatch = useDispatch();
 

@@ -18,7 +18,7 @@ import {
 	ProductTitle,
 } from "./styles";
 
-export default function Home() {
+export function Home() {
 	const products = useSelector(productsSelect.products);
 
 	return (

@@ -61,7 +61,7 @@ const cart = (state = INITIAL_STATE, { type, payload }) => {
 	}
 };
 
-export const cartSelect = {
+export const cartSelector = {
 	products: (state) => state.cart.products,
 	total: (state) => state.cart.total,
 };
