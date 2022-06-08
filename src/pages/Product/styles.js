@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import media from "../../assets/mediaQueries";
+import { mediaQueries } from "../../assets/styles";
 
 export const Main = styled.main`
 	display: flex;
@@ -8,7 +8,7 @@ export const Main = styled.main`
 	gap: 15px;
 	padding: 25px 15px;
 
-	@media screen and (min-width: ${media.default}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		align-items: center;
 
 		img {

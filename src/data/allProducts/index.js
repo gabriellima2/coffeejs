@@ -1,7 +1,7 @@
 const allProducts = [
 	{
 		image: {
-			src: "src/data/allProducts/img/pizza1.jpg",
+			src: "/src/data/allProducts/img/pizza1.jpg",
 			alt: "Deliciosa Pizza de Calabresa com Cebola",
 		},
 		id: 0,
@@ -12,7 +12,7 @@ const allProducts = [
 	},
 	{
 		image: {
-			src: "src/data/allProducts/img/pizza2.jpg",
+			src: "/src/data/allProducts/img/pizza2.jpg",
 			alt: "Pizza de Bacon com Cebola e Folhas",
 		},
 		id: 1,
@@ -23,7 +23,7 @@ const allProducts = [
 	},
 	{
 		image: {
-			src: "src/data/allProducts/img/pizza3.jpg",
+			src: "/src/data/allProducts/img/pizza3.jpg",
 			alt: "Pizza de Bacon.",
 		},
 		id: 2,
@@ -34,7 +34,7 @@ const allProducts = [
 	},
 	{
 		image: {
-			src: "src/data/allProducts/img/pizza1.jpg",
+			src: "/src/data/allProducts/img/pizza1.jpg",
 			alt: "Deliciosa Pizza de Calabresa com Cebola",
 		},
 		id: 3,
@@ -45,7 +45,7 @@ const allProducts = [
 	},
 	{
 		image: {
-			src: "src/data/allProducts/img/pizza2.jpg",
+			src: "/src/data/allProducts/img/pizza2.jpg",
 			alt: "Pizza de Bacon com Cebola e Folhas",
 		},
 		id: 4,
@@ -56,7 +56,7 @@ const allProducts = [
 	},
 	{
 		image: {
-			src: "src/data/allProducts/img/pizza3.jpg",
+			src: "/src/data/allProducts/img/pizza3.jpg",
 			alt: "Pizza de Bacon.",
 		},
 		id: 5,

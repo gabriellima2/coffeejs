@@ -39,7 +39,7 @@ export default function Home() {
 				<List id="catalog">
 					{products.map((product) => (
 						<Product key={product.id}>
-							<Link to={`/${product.id}`}>
+							<Link to={`/product/${product.id}`}>
 								<ProductData>
 									<ProductImage
 										src={product.image.src}

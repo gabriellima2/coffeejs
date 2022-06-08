@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import ShowProduct from "./pages/ShowProduct";
+import { Product } from "./pages/Product";
 import ShowCart from "./pages/ShowCart";
 
 import { ThemeProvider } from "styled-components";
@@ -14,8 +14,8 @@ export default function AppRoutes() {
 			<Router>
 				<Routes>
 					<Route path="/" exact element={<Home />} />
-					<Route path="/:id" element={<ShowProduct />} />
-					<Route path="/cart" element={<ShowCart />} />
+					<Route path="/product/:id" element={<Product />} />
+					<Route path="/mycart" element={<ShowCart />} />
 				</Routes>
 			</Router>
 		</ThemeProvider>

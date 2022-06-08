@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,30 +11,22 @@ import {
 	updateProductsInCart,
 } from "../../redux/actions/cart";
 
-import { pages, actions } from "./constants";
+import { actions } from "./constants";
+import { renderPages } from "../../constants";
 import handleProductData from "./functions/handleProductData";
-
-import { PopupContext } from "../../context/PopupContext";
 
 import { Container, Decrement, Increment, ToggleQuantity } from "./styles.js";
 
 export default function ActionsButtons({ page, product }) {
 	const [quantity, setQuantity] = useState(product.totalQuantity || 1);
-	const { isVisible, showPopup, hidePopup } = useContext(PopupContext);
 
 	const productsInCart = useSelector(cartSelect.products);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		return () => {
-			if (isVisible) return hidePopup();
-		};
-	}, []);
-
 	useEffect(() => dispatch(updateTotal()), [productsInCart]);
 
 	useEffect(() => {
-		if (page === pages.ON_CART) {
+		if (page === renderPages.ON_CART) {
 			const updatedProduct = handleProductData(product, quantity);
 
 			dispatch(updateProductsInCart(updatedProduct));
@@ -51,8 +43,6 @@ export default function ActionsButtons({ page, product }) {
 		} else {
 			dispatch(addToCart(updatedProduct));
 		}
-
-		showPopup();
 	};
 
 	const handleQuantity = (action) => {
@@ -75,7 +65,7 @@ export default function ActionsButtons({ page, product }) {
 				</Increment>
 			</ToggleQuantity>
 
-			{page === pages.PRODUCT_DETAILS ? (
+			{page === renderPages.PRODUCT_DETAILS ? (
 				<Button onClick={() => handleAddToCart(product)}>
 					ADICIONAR AO CARRINHO
 				</Button>
