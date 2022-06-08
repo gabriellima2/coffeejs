@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { mediaQueries } from "../../assets/styles";
+import { mediaQueries, colors } from "../../assets/styles";
 
 export const Main = styled.main`
 	display: flex;
@@ -42,7 +42,7 @@ export const ContentDescription = styled.div`
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 
-	background: ${({ theme }) => theme.gradient};
+	background: ${colors.gradient};
 
 	h1 {
 		margin-bottom: 20px;

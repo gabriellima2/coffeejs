@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-import media from "./assets/mediaQueries";
+import { mediaQueries, colors } from "./assets/styles";
 
 export const GlobalStyles = createGlobalStyle`
 	* {
@@ -13,16 +13,25 @@ export const GlobalStyles = createGlobalStyle`
 		width: 100%;
 		height: 100%;
 
-		color: ${({ theme }) => theme.fontColor};
+		color: ${colors.fontColor};
 		font-family: 'Space Mono', monospace;
 
 		overflow-x: hidden;
-		background-color: ${({ theme }) => theme.bgColors.second};
+		background-color: ${colors.bgColors.second};
+	}
+
+	#root {
+		width: 100%;
+		height: 100%;
+
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 100px minmax(100vh, auto) 155px;
 	}
 
 	a {
 		text-decoration: none;
-		color: ${({ theme }) => theme.fontColor};
+		color: ${colors.fontColor};
 	}
 
 	li {
@@ -30,7 +39,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	button {
-		color: ${({ theme }) => theme.fontColor};
+		color: ${colors.fontColor};
 	}
 `;
 
@@ -54,7 +63,7 @@ export const Button = styled.button`
 		background-color: #d68c18;
 	}
 
-	@media screen and (min-width: ${media.default}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		font-size: 0.8em;
 		padding: 15px 20px;
 	}

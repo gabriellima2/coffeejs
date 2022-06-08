@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Wrapper from "../../components/Wrapper";
-
 import { productsSelect } from "../../redux/reducers/products";
+
+import { App } from "../../layouts/App";
 
 import { Button } from "../../GlobalStyles";
 import {
@@ -22,7 +22,7 @@ export function Home() {
 	const products = useSelector(productsSelect.products);
 
 	return (
-		<Wrapper>
+		<App>
 			<Main>
 				<TextArea>
 					<h1>Não precisa de motivos para pedir pizza</h1>
@@ -56,6 +56,6 @@ export function Home() {
 					))}
 				</List>
 			</Catalog>
-		</Wrapper>
+		</App>
 	);
 }

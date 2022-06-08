@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Wrapper from "../../components/Wrapper";
 import NotFound from "../../components/NotFound";
 import ActionsButtons from "../../components/ActionsButtons";
 
+import allProducts from "../../data/allProducts";
+
 import { renderPages } from "../../constants";
 
-import allProducts from "../../data/allProducts";
+import { App } from "../../layouts/App";
 
 import { Main, Property, Description, ContentDescription } from "./styles";
 
@@ -26,7 +27,7 @@ export function Product() {
 	if (!currentProduct) return <NotFound text="Produto não encontrado!" />;
 
 	return (
-		<Wrapper>
+		<App>
 			<Main>
 				<img src={currentProduct.image.src} alt={currentProduct.image.alt} />
 				<Property>
@@ -45,6 +46,6 @@ export function Product() {
 					<p>{currentProduct.description}</p>
 				</ContentDescription>
 			</Description>
-		</Wrapper>
+		</App>
 	);
 }

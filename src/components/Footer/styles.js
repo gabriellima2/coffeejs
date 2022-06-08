@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-import media from "../../assets/mediaQueries";
-import colors from "../../assets/colors";
+import { mediaQueries, colors } from "../../assets/styles";
 
 export const Container = styled.footer`
 	display: grid;
 	grid-template-rows: 120px auto;
 
-	background-color: ${({ theme }) => theme.bgColors.third};
+	background-color: ${colors.bgColors.third};
 `;
 
 export const MainInformation = styled.div`
@@ -46,7 +45,7 @@ export const ListItem = styled.li`
 			background-color: ${colors.blue};
 		}
 
-		@media screen and (min-width: ${media.default}) {
+		@media screen and (min-width: ${mediaQueries.default}) {
 			padding: 8px;
 			font-size: 1em;
 		}
@@ -64,7 +63,7 @@ export const AreaDev = styled.div`
 export const Name = styled.p`
 	font-size: 0.8em;
 
-	@media screen and (min-width: ${media.default}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		font-size: 1em;
 	}
 `;

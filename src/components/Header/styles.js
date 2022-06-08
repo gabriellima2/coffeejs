@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-import media from "../../assets/mediaQueries";
-import colors from "../../assets/colors";
+import { mediaQueries, colors } from "../../assets/styles";
 
 export const Container = styled.header`
 	width: 100%;
@@ -14,7 +13,7 @@ export const Container = styled.header`
 
 	padding: 10px 40px;
 
-	background-color: ${({ theme }) => theme.bgColors.third};
+	background-color: ${colors.bgColors.third};
 `;
 
 export const ActionButtons = styled.div`
@@ -24,7 +23,7 @@ export const ActionButtons = styled.div`
 	order: 2;
 	padding: 10px 0px;
 
-	@media screen and (min-width: ${media.default}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		width: auto;
 		justify-content: initial;
 		gap: 30px;

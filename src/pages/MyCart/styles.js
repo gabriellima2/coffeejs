@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { Button } from "../../GlobalStyles";
 
-import { mediaQueries } from "../../assets/styles";
+import { mediaQueries, colors } from "../../assets/styles";
 
 const BG_COLOR_ALPHA = "f2";
 
@@ -26,7 +26,7 @@ export const Content = styled.section`
 	flex-direction: column;
 	justify-content: space-between;
 
-	background-color: ${({ theme }) => theme.bgColors.third};
+	background-color: ${colors.bgColors.third};
 
 	@media screen and (min-width: ${mediaQueries.medium}) {
 		flex-direction: row;
@@ -53,11 +53,11 @@ export const Products = styled.section`
 	}
 
 	::-webkit-scrollbar-track {
-		background-color: ${({ theme }) => theme.bgColors.third};
+		background-color: ${colors.bgColors.third};
 	}
 
 	::-webkit-scrollbar-thumb {
-		background-color: ${({ theme }) => theme.bgColors.first};
+		background-color: ${colors.bgColors.first};
 	}
 
 	@media screen and (min-width: ${mediaQueries.large}) {
@@ -82,7 +82,7 @@ export const Product = styled.section`
 	padding: 10px 5px;
 	position: relative;
 
-	background-color: ${({ theme }) => theme.bgColors.first};
+	background-color: ${colors.bgColors.first};
 
 	img {
 		width: 100%;
@@ -136,7 +136,7 @@ export const Card = styled.section`
 	flex-direction: column;
 	gap: 30px;
 
-	background-color: ${({ theme }) => theme.bgColors.second}${BG_COLOR_ALPHA};
+	background-color: ${colors.bgColors.second}${BG_COLOR_ALPHA};
 
 	a {
 		color: #ccc;
@@ -165,7 +165,7 @@ export const Card = styled.section`
 
 		padding: 40px 20px;
 
-		background-color: ${({ theme }) => theme.bgColors.first};
+		background-color: ${colors.bgColors.first};
 	}
 `;
 

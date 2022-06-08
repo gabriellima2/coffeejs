@@ -1,4 +1,6 @@
-import Logo from "../Logo";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
+
+import { Logo } from "../../infra/Logo";
 
 import {
 	Container,
@@ -9,8 +11,6 @@ import {
 	AreaDev,
 	Name,
 } from "./styles";
-
-import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 export default function Footer() {
 	return (

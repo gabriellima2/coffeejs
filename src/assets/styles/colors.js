@@ -1,4 +1,8 @@
-const theme = {
+const colors = {
+	orange: {
+		default: "#F5A507",
+		hover: "#DA9305",
+	},
 	bgColors: {
 		first: "#161616",
 		second: "#111111",
@@ -9,4 +13,4 @@ const theme = {
 	transparent: "rgba(255, 255, 255, 0.2)",
 };
 
-export default theme;
+export default colors;

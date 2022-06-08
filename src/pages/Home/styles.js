@@ -106,12 +106,12 @@ export const List = styled.ul`
 export const Product = styled.li`
 	width: 100%;
 
-	border: 1px solid ${({ theme }) => theme.transparent};
+	border: 1px solid ${colors.transparent};
 
 	&:hover,
 	&:active {
 		transition: all 0.3s ease-in;
-		background-color: ${({ theme }) => theme.transparent};
+		background-color: ${colors.transparent};
 	}
 `;
 

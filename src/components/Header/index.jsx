@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 import { cartSelector } from "../../redux/reducers/cart";
 
-import Logo from "../Logo";
 import Nav from "./Nav";
 import MenuMobile from "./MobileMenu";
 
 import { MobileMenuContextProvider } from "../../context/MobileMenuContext";
+
+import { Logo } from "../../infra/Logo";
 
 import { Container, ActionButtons, Cart, ProductsTotal } from "./styles";
 

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-import media from "../../assets/mediaQueries";
-import colors from "../../assets/colors";
+import { colors } from "../../assets/styles";
 
 export const Container = styled.div`
 	display: flex;
@@ -28,7 +27,7 @@ export const Decrement = styled.button`
 	cursor: pointer;
 	background: none;
 
-	border: 1px solid ${({ theme }) => theme.transparent};
+	border: 1px solid ${colors.transparent};
 
 	&:active {
 		background-color: ${colors.blue};

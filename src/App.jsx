@@ -1,16 +1,19 @@
-import AppRoutes from "./Routes";
-import { GlobalStyles } from "./GlobalStyles";
-
+import { useEffect } from "react";
 import { Provider } from "react-redux";
+
+import AppRoutes from "./Routes";
+
 import store from "./redux/store";
 
-import theme from "./assets/theme";
+import { GlobalStyles } from "./GlobalStyles";
 
 function App() {
+	useEffect(() => window.scrollTo(0, 0));
+
 	return (
 		<>
 			<Provider store={store}>
-				<GlobalStyles theme={theme} />
+				<GlobalStyles />
 				<AppRoutes />
 			</Provider>
 		</>

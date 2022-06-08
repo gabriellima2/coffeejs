@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { Button } from "../../GlobalStyles";
 
-import media from "../../assets/mediaQueries";
+import { mediaQueries, colors } from "../../assets/styles";
 
 const ALPHA = "f2";
 
@@ -26,9 +26,9 @@ export const Content = styled.section`
 	flex-direction: column;
 	justify-content: space-between;
 
-	background-color: ${({ theme }) => theme.bgColors.third};
+	background-color: ${colors.bgColors.third};
 
-	@media screen and (min-width: ${media.medium}) {
+	@media screen and (min-width: ${mediaQueries.medium}) {
 		flex-direction: row;
 		gap: 30px;
 
@@ -53,14 +53,14 @@ export const Products = styled.section`
 	}
 
 	::-webkit-scrollbar-track {
-		background-color: ${({ theme }) => theme.bgColors.third};
+		background-color: ${colors.bgColors.third};
 	}
 
 	::-webkit-scrollbar-thumb {
-		background-color: ${({ theme }) => theme.bgColors.first};
+		background-color: ${colors.bgColors.first};
 	}
 
-	@media screen and (min-width: ${media.large}) {
+	@media screen and (min-width: ${mediaQueries.large}) {
 		width: 100%;
 		max-height: 600px;
 		overflow-y: auto;
@@ -82,14 +82,14 @@ export const Product = styled.section`
 	padding: 10px 5px;
 	position: relative;
 
-	background-color: ${({ theme }) => theme.bgColors.first};
+	background-color: ${colors.bgColors.first};
 
 	img {
 		width: 100%;
 		height: 100%;
 	}
 
-	@media screen and (min-width: ${media.medium}) {
+	@media screen and (min-width: ${mediaQueries.medium}) {
 		width: 100%;
 		max-width: none;
 	}
@@ -136,7 +136,7 @@ export const Card = styled.section`
 	flex-direction: column;
 	gap: 30px;
 
-	background-color: ${({ theme }) => theme.bgColors.second}${ALPHA};
+	background-color: ${colors.bgColors.second}${ALPHA};
 
 	a {
 		color: #ccc;
@@ -144,7 +144,7 @@ export const Card = styled.section`
 		left: 15px;
 		font-size: 2em;
 
-		@media screen and (min-width: ${media.default}) {
+		@media screen and (min-width: ${mediaQueries.default}) {
 			top: 140px;
 			left: 30px;
 		}
@@ -155,7 +155,7 @@ export const Card = styled.section`
 		font-size: 1.8em;
 	}
 
-	@media screen and (min-width: ${media.medium}) {
+	@media screen and (min-width: ${mediaQueries.medium}) {
 		width: 500px;
 		height: 500px;
 
@@ -165,7 +165,7 @@ export const Card = styled.section`
 
 		padding: 40px 20px;
 
-		background-color: ${({ theme }) => theme.bgColors.first};
+		background-color: ${colors.bgColors.first};
 	}
 `;
 
@@ -177,7 +177,7 @@ export const Details = styled.div`
 	align-items: center;
 	gap: 10px;
 
-	@media screen and (min-width: ${media.default}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		gap: 70px;
 	}
 `;

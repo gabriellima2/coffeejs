@@ -1,20 +1,19 @@
 import styled from "styled-components";
 
-import media from "../../../assets/mediaQueries";
+import { mediaQueries, colors } from "../../../assets/styles";
 
 export const Button = styled.button`
 	display: flex;
 	border: none;
 	padding: 5px;
-	color: ${({ isActive }) =>
-		!isActive ? ({ theme }) => theme.fontColor : "#f1f1f1"};
+	color: ${colors.fontColor};
 	font-size: 2.5em;
 	background: none;
 	z-index: 4000;
 	cursor: pointer;
 	order: 1;
 
-	@media screen and (min-width: ${media.default}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		display: none;
 	}
 `;
@@ -29,7 +28,7 @@ export const AreaMenu = styled.div`
 	display: ${({ isActive }) => (!isActive ? "none" : "flex")};
 	z-index: 3000;
 
-	@media screen and (min-width: ${media.default}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		display: none;
 	}
 `;
