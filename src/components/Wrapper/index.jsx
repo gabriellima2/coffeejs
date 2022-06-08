@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-import WrapperStyle from "./styles";
+import { WrapperStyle, Content } from "./styles";
 
 export default function Wrapper({ children }) {
 	useEffect(() => window.scrollTo(0, 0));
@@ -11,7 +11,7 @@ export default function Wrapper({ children }) {
 	return (
 		<WrapperStyle>
 			<Header />
-			{children}
+			<Content>{children}</Content>
 			<Footer />
 		</WrapperStyle>
 	);
