@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import { productsSelect } from "../../redux/reducers/products";
