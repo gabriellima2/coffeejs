@@ -4,12 +4,12 @@ import { links } from "../../../mocks";
 
 import { Container, List, ListItem } from "./styles";
 
-export function Nav() {
+export function Nav({ color }) {
 	return (
 		<Container>
 			<List>
 				{links.map((link) => (
-					<ListItem>
+					<ListItem color={color} key={link.id}>
 						<a href={link.href}>
 							<i>{React.createElement(link.icon, null)}</i>
 							{link.title}

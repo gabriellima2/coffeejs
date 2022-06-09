@@ -12,7 +12,7 @@ export default function Footer() {
 	return (
 		<Container>
 			<Company>
-				<Logo width={100} />
+				<Logo width={90} />
 				<small>Gabriel - {CURRENT_YEAR}</small>
 			</Company>
 

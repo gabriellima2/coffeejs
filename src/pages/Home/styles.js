@@ -116,13 +116,18 @@ export const List = styled.ul`
 	grid-template-rows: auto;
 	gap: 20px;
 
-	@media screen and (min-width: ${mediaQueries.default}) {
+	@media screen and (min-width: ${mediaQueries.small}) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media screen and (min-width: ${mediaQueries.medium}) {
 		grid-template-columns: repeat(3, 1fr);
 	}
 `;
 
 export const ListItem = styled.li`
 	width: 200px;
+	height: 295px;
 
 	display: flex;
 	flex-direction: column;

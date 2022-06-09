@@ -3,20 +3,21 @@ import { BsList, BsX } from "react-icons/bs";
 
 import { Nav } from "../Nav";
 
+import { colors } from "../../../assets/styles";
+
 export function SidebarMobile() {
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger style={{ background: "none", border: "none" }}>
 				<BsList style={{ fontSize: "30px", cursor: "pointer" }} />
 			</Dialog.Trigger>
-			<Dialog.Overlay style={{ position: "absolute" }} />
 			<Dialog.Content
 				style={{
 					width: "350px",
 					height: "100vh",
 
 					padding: "30px 10px",
-					backgroundColor: "#000",
+					backgroundColor: "#0f0f0f",
 					position: "absolute",
 					top: 0,
 					right: 0,
@@ -32,7 +33,7 @@ export function SidebarMobile() {
 						style={{
 							fontSize: "40px",
 							cursor: "pointer",
-							transform: "translateX(100px)",
+							transform: "translateX(115px)",
 						}}
 					/>
 				</Dialog.Close>

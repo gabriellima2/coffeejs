@@ -36,8 +36,8 @@ export function Home() {
 				<section>
 					<List>
 						{products.map((product) => (
-							<Link to={`product/${product.id}`}>
-								<ListItem key={product.id}>
+							<Link to={`product/${product.id}`} key={product.id}>
+								<ListItem>
 									<img
 										width={100}
 										src={product.image.src}

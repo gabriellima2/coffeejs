@@ -22,7 +22,7 @@ const colors = {
 	},
 	gradient: "linear-gradient(to bottom, #0A0A0A 0%, #111111 100%)",
 	fontColor: "#F4ECECE6",
-	transparent: "rgba(255, 255, 255, 0.2)",
+	transparent: "#F4ECEC",
 };
 
 export default colors;

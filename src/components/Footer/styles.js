@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-import { mediaQueries, colors } from "../../assets/styles";
+import { colors } from "../../assets/styles";
 
 export const Container = styled.footer`
 	display: flex;
 	justify-content: space-between;
 
-	padding: 20px;
+	padding: 15px;
 
 	background: ${colors.italy};
 `;
@@ -21,6 +21,7 @@ export const Company = styled.section`
 
 	small {
 		margin-left: 5px;
+		font-size: 0.7rem;
 	}
 `;
 
