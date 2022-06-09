@@ -6,70 +6,91 @@ import image from "../../assets/img/pizza-bg.jpg";
 
 export const Main = styled.main`
 	width: 100%;
-	height: 85vh;
+	height: 75vh;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 70px;
 
-	background: linear-gradient(to bottom right, #0f0f0fe3 0%, #000000d0 100%),
-		url(${image});
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 0.8rem;
+	font-family: "Montserrat", sans-serif;
 
-	background-repeat: no-repeat;
+	background: url(${image});
 	background-position: center;
 	background-size: cover;
-	position: relative;
+
+	img {
+		max-width: 85%;
+		align-self: flex-start;
+	}
 `;
 
 export const TextArea = styled.div`
-	color: #f1f1f1;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	color: ${colors.font.white};
 
 	h1 {
-		width: 100%;
-		max-width: 350px;
-		font-size: 1.9em;
-		text-align: center;
-		margin: 0 auto;
+		max-width: 400px;
+	}
 
-		@media screen and (min-width: ${mediaQueries.default}) {
-			max-width: 500px;
-			font-size: 2.3em;
+	a {
+		font-weight: 600;
+		font-size: 0.8rem;
+		letter-spacing: 1px;
+
+		color: ${colors.font.white};
+		opacity: 0.9;
+
+		&:hover {
+			transition: all 0.2s ease;
+			opacity: 0.7;
 		}
 	}
 
-	h2 {
-		width: 90%;
-		margin: 0 auto;
-		text-align: center;
-		font-size: 0.8em;
-		font-weight: 400;
-		margin-top: 10px;
+	@media screen and (min-width: ${mediaQueries.default}) {
+		align-self: flex-start;
+		padding-left: 20px;
+		font-size: 1.2rem;
 
-		@media screen and (min-width: ${mediaQueries.default}) {
+		h1 {
+			max-width: 600px;
+		}
+
+		a {
 			font-size: 0.9em;
 		}
 	}
 `;
 
 export const Catalog = styled.section`
-	width: fit-content;
-	height: fit-content;
-
-	margin: 0 auto;
+	width: 100%;
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	gap: 30px;
+	align-items: center;
+	gap: 40px;
 
-	padding: 30px;
+	padding: 40px 20px;
+
+	color: ${colors.font.black};
+
+	@media screen and (min-width: ${mediaQueries.medium}) {
+		width: fit-content;
+		margin: 0 auto;
+	}
 `;
 
 export const CatalogTitle = styled.h2`
+	align-self: flex-start;
 	width: fit-content;
 
-	color: #f1f1f1;
+	color: ${colors.font.black};
 	text-transform: uppercase;
 
 	position: relative;
@@ -85,58 +106,47 @@ export const CatalogTitle = styled.h2`
 		left: 0;
 		bottom: -5px;
 
-		background-color: ${colors.orange.default};
+		background-color: ${colors.accent};
 	}
 `;
 
 export const List = styled.ul`
-	max-width: 100%;
-	align-self: center;
-
 	display: grid;
-	grid-template-columns: repeat(1, minmax(auto, 300px));
-	justify-items: center;
-	gap: 25px;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	gap: 20px;
 
 	@media screen and (min-width: ${mediaQueries.default}) {
-		grid-template-columns: repeat(3, minmax(auto, 300px));
+		grid-template-columns: repeat(3, 1fr);
 	}
 `;
 
-export const Product = styled.li`
-	width: 100%;
+export const ListItem = styled.li`
+	width: 200px;
 
-	border: 1px solid ${colors.transparent};
-
-	&:hover,
-	&:active {
-		transition: all 0.3s ease-in;
-		background-color: ${colors.transparent};
-	}
-`;
-
-export const ProductData = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 20px;
+	gap: 15px;
+
+	border: 2px solid ${colors.accent}${"3a"};
+
+	padding: 10px;
+
+	color: ${colors.font.black};
+	font-family: "Montserrat", sans-serif;
+
+	img {
+		width: 100%;
+	}
+
+	h1 {
+		font-size: 0.9rem;
+		text-align: center;
+		word-break: normal;
+	}
 
 	h2 {
-		padding-bottom: 20px;
-		color: ${colors.orange.default};
-	}
-`;
-
-export const ProductImage = styled.img`
-	max-width: 95%;
-	margin-top: 5px;
-`;
-
-export const ProductTitle = styled.h1`
-	font-size: 1.2em;
-	text-align: center;
-
-	@media screen and (min-width: ${mediaQueries.default}) {
-		height: 60px;
+		color: ${colors.accent};
 	}
 `;

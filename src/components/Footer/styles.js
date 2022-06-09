@@ -3,21 +3,25 @@ import styled from "styled-components";
 import { mediaQueries, colors } from "../../assets/styles";
 
 export const Container = styled.footer`
-	display: grid;
-	grid-template-rows: 120px auto;
-
-	background-color: ${colors.bgColors.third};
-`;
-
-export const MainInformation = styled.div`
-	width: 100%;
 	display: flex;
-	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
+
+	padding: 20px;
+
+	background: ${colors.italy};
 `;
 
-export const Nav = styled.nav`
-	height: 100%;
+export const Company = styled.section`
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+
+	font-weight: 600;
+	color: ${colors.font.white};
+
+	small {
+		margin-left: 5px;
+	}
 `;
 
 export const List = styled.ul`
@@ -29,41 +33,10 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-	width: 100%;
+	font-size: 1.2rem;
 
-	a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 50%;
-		border: 2px solid ${colors.blue};
-		padding: 6px;
-		font-size: 0.9em;
-
-		&:hover {
-			transition: all 0.2s ease-in;
-			background-color: ${colors.blue};
-		}
-
-		@media screen and (min-width: ${mediaQueries.default}) {
-			padding: 8px;
-			font-size: 1em;
-		}
-	}
-`;
-
-export const AreaDev = styled.div`
-	width: 100%;
-	padding: 5px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-`;
-
-export const Name = styled.p`
-	font-size: 0.8em;
-
-	@media screen and (min-width: ${mediaQueries.default}) {
-		font-size: 1em;
+	&:hover {
+		transition: all 0.1s ease;
+		opacity: 0.7;
 	}
 `;

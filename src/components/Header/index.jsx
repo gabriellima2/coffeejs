@@ -1,39 +1,29 @@
-import { useSelector } from "react-redux";
-import { BsCart2, BsSearch } from "react-icons/bs";
+import { BsCartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-import { cartSelector } from "../../redux/reducers/cart";
-
-import Nav from "./Nav";
-import MenuMobile from "./MobileMenu";
-
-import { MobileMenuContextProvider } from "../../context/MobileMenuContext";
+import { Nav } from "./Nav";
+import { SidebarMobile } from "./SidebarMobile";
 
 import { Logo } from "../../infra/Logo";
 
-import { Container, ActionButtons, Cart, ProductsTotal } from "./styles";
+import { CartButton, Container, Content, ControlVisibility } from "./styles";
 
 export default function Header() {
-	const { quantity } = useSelector(cartSelector.total);
-
 	return (
-		<MobileMenuContextProvider>
-			<Container>
-				<Logo />
-				<MenuMobile />
-				<Nav />
-				<ActionButtons>
-					<button>
-						<BsSearch />
-					</button>
-					<Cart>
-						<Link to="/mycart">
-							<ProductsTotal>{quantity}</ProductsTotal>
-							<BsCart2 />
-						</Link>
-					</Cart>
-				</ActionButtons>
-			</Container>
-		</MobileMenuContextProvider>
+		<Container>
+			<Logo />
+
+			<Content>
+				<ControlVisibility>
+					<Nav />
+				</ControlVisibility>
+				<Link to={"/mycart"}>
+					<CartButton>
+						<BsCartFill />
+					</CartButton>
+				</Link>
+				<SidebarMobile />
+			</Content>
+		</Container>
 	);
 }

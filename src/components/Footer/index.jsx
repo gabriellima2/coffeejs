@@ -1,43 +1,36 @@
+import React from "react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 import { Logo } from "../../infra/Logo";
 
-import {
-	Container,
-	MainInformation,
-	Nav,
-	List,
-	ListItem,
-	AreaDev,
-	Name,
-} from "./styles";
+import { contacts } from "../../mocks";
+
+import { Container, Company, List, ListItem } from "./styles";
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
 	return (
 		<Container>
-			<MainInformation>
-				<Logo />
-				<Nav id="contact">
-					<List>
-						<ListItem>
-							<a target="_blank" href="https://github.com/gabriellima2">
-								<BsGithub />
-							</a>
-						</ListItem>
-						<ListItem>
+			<Company>
+				<Logo width={100} />
+				<small>Gabriel - {CURRENT_YEAR}</small>
+			</Company>
+
+			<section>
+				<List>
+					{contacts.map((contact) => (
+						<ListItem key={contact.id}>
 							<a
-								target="_blank"
-								href="https://www.linkedin.com/in/gabriel-lima-860612236/"
+								href={contact.href}
+								title={`Link para ${contact.title.toUpperCase()}`}
 							>
-								<BsLinkedin />
+								{React.createElement(contact.icon, null)}
 							</a>
 						</ListItem>
-					</List>
-				</Nav>
-			</MainInformation>
-			<AreaDev>
-				<Name>Gabriel</Name>
-			</AreaDev>
+					))}
+				</List>
+			</section>
 		</Container>
 	);
 }

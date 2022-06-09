@@ -1,21 +1,20 @@
 import { useSelector } from "react-redux";
+import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import { productsSelect } from "../../redux/reducers/products";
 
 import { App } from "../../layouts/App";
 
-import { Button } from "../../GlobalStyles";
+import arrow from "../../assets/img/arrow.svg";
+
 import {
 	Main,
 	TextArea,
 	Catalog,
 	CatalogTitle,
 	List,
-	Product,
-	ProductData,
-	ProductImage,
-	ProductTitle,
+	ListItem,
 } from "./styles";
 
 export function Home() {
@@ -26,35 +25,32 @@ export function Home() {
 			<Main>
 				<TextArea>
 					<h1>Não precisa de motivos para pedir pizza</h1>
-					<h2>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci,
-						maiores?
-					</h2>
+
+					<a href="#">Veja nossas promoções</a>
 				</TextArea>
-				<Button>Promoções</Button>
+
+				<img src={arrow} alt="" />
 			</Main>
 
 			<Catalog>
-				<CatalogTitle>Nossos Produtos</CatalogTitle>
-				<List id="catalog">
-					{products.map((product) => (
-						<Product key={product.id}>
-							<Link to={`/product/${product.id}`}>
-								<ProductData>
-									<ProductImage
+				<CatalogTitle>nossos produtos</CatalogTitle>
+				<section>
+					<List>
+						{products.map((product) => (
+							<Link to={`product/${product.id}`}>
+								<ListItem key={product.id}>
+									<img
+										width={100}
 										src={product.image.src}
 										alt={product.image.alt}
 									/>
-									<ProductTitle>{product.name}</ProductTitle>
-									<h2>
-										<span>R$</span>
-										{product.price.toFixed(2)}
-									</h2>
-								</ProductData>
+									<h1>{product.name}</h1>
+									<h2>R${product.price.toFixed(2)}</h2>
+								</ListItem>
 							</Link>
-						</Product>
-					))}
-				</List>
+						))}
+					</List>
+				</section>
 			</Catalog>
 		</App>
 	);

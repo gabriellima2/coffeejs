@@ -2,65 +2,44 @@ import styled from "styled-components";
 
 import { mediaQueries, colors } from "../../../assets/styles";
 
-export const NavStyle = styled.nav`
-	width: 100%;
-	height: 50%;
-	display: flex;
-	align-items: center;
-	position: absolute;
-	right: 0;
-	top: 160px;
-	z-index: 4000;
-
-	visibility: ${({ menuMobileIsActivated }) =>
-		menuMobileIsActivated ? "visible" : "hidden"};
-
-	@media screen and (min-width: ${mediaQueries.default}) {
-		position: static;
-		visibility: visible;
-		flex: 1;
-	}
-
-	@media screen and (min-width: ${mediaQueries.medium}) {
-		width: 60%;
-		flex: none;
-	}
-`;
-
-export const LinksList = styled.ul`
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-
-	@media screen and (min-width: ${mediaQueries.default}) {
-		flex-direction: row;
-	}
-`;
-
-export const ItemList = styled.li`
-	height: 45px;
-	width: 60%;
-
-	a {
-		width: 100%;
+export const Container = styled.nav`
+	@media screen and (max-width: ${mediaQueries.medium}) {
 		height: 100%;
+
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		font-size: 1.1em;
-		color: #f1f1f1;
+	}
+`;
 
-		&:active,
+export const List = styled.ul`
+	display: flex;
+	gap: 30px;
+
+	@media screen and (max-width: ${mediaQueries.medium}) {
+		flex-direction: column;
+		gap: 70px;
+	}
+`;
+
+export const ListItem = styled.li`
+	text-transform: capitalize;
+	font-weight: 500;
+	letter-spacing: 1px;
+
+	a {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		padding: 7px;
+
 		&:hover {
-			transition: all 0.2s ease-in;
-			color: ${colors.blue};
+			transition: all 0.2s ease;
+			opacity: 0.7;
 		}
 
-		@media screen and (min-width: ${mediaQueries.default}) {
-			font-size: 1em;
+		@media screen and (max-width: ${mediaQueries.medium}) {
+			font-size: 1.2rem;
 		}
 	}
 `;

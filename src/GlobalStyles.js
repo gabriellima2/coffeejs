@@ -10,28 +10,17 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	body {
-		width: 100%;
-		height: 100%;
-
 		color: ${colors.fontColor};
-		font-family: 'Space Mono', monospace;
+		font-family: 'Raleway', sans-serif;
 
 		overflow-x: hidden;
-		background-color: ${colors.bgColors.second};
-	}
-
-	#root {
-		width: 100%;
-		height: 100%;
-
-		display: grid;
-		grid-template-columns: 100%;
-		grid-template-rows: 100px minmax(100vh, auto) 155px;
+		background-color: ${colors.background};
 	}
 
 	a {
 		text-decoration: none;
 		color: ${colors.fontColor};
+		font-family: 'Raleway', sans-serif;
 	}
 
 	li {
@@ -40,6 +29,8 @@ export const GlobalStyles = createGlobalStyle`
 
 	button {
 		color: ${colors.fontColor};
+		font-family: 'Raleway', sans-serif;
+
 	}
 `;
 

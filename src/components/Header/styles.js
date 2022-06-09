@@ -9,56 +9,44 @@ export const Container = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	flex-wrap: wrap;
 
-	padding: 10px 40px;
+	position: absolute;
+	top: 0;
+	z-index: 10000;
 
-	background-color: ${colors.bgColors.third};
-`;
-
-export const ActionButtons = styled.div`
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
-	order: 2;
-	padding: 10px 0px;
-
-	@media screen and (min-width: ${mediaQueries.default}) {
-		width: auto;
-		justify-content: initial;
-		gap: 30px;
-		padding: initial;
-	}
+	padding: 5px 40px 5px 40px;
 
 	button {
-		padding: 5px 10px;
-		border: none;
-		font-size: 1em;
-		cursor: pointer;
-		background: none;
+		@media screen and (min-width: ${mediaQueries.medium}) {
+			display: none;
+		}
 	}
 `;
 
-export const Cart = styled.div`
-	position: relative;
+export const ControlVisibility = styled.span`
+	@media screen and (max-width: ${mediaQueries.medium}) {
+		display: none;
+	}
+`;
+
+export const Content = styled.section`
 	display: flex;
 	align-items: center;
-
-	a {
-		font-size: 1.1em;
-	}
+	gap: 20px;
 `;
 
-export const ProductsTotal = styled.span`
-	position: absolute;
-	top: -8px;
-	right: -10px;
+export const CartButton = styled.a`
+	display: flex;
+	align-items: center;
+	gap: 5px;
 
-	padding: 2px 5px;
+	padding: 10px;
+	border-radius: 100%;
 
-	font-size: 0.7em;
-	color: #000;
+	background-color: ${colors.accent};
 
-	border-radius: 50%;
-	background-color: ${colors.blue};
+	&:hover {
+		transition: all 0.2s ease;
+		opacity: 0.8;
+	}
 `;
