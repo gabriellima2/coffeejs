@@ -115,7 +115,7 @@ export const ListItem = styled.li`
 	align-items: center;
 	gap: 15px;
 
-	border: 2px solid ${colors.accent}${"3a"};
+	border: 2px solid ${colors.accent.orange}${"3a"};
 
 	padding: 10px;
 
@@ -134,6 +134,6 @@ export const ListItem = styled.li`
 	}
 
 	h2 {
-		color: ${colors.accent};
+		color: ${colors.accent.orange};
 	}
 `;

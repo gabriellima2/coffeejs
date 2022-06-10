@@ -43,7 +43,7 @@ export const CartButton = styled.span`
 	padding: 10px;
 	border-radius: 100%;
 
-	background-color: ${colors.accent};
+	background-color: ${colors.accent.orange};
 
 	&:hover {
 		transition: all 0.2s ease;

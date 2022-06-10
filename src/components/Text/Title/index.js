@@ -21,6 +21,6 @@ export const Title = styled.h1`
 		left: 0;
 		bottom: -5px;
 
-		background-color: ${colors.accent};
+		background-color: ${colors.accent.orange};
 	}
 `;

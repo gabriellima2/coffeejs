@@ -22,7 +22,7 @@ export const Content = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 35px;
+	gap: 15px;
 `;
 
 export const ProductData = styled.div`
@@ -45,27 +45,38 @@ export const ProductData = styled.div`
 		font-size: 0.9rem;
 		font-weight: 400;
 	}
+`;
+
+export const Price = styled.div`
+	margin-top: 20px;
 
 	p {
 		font-weight: bold;
 		font-size: 2.1rem;
 		color: ${colors.font.accent};
 	}
+
+	small {
+		font-weight: 500;
+		color: ${colors.utils["light-gray"][200]};
+
+		span {
+			font-weight: bold;
+		}
+	}
 `;
 
 export const AddToCartButton = styled.button`
-	max-width: 100%;
-
 	border: none;
 	border-radius: 5px;
 
 	font-weight: 600;
 	font-size: 1.1rem;
 
-	padding: 15px 40px;
+	padding: 17px 49px;
 
 	cursor: pointer;
-	background-color: ${colors.accent};
+	background-color: ${colors.accent.red};
 
 	&:hover {
 		transition: all 0.2s ease-in;
@@ -78,7 +89,7 @@ export const Reviews = styled.section`
 	flex-direction: column;
 	gap: 20px;
 
-	margin: 20px 0px;
+	margin: 30px 0px;
 	padding: 30px 25px;
 `;
 

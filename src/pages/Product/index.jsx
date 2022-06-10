@@ -13,6 +13,7 @@ import {
 	Main,
 	Content,
 	ProductData,
+	Price,
 	AddToCartButton,
 	Reviews,
 	TitleReviews,
@@ -44,7 +45,20 @@ export function Product() {
 							<ProductData>
 								<h1>{currentProduct.name}</h1>
 								<h2>{currentProduct.description}</h2>
-								<p>R$ {currentProduct.price.toFixed(2)}</p>
+								<Price>
+									<p>
+										<span style={{ display: "none" }}>Preço do produto</span> R${" "}
+										{currentProduct.price.toFixed(2)}
+									</p>
+									<small>
+										Ou até{" "}
+										<span>
+											2X de R$
+											{(currentProduct.price / 2).toFixed(2)}
+										</span>{" "}
+										sem juros
+									</small>
+								</Price>
 							</ProductData>
 							<AddToCartButton type="button">
 								Adicionar ao Carrinho

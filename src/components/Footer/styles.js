@@ -59,6 +59,6 @@ export const ListItem = styled.li`
 
 	a:hover {
 		transition: all 0.6s ease;
-		color: ${colors.accent};
+		color: ${colors.accent.orange};
 	}
 `;

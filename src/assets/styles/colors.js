@@ -1,5 +1,8 @@
 const colors = {
-	accent: "#D04A20",
+	accent: {
+		orange: "#D04A20",
+		red: "#AE1E1E",
+	},
 
 	background: "#0F0F0F",
 
@@ -21,7 +24,8 @@ const colors = {
 		},
 
 		"light-gray": {
-			100: "",
+			100: "#CAC6C6",
+			200: "#B8B4B4",
 		},
 	},
 
