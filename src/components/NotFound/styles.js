@@ -12,7 +12,7 @@ export const Main = styled.main`
 	align-items: center;
 	gap: 30px;
 
-	color: ${colors.font.black};
+	color: ${colors.font.black[100]};
 	text-align: center;
 	padding-top: 40px;
 

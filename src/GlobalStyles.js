@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	body {
-		color: ${colors.fontColor};
+		color: ${colors.font.white[100]};
 		font-family: 'Raleway', sans-serif;
 
 		overflow-x: hidden;
@@ -19,7 +19,7 @@ export const GlobalStyles = createGlobalStyle`
 
 	a {
 		text-decoration: none;
-		color: ${colors.fontColor};
+		color: ${colors.font.white[100]};
 		font-family: 'Raleway', sans-serif;
 	}
 
@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	button {
-		color: ${colors.fontColor};
+		color: ${colors.font.white[100]};
 		font-family: 'Raleway', sans-serif;
 
 	}

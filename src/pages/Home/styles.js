@@ -34,7 +34,7 @@ export const TextArea = styled.div`
 	flex-direction: column;
 	gap: 20px;
 
-	color: ${colors.font.white};
+	color: ${colors.font.white[100]};
 
 	h1 {
 		max-width: 400px;
@@ -45,7 +45,7 @@ export const TextArea = styled.div`
 		font-size: 0.8rem;
 		letter-spacing: 1px;
 
-		color: ${colors.font.white};
+		color: ${colors.font.white[100]};
 		opacity: 0.9;
 
 		&:hover {
@@ -79,7 +79,7 @@ export const Catalog = styled.section`
 
 	padding: 40px 20px;
 
-	color: ${colors.font.black};
+	color: ${colors.font.black[100]};
 
 	@media screen and (min-width: ${mediaQueries.medium}) {
 		width: fit-content;
@@ -119,7 +119,7 @@ export const ListItem = styled.li`
 
 	padding: 10px;
 
-	color: ${colors.font.black};
+	color: ${colors.font.black[100]};
 	font-family: "Montserrat", sans-serif;
 
 	img {
@@ -127,7 +127,7 @@ export const ListItem = styled.li`
 	}
 
 	h1 {
-		color: ${colors.font.white};
+		color: ${colors.font.white[100]};
 		font-size: 0.9rem;
 		text-align: center;
 		word-break: normal;

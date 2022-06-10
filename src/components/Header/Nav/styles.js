@@ -26,7 +26,7 @@ export const ListItem = styled.li`
 	font-weight: 500;
 	letter-spacing: 1px;
 
-	color: ${(props) => (props.color ? props.color : colors.font.black)};
+	color: ${(props) => (props.color ? props.color : colors.font.black[100])};
 
 	a {
 		display: flex;
