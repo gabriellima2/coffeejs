@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { productsSelect } from "../../redux/reducers/products";
+import { products } from "../../mocks";
 
-import { App } from "../../layouts/App";
+import { Default } from "../../layouts/Default";
 
 import arrow from "../../assets/img/arrow.svg";
 
@@ -17,10 +16,8 @@ import {
 } from "./styles";
 
 export function Home() {
-	const products = useSelector(productsSelect.products);
-
 	return (
-		<App>
+		<Default>
 			<Main>
 				<TextArea>
 					<h1>Não precisa de motivos para pedir pizza</h1>
@@ -51,6 +48,6 @@ export function Home() {
 					</List>
 				</section>
 			</Catalog>
-		</App>
+		</Default>
 	);
 }

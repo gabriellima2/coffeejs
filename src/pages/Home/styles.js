@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-import { mediaQueries, colors } from "../../assets/styles";
+import { Title } from "../../components/Text/Title";
 
+import { mediaQueries, colors } from "../../assets/styles";
 import image from "../../assets/img/pizza-bg.jpg";
 
 export const Main = styled.main`
@@ -86,28 +87,8 @@ export const Catalog = styled.section`
 	}
 `;
 
-export const CatalogTitle = styled.h2`
+export const CatalogTitle = styled(Title)`
 	align-self: flex-start;
-	width: fit-content;
-
-	color: ${colors.font.black};
-	text-transform: uppercase;
-
-	position: relative;
-
-	&::after {
-		content: "";
-		display: block;
-
-		width: 70%;
-		height: 2px;
-
-		position: absolute;
-		left: 0;
-		bottom: -5px;
-
-		background-color: ${colors.accent};
-	}
 `;
 
 export const List = styled.ul`
@@ -146,6 +127,7 @@ export const ListItem = styled.li`
 	}
 
 	h1 {
+		color: ${colors.font.white};
 		font-size: 0.9rem;
 		text-align: center;
 		word-break: normal;

@@ -35,7 +35,7 @@ export const Content = styled.section`
 	gap: 20px;
 `;
 
-export const CartButton = styled.a`
+export const CartButton = styled.span`
 	display: flex;
 	align-items: center;
 	gap: 5px;

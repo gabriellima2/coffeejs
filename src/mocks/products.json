@@ -1,0 +1,142 @@
+[
+	{
+		"image": {
+			"src": "/src/assets/img/pizza1.jpg",
+			"alt": "Deliciosa Pizza de Calabresa com Cebola"
+		},
+		"id": 0,
+		"name": "Pizza de Calabresa",
+		"rating": 4.0,
+		"description":
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illum recusandae",
+		"price": 49.9,
+		"customerReviews": [
+			{
+				"id": "0",
+				"name": "Gabriel L.",
+				"stars": "5",
+				"text": "lorem ipsum lorem ipsum lorem ipsum "
+			},
+			{
+				"id": "1",
+				"name": "Anônimo",
+				"stars": "3",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			},
+			{
+				"id": "2",
+				"name": "Heloisa S.",
+				"stars": "4",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			}
+		]
+	},
+	{
+		"image": {
+			"src": "/src/assets/img/pizza2.jpg",
+			"alt": "Pizza de Bacon com Cebola e Folhas"
+		},
+		"id": 1,
+		"name": "Pizza de Bacon Completa",
+		"rating": 5.0,
+		"description":
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illum recusandae",
+		"price": 64.49,
+		"customerReviews": [
+			{
+				"id": "0",
+				"name": "Gustavo W.",
+				"stars": "5",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			},
+			{
+				"id": "1",
+				"name": "Anônimo",
+				"stars": "5",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			}
+		]
+	},
+	{
+		"image": {
+			"src": "/src/assets/img/pizza3.jpg",
+			"alt": "Pizza de Bacon."
+		},
+		"id": 2,
+		"name": "Pizza de Bacon Simples",
+		"rating": 0,
+		"description":
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illum recusandae",
+		"price": 40.0
+	},
+	{
+		"image": {
+			"src": "/src/assets/img/pizza1.jpg",
+			"alt": "Deliciosa Pizza de Calabresa com Cebola"
+		},
+		"id": 3,
+		"name": "Pizza de Calabresa",
+		"rating": 4.0,
+		"description":
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illum recusandae",
+		"price": 49.9,
+		"customerReviews": [
+			{
+				"id": "0",
+				"name": "Gabriel L.",
+				"stars": "5",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			},
+			{
+				"id": "1",
+				"name": "Anônimo",
+				"stars": "3",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			},
+			{
+				"id": "2",
+				"name": "Heloisa S.",
+				"stars": "4",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			}
+		]
+	},
+	{
+		"image": {
+			"src": "/src/assets/img/pizza2.jpg",
+			"alt": "Pizza de Bacon com Cebola e Folhas"
+		},
+		"id": 4,
+		"name": "Pizza de Bacon Completa",
+		"rating": 5.0,
+		"description":
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illum recusandae",
+		"price": 64.49,
+		"customerReviews": [
+			{
+				"id": "0",
+				"name": "Gustavo W.",
+				"stars": "5",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			},
+			{
+				"id": "1",
+				"name": "Anônimo",
+				"stars": "5",
+				"text": "lorem ipsum lorem ipsum lorem ipsum"
+			}
+		]
+	},
+	{
+		"image": {
+			"src": "/src/assets/img/pizza3.jpg",
+			"alt": "Pizza de Bacon."
+		},
+		"id": 5,
+		"name": "Pizza de Bacon Simples",
+		"rating": 0,
+		"description":
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illum recusandae",
+		"price": 40.0
+	}
+]

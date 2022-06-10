@@ -3,8 +3,6 @@ import { BsList, BsX } from "react-icons/bs";
 
 import { Nav } from "../Nav";
 
-import { colors } from "../../../assets/styles";
-
 export function SidebarMobile() {
 	return (
 		<Dialog.Root>

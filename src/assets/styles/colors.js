@@ -6,13 +6,15 @@ const colors = {
 
 	accent: "#D04A20",
 
-	background: "#F6EFEF",
+	background: "#0F0F0F",
 
 	italy: "linear-gradient(to right, #12AB28 0%, #E7E2E2 50%, #DE3A23 100%)",
 
 	font: {
 		white: "#F4ECECE6",
 		black: "#242323",
+		accent: "#F4C3B3",
+		"gray-light": "#7E7E7E",
 	},
 
 	bgColors: {
