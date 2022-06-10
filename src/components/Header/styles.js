@@ -10,9 +10,11 @@ export const Container = styled.header`
 	align-items: center;
 	justify-content: space-between;
 
-	position: absolute;
+	position: ${({ attrStyles }) => attrStyles.position || absolute};
 	top: 0;
 	z-index: 10000;
+
+	background: ${({ attrStyles }) => attrStyles["bg-color"] || transparent};
 
 	padding: 5px 40px 5px 40px;
 

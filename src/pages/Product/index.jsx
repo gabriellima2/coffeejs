@@ -10,6 +10,7 @@ import { App } from "../../layouts/App";
 import { products } from "../../mocks";
 
 import {
+	Container,
 	Main,
 	Content,
 	ProductData,
@@ -38,7 +39,7 @@ export function Product() {
 			{!currentProduct ? (
 				<NotFound text="Produto não encontrado!" />
 			) : (
-				<>
+				<Container>
 					<Main>
 						<img src={currentProduct.image.src} alt="" />
 						<Content>
@@ -81,7 +82,7 @@ export function Product() {
 						<section>
 							<ReviewList>
 								{currentProduct.customerReviews?.map((review) => (
-									<li key={review.id}>
+									<li key={review.id} tabIndex={0}>
 										<Review
 											name={review.name}
 											text={review.text}
@@ -92,7 +93,7 @@ export function Product() {
 							</ReviewList>
 						</section>
 					</Reviews>
-				</>
+				</Container>
 			)}
 		</App>
 	);
