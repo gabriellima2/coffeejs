@@ -1,7 +1,15 @@
-import { BsStar, BsStarFill } from "react-icons/bs";
+import { BsFillPersonFill } from "react-icons/bs";
+
 import { Stars } from "../Stars";
 
-import { Container, Content, Data, Description } from "./styles";
+import {
+	Container,
+	Data,
+	Description,
+	UserPhoto,
+	Text,
+	Rating,
+} from "./styles";
 
 const date = new Intl.DateTimeFormat("pt-BR", {
 	day: "numeric",
@@ -12,16 +20,22 @@ const date = new Intl.DateTimeFormat("pt-BR", {
 export function Review({ name, text, stars }) {
 	return (
 		<Container>
-			<Content>
-				<Data>
+			<Data>
+				<UserPhoto aria-label={`Foto de ${name}`}>
+					<i>
+						<BsFillPersonFill />
+					</i>
+				</UserPhoto>
+				<Text>
 					<h1>{name}</h1>
 					<small>{date.format()}</small>
-				</Data>
+					<Description>{text}</Description>
+				</Text>
+			</Data>
 
+			<Rating>
 				<Stars total={stars} />
-			</Content>
-
-			<Description>{text}</Description>
+			</Rating>
 		</Container>
 	);
 }
