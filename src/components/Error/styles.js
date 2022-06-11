@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../assets/styles";
 
-export const Main = styled.main`
+export const Container = styled.main`
 	width: 100%;
 	height: 100vh;
 
@@ -12,7 +12,7 @@ export const Main = styled.main`
 	align-items: center;
 	gap: 30px;
 
-	color: ${colors.font.black[100]};
+	color: ${colors.font.white[100]};
 	text-align: center;
 	padding-top: 40px;
 
@@ -22,5 +22,15 @@ export const Main = styled.main`
 
 	i {
 		font-size: 3em;
+	}
+
+	a {
+		font-weight: 500;
+		text-decoration: underline;
+
+		&:hover {
+			transition: all 0.2s ease;
+			opacity: 0.8;
+		}
 	}
 `;

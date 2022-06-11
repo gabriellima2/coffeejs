@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
+import { BsFillEmojiFrownFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import NotFound from "../../components/NotFound";
+import { Error } from "../../components/Error";
 import { Review } from "../../components/Review";
 import { Stars } from "../../components/Stars";
 
 import { App } from "../../layouts/App";
 
 import { products } from "../../mocks";
+
+import { addProduct } from "../../redux/slices/cart";
 
 import {
 	Container,
@@ -24,6 +28,7 @@ import {
 
 export function Product() {
 	const [currentProduct, setCurrentProduct] = useState(null);
+	const dispatch = useDispatch();
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -37,7 +42,14 @@ export function Product() {
 	return (
 		<App>
 			{!currentProduct ? (
-				<NotFound text="Produto não encontrado!" />
+				<Error
+					message="Produto não encontrado!"
+					icon={BsFillEmojiFrownFill}
+					link={{
+						text: "Mas não fique triste! Veja os produtos disponíveis",
+						href: "/",
+					}}
+				/>
 			) : (
 				<Container>
 					<Main>
@@ -61,7 +73,10 @@ export function Product() {
 									</small>
 								</Price>
 							</ProductData>
-							<AddToCartButton type="button">
+							<AddToCartButton
+								type="button"
+								onClick={() => dispatch(addProduct(currentProduct))}
+							>
 								Adicionar ao Carrinho
 							</AddToCartButton>
 						</Content>
