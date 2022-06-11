@@ -104,6 +104,10 @@ export const List = styled.ul`
 	@media screen and (min-width: ${mediaQueries.medium}) {
 		grid-template-columns: repeat(3, 1fr);
 	}
+
+	@media screen and (min-width: ${mediaQueries.large}) {
+		grid-template-columns: repeat(4, 1fr);
+	}
 `;
 
 export const ListItem = styled.li`
