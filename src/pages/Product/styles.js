@@ -2,9 +2,21 @@ import styled from "styled-components";
 
 import { Title } from "../../components/Text/Title";
 
+import bg_desktop from "../../assets/img/background/bg-product.png";
+import bg_mobile from "../../assets/img/background/bg-product-mobile.png";
+
 import { colors, mediaQueries } from "../../assets/styles";
 
 export const Container = styled.div`
+	background: url(${bg_mobile});
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	@media screen and (min-width: ${mediaQueries.medium}) {
+		background: url(${bg_desktop});
+		background-size: cover;
+	}
+
 	@media screen and (min-width: ${mediaQueries["xx-large"]}) {
 		padding: 70px;
 	}
@@ -173,8 +185,10 @@ export const Reviews = styled.section`
 	flex-direction: column;
 	gap: 20px;
 
-	margin: 30px 0px;
+	margin: 30px 20px;
 	padding: 30px 25px;
+
+	border-top: 1px solid ${colors.utils["dark-gray"][200]};
 `;
 
 export const TitleReviews = styled(Title)``;
