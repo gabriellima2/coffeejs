@@ -36,7 +36,7 @@ export function MyCart() {
 					<Content>
 						<ContentText>
 							<Title>seu carrinho</Title>
-							<small>produtos</small>
+							<small>{totals.quantity} produtos</small>
 						</ContentText>
 						<section>
 							<ProductsList>
@@ -54,14 +54,14 @@ export function MyCart() {
 
 						<AmountsPayment>
 							<p>
-								subtotal<span>R$49,90</span>
+								subtotal<span>R${totals.price.toFixed(2)}</span>
 							</p>
 							<p>
 								frete<span>R$5,00</span>
 							</p>
 						</AmountsPayment>
 						<Total>
-							total <span>R$54,90</span>
+							total <span>R${(totals.price + 5).toFixed(2)}</span>
 						</Total>
 						<BuyButton type="button">Comprar</BuyButton>
 					</Summary>

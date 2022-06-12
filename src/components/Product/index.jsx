@@ -1,8 +1,23 @@
+import { useDispatch } from "react-redux";
+
 import { ChangeQuantityButton, RemoveButton } from "../Buttons";
+
+import { removeProduct, updateTotal } from "../../redux/slices/cart";
 
 import { Container, ProductData, ProductInfo, Price } from "./styles";
 
 export function Product({ attrProduct }) {
+	const dispatch = useDispatch();
+
+	const handleClickRemoveButton = () => {
+		dispatch(removeProduct(attrProduct.id));
+		dispatch(updateTotal());
+	};
+
+	const handleChangeQuantity = () => {
+		dispatch(updateTotal());
+	};
+
 	return (
 		<Container bgColor={attrProduct.id % 2 === 0}>
 			<ProductData>
@@ -13,15 +28,16 @@ export function Product({ attrProduct }) {
 				<Price>
 					<span>Preço</span> R${attrProduct.price.toFixed(2)}
 				</Price>
-				<p>
-					<ChangeQuantityButton quantity={attrProduct.quantity} />
-				</p>
+				<ChangeQuantityButton
+					quantity={attrProduct.quantity}
+					runAfterQuantityChange={handleChangeQuantity}
+				/>
 				<Price>
 					<span>Total</span> R$
-					{(attrProduct.price * attrProduct.quantity).toFixed(2)}
+					{attrProduct.total.toFixed(2)}
 				</Price>
 			</ProductInfo>
-			<RemoveButton />
+			<RemoveButton actionToClick={handleClickRemoveButton} />
 		</Container>
 	);
 }

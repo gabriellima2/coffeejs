@@ -13,7 +13,7 @@ import { products } from "../../mocks";
 
 import { addProduct } from "../../redux/slices/cart";
 
-import { MainButton } from "../../GlobalStyles";
+import { Describe, MainButton } from "../../GlobalStyles";
 import {
 	Container,
 	Main,
@@ -39,6 +39,9 @@ export function Product() {
 		setCurrentProduct(productFound);
 	}, []);
 
+	const handleClickAddButton = () =>
+		dispatch(addProduct({ ...currentProduct, quantity: 1 }));
+
 	return (
 		<App>
 			{!currentProduct ? (
@@ -60,7 +63,7 @@ export function Product() {
 								<h2>{currentProduct.description}</h2>
 								<Price>
 									<p>
-										<span style={{ display: "none" }}>Preço do produto</span> R${" "}
+										<Describe>Preço do produto</Describe> R${" "}
 										{currentProduct.price.toFixed(2)}
 									</p>
 									<small>
@@ -73,10 +76,7 @@ export function Product() {
 									</small>
 								</Price>
 							</ProductData>
-							<MainButton
-								type="button"
-								onClick={() => dispatch(addProduct(currentProduct))}
-							>
+							<MainButton type="button" onClick={handleClickAddButton}>
 								Adicionar ao Carrinho
 							</MainButton>
 						</Content>
@@ -86,9 +86,9 @@ export function Product() {
 						<TitleReviews>avaliações</TitleReviews>
 						<Rating>
 							<p>
-								<span style={{ display: "none" }}>
+								<Describe>
 									Avaliação total do produto {currentProduct.name}
-								</span>
+								</Describe>
 								{currentProduct.rating.toFixed(1)}
 							</p>
 							<Stars total={currentProduct.rating} />

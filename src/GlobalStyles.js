@@ -79,3 +79,7 @@ export const Title = styled.h1`
 		background-color: ${colors.accent.orange};
 	}
 `;
+
+export const Describe = styled.span`
+	display: none;
+`;

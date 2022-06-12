@@ -11,5 +11,10 @@ export const Button = styled.button`
 
 	padding: 10px;
 
+	cursor: pointer;
 	background-color: #a51919;
+
+	&:hover {
+		opacity: 0.8;
+	}
 `;

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Container } from "./styles";
 
-export function ChangeQuantityButton({ quantity }) {
+export function ChangeQuantityButton({ quantity, runAfterQuantityChange }) {
 	const [currentQuantity, setCurrentQuantity] = useState(quantity || 1);
+
+	useEffect(() => runAfterQuantityChange(), [currentQuantity]);
 
 	const handleDecrement = () => {
 		if (currentQuantity === 1) return;

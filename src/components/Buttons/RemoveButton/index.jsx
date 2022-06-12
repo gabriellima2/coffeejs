@@ -2,9 +2,9 @@ import { BsFillTrashFill } from "react-icons/bs";
 
 import { Button } from "./styles";
 
-export function RemoveButton() {
+export function RemoveButton({ actionToClick }) {
 	return (
-		<Button type="button">
+		<Button type="button" onClick={actionToClick}>
 			<BsFillTrashFill />
 		</Button>
 	);
