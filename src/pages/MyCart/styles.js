@@ -52,32 +52,11 @@ export const ContentText = styled.div`
 	gap: 10px;
 `;
 
-export const ProductsList = styled.ul``;
-
 export const Summary = styled.main`
 	width: 100%;
 
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 20px;
-
 	position: fixed;
 	bottom: 0px;
-
-	font-family: "Montserrat", sans-serif;
-
-	padding: 20px;
-
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	background-color: #161616f2;
-
-	h1 {
-		font-size: 1.3rem;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-	}
 
 	@media screen and (min-width: ${mediaQueries.default}) {
 		width: 470px;
@@ -97,41 +76,5 @@ export const Summary = styled.main`
 		align-self: center;
 
 		position: static;
-
-		border-radius: 10px;
-		background-color: #101010f2;
 	}
-`;
-
-export const AmountsPayment = styled.section`
-	width: 80%;
-
-	p {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-
-		text-transform: capitalize;
-		margin: 10px 0px;
-	}
-
-	span {
-		font-weight: bold;
-	}
-`;
-
-export const Total = styled.h2`
-	text-transform: uppercase;
-	font-weight: 500;
-	font-size: 0.9rem;
-
-	span {
-		font-weight: bold;
-		font-size: 1.5rem;
-		color: ${colors.font.accent};
-	}
-`;
-
-export const BuyButton = styled(MainButton)`
-	width: 100%;
 `;

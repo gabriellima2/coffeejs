@@ -4,22 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Error } from "../../components/Error";
 import { Product } from "../../components/Product";
+import { Checkout } from "../../components/Checkout";
 
 import { App } from "../../layouts/App";
 
 import { cartSelect, updateTotals } from "../../redux/slices/cart";
 
 import { Title } from "../../GlobalStyles";
-import {
-	Container,
-	ContentText,
-	ProductsList,
-	Summary,
-	AmountsPayment,
-	Total,
-	BuyButton,
-	Content,
-} from "./styles";
+import { Container, ContentText, Summary, Content } from "./styles";
 
 export function MyCart() {
 	const { products, totals } = useSelector(cartSelect);
@@ -43,31 +35,17 @@ export function MyCart() {
 							<small>{totals.quantity} produtos</small>
 						</ContentText>
 						<section>
-							<ProductsList>
+							<ul>
 								{products.map((product) => (
 									<li key={product.id}>
 										<Product attrProduct={product} />
 									</li>
 								))}
-							</ProductsList>
+							</ul>
 						</section>
 					</Content>
 					<Summary>
-						<h1>informações</h1>
-						<section></section>
-
-						<AmountsPayment>
-							<p>
-								subtotal<span>R${totals.price.toFixed(2)}</span>
-							</p>
-							<p>
-								frete<span>R$5,00</span>
-							</p>
-						</AmountsPayment>
-						<Total>
-							total <span>R${(totals.price + 5).toFixed(2)}</span>
-						</Total>
-						<BuyButton type="button">Comprar</BuyButton>
+						<Checkout />
 					</Summary>
 				</Container>
 			)}
