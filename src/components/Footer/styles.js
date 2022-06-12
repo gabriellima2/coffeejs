@@ -45,20 +45,3 @@ export const Company = styled.section`
 		font-size: 0.7rem;
 	}
 `;
-
-export const List = styled.ul`
-	height: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 15px;
-`;
-
-export const ListItem = styled.li`
-	font-size: 1.2rem;
-
-	a:hover {
-		transition: all 0.6s ease;
-		color: ${colors.accent.orange};
-	}
-`;

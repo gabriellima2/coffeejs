@@ -17,7 +17,7 @@ const date = new Intl.DateTimeFormat("pt-BR", {
 	year: "numeric",
 });
 
-export function Review({ name, text, stars }) {
+export function CustomerReview({ name, text, stars }) {
 	return (
 		<Container>
 			<Data>

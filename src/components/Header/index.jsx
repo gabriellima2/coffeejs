@@ -17,11 +17,13 @@ export default function Header() {
 				<ControlVisibility>
 					<Nav />
 				</ControlVisibility>
+
 				<Link to={"/mycart"}>
 					<CartButton>
 						<BsCartFill />
 					</CartButton>
 				</Link>
+
 				<SidebarMobile />
 			</Content>
 		</Container>

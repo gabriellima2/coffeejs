@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { Error } from "../../components/Error";
-import { Review } from "../../components/Review";
+import { CustomerReview } from "../../components/CustomerReview";
 import { Stars } from "../../components/Stars";
 
 import { App } from "../../layouts/App";
@@ -98,7 +98,7 @@ export function Product() {
 							<ReviewList>
 								{currentProduct.customerReviews?.map((review) => (
 									<li key={review.id} tabIndex={0}>
-										<Review
+										<CustomerReview
 											name={review.name}
 											text={review.text}
 											stars={review.stars}

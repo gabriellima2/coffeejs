@@ -2,16 +2,9 @@ import React from "react";
 
 import { Logo } from "../../infra/Logo";
 
-import { contacts } from "../../mocks";
+import { Contacts } from "./Contacts";
 
-import {
-	Container,
-	Company,
-	List,
-	ListItem,
-	MainContent,
-	SmallContent,
-} from "./styles";
+import { Container, Company, MainContent, SmallContent } from "./styles";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -24,18 +17,7 @@ export default function Footer() {
 				</Company>
 
 				<section>
-					<List>
-						{contacts.map((contact) => (
-							<ListItem key={contact.id}>
-								<a
-									href={contact.href}
-									title={`Link para ${contact.title.toUpperCase()}`}
-								>
-									{React.createElement(contact.icon, null)}
-								</a>
-							</ListItem>
-						))}
-					</List>
+					<Contacts />
 				</section>
 			</MainContent>
 			<SmallContent>

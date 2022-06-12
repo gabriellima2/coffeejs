@@ -23,6 +23,7 @@ export function Product({ attrProduct }) {
 				<img src={attrProduct.image.src} alt={attrProduct.image.alt} />
 				<p>{attrProduct.name}</p>
 			</ProductData>
+
 			<ProductInfo>
 				<Price>
 					<span>Preço</span> R${attrProduct.price.toFixed(2)}
@@ -36,6 +37,7 @@ export function Product({ attrProduct }) {
 					{attrProduct.total.toFixed(2)}
 				</Price>
 			</ProductInfo>
+
 			<RemoveButton actionToClick={handleClickRemoveButton} />
 		</Container>
 	);
