@@ -1,12 +1,13 @@
+import { useEffect } from "react";
 import { BsCartXFill } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Error } from "../../components/Error";
 import { Product } from "../../components/Product";
 
 import { App } from "../../layouts/App";
 
-import { cartSelect } from "../../redux/slices/cart";
+import { cartSelect, updateTotals } from "../../redux/slices/cart";
 
 import { Title } from "../../GlobalStyles";
 import {
@@ -22,6 +23,9 @@ import {
 
 export function MyCart() {
 	const { products, totals } = useSelector(cartSelect);
+	const dispatch = useDispatch();
+
+	useEffect(() => dispatch(updateTotals()), [products]);
 
 	return (
 		<App>

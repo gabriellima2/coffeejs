@@ -13,14 +13,25 @@ export const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addProduct: (state, { type, payload }) => {
-			state.totals.price += payload.price;
-			state.totals.quantity += payload.quantity;
+			const handleAddProduct = () => {
+				const total = payload.price * payload.quantity;
 
-			const total = state.totals.price * state.totals.quantity;
+				payload = { ...payload, total };
 
-			payload = { ...payload, total };
+				state.products = [...state.products, payload];
+			};
 
-			state.products = [...state.products, payload];
+			if (state.products.length === 0) return handleAddProduct();
+
+			if (state.products.length >= 1) {
+				const productAlreadyAdded = state.products.filter(
+					(product) => product.id === payload.id
+				);
+
+				if (productAlreadyAdded.length > 0) return;
+
+				handleAddProduct();
+			}
 		},
 
 		removeProduct: (state, { type, payload }) => {
@@ -29,15 +40,33 @@ export const cartSlice = createSlice({
 			);
 		},
 
-		updateProducts: () => {},
+		updateProductData: (state, { type, payload }) => {
+			state.products.map((product) => {
+				if (product.id === payload.id) {
+					product.quantity = payload.newQuantity;
+					product.total = product.price * payload.newQuantity;
+				}
+			});
+		},
 
-		updateTotal: (state, { type, payload }) => {},
+		updateTotals: (state, action) => {
+			let priceTotal = 0;
+			let quantityTotal = 0;
+
+			state.products.map((product) => {
+				priceTotal += product.total;
+				quantityTotal += product.quantity;
+			});
+
+			state.totals.price = priceTotal;
+			state.totals.quantity = quantityTotal;
+		},
 	},
 });
 
 export const cartSelect = (state) => state.cart;
 
-export const { addProduct, removeProduct, updateProducts, updateTotal } =
+export const { addProduct, removeProduct, updateProductData, updateTotals } =
 	cartSlice.actions;
 
 export default cartSlice.reducer;

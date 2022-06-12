@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 
 import { ChangeQuantityButton, RemoveButton } from "../Buttons";
 
-import { removeProduct, updateTotal } from "../../redux/slices/cart";
+import { removeProduct, updateProductData } from "../../redux/slices/cart";
 
 import { Container, ProductData, ProductInfo, Price } from "./styles";
 
@@ -11,11 +11,10 @@ export function Product({ attrProduct }) {
 
 	const handleClickRemoveButton = () => {
 		dispatch(removeProduct(attrProduct.id));
-		dispatch(updateTotal());
 	};
 
-	const handleChangeQuantity = () => {
-		dispatch(updateTotal());
+	const handleChangeQuantity = (newQuantity) => {
+		dispatch(updateProductData({ id: attrProduct.id, newQuantity }));
 	};
 
 	return (
