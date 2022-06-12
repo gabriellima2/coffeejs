@@ -17,6 +17,7 @@ import {
 	AmountsPayment,
 	Total,
 	BuyButton,
+	Content,
 } from "./styles";
 
 export function MyCart() {
@@ -32,7 +33,7 @@ export function MyCart() {
 				/>
 			) : (
 				<Container>
-					<section>
+					<Content>
 						<ContentText>
 							<Title>seu carrinho</Title>
 							<small>produtos</small>
@@ -46,21 +47,21 @@ export function MyCart() {
 								))}
 							</ProductsList>
 						</section>
-					</section>
+					</Content>
 					<Summary>
 						<h1>informações</h1>
 						<section></section>
 
 						<AmountsPayment>
 							<p>
-								subtotal<span></span>
+								subtotal<span>R$49,90</span>
 							</p>
 							<p>
-								frete<span></span>
+								frete<span>R$5,00</span>
 							</p>
 						</AmountsPayment>
 						<Total>
-							total <span>R$</span>
+							total <span>R$54,90</span>
 						</Total>
 						<BuyButton type="button">Comprar</BuyButton>
 					</Summary>

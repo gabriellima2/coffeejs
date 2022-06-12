@@ -14,6 +14,8 @@ export const Container = styled.header`
 	top: 0;
 	z-index: 10000;
 
+	background: none;
+
 	padding: 5px 40px 5px 40px;
 
 	button {

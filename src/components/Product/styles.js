@@ -16,7 +16,7 @@ export const Container = styled.section`
 
 	border-top: 1px solid ${colors.utils["dark-gray"][200]};
 
-	background: ${({ bgColor }) => bgColor};
+	background: ${({ bgColor }) => (!bgColor ? " #13131380" : "transparent")};
 
 	p {
 		font-weight: 600;

@@ -4,7 +4,7 @@ import { Container, ProductData, ProductInfo, Price } from "./styles";
 
 export function Product({ attrProduct }) {
 	return (
-		<Container bgColor={attrProduct.id % 2 === 0 ? "#13131380" : "transparent"}>
+		<Container bgColor={attrProduct.id % 2 === 0}>
 			<ProductData>
 				<img src={attrProduct.image.src} alt={attrProduct.image.alt} />
 				<p>{attrProduct.name}</p>
