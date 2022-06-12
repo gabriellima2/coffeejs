@@ -34,28 +34,48 @@ export const GlobalStyles = createGlobalStyle`
 	}
 `;
 
-export const Button = styled.button`
+export const MainButton = styled.button`
 	border: none;
-	padding: 15px;
 	border-radius: 5px;
 
-	font-family: "Space Mono", monospace;
-	text-transform: uppercase;
-	font-size: 0.7em;
-	font-weight: bold;
-	letter-spacing: 2px;
-	color: #000;
+	font-weight: 600;
+	font-size: 1.1rem;
+
+	padding: 17px 50px;
 
 	cursor: pointer;
-	background-color: #f8a423;
+	background-color: ${colors.accent.red};
 
 	&:hover {
-		transition: all 0.2s ease;
-		background-color: #d68c18;
+		transition: all 0.2s ease-in;
+		opacity: 0.8;
 	}
 
-	@media screen and (min-width: ${mediaQueries.default}) {
-		font-size: 0.8em;
-		padding: 15px 20px;
+	@media screen and (min-width: ${mediaQueries.medium}) {
+		padding: 20px 50px;
+		font-size: 1.2rem;
+	}
+`;
+
+export const Title = styled.h1`
+	width: fit-content;
+
+	color: ${colors.font.white[100]};
+	text-transform: uppercase;
+
+	position: relative;
+
+	&::after {
+		content: "";
+		display: block;
+
+		width: 70%;
+		height: 2px;
+
+		position: absolute;
+		left: 0;
+		bottom: -5px;
+
+		background-color: ${colors.accent.orange};
 	}
 `;

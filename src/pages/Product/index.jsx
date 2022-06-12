@@ -13,13 +13,13 @@ import { products } from "../../mocks";
 
 import { addProduct } from "../../redux/slices/cart";
 
+import { MainButton } from "../../GlobalStyles";
 import {
 	Container,
 	Main,
 	Content,
 	ProductData,
 	Price,
-	AddToCartButton,
 	Reviews,
 	TitleReviews,
 	Rating,
@@ -73,12 +73,12 @@ export function Product() {
 									</small>
 								</Price>
 							</ProductData>
-							<AddToCartButton
+							<MainButton
 								type="button"
 								onClick={() => dispatch(addProduct(currentProduct))}
 							>
 								Adicionar ao Carrinho
-							</AddToCartButton>
+							</MainButton>
 						</Content>
 					</Main>
 

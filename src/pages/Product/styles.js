@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Title } from "../../components/Text/Title";
+import { Title } from "../../GlobalStyles";
 
 import bg_desktop from "../../assets/img/background/bg-product.png";
 import bg_mobile from "../../assets/img/background/bg-product-mobile.png";
@@ -154,29 +154,6 @@ export const Price = styled.div`
 		small {
 			font-size: 0.8rem;
 		}
-	}
-`;
-
-export const AddToCartButton = styled.button`
-	border: none;
-	border-radius: 5px;
-
-	font-weight: 600;
-	font-size: 1.1rem;
-
-	padding: 17px 50px;
-
-	cursor: pointer;
-	background-color: ${colors.accent.red};
-
-	&:hover {
-		transition: all 0.2s ease-in;
-		opacity: 0.8;
-	}
-
-	@media screen and (min-width: ${mediaQueries.medium}) {
-		padding: 20px 50px;
-		font-size: 1.2rem;
 	}
 `;
 

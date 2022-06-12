@@ -10,9 +10,7 @@ import { CartButton, Container, Content, ControlVisibility } from "./styles";
 
 export default function Header() {
 	return (
-		<Container
-			attrStyles={{ position: "absolute", ["bg-color"]: "transparent" }}
-		>
+		<Container>
 			<Logo />
 
 			<Content>

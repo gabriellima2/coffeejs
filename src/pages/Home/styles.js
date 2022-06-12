@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Title } from "../../components/Text/Title";
+import { Title } from "../../GlobalStyles";
 
 import { mediaQueries, colors } from "../../assets/styles";
 import image from "../../assets/img/pizza-bg.jpg";
