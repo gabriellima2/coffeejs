@@ -1,16 +1,24 @@
 import { useEffect } from "react";
-import { BsCartCheckFill, BsCartXFill, BsX } from "react-icons/bs";
+import { BsCartXFill, BsChevronCompactLeft } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Error } from "../../components/Error";
 import { Product } from "../../components/Product";
-import { Checkout } from "../../components/Checkout";
-import { CheckoutSummary } from "../../components/Checkout/CheckoutSummary";
+import { CheckoutForm, CheckoutSummary } from "../../components/Checkout";
 
 import { cartSelect, updateTotals } from "../../redux/slices/cart";
 
 import { Title } from "../../GlobalStyles";
-import { Container, ContentText, Content, CheckoutContainer } from "./styles";
+import {
+	Container,
+	Main,
+	Text,
+	ProductsContainer,
+	CheckoutFormContainer,
+	CheckoutSummaryContainer,
+	Back,
+} from "./styles";
+import { Link } from "react-router-dom";
 
 export function MyCart() {
 	const { products, totals } = useSelector(cartSelect);
@@ -28,12 +36,12 @@ export function MyCart() {
 				/>
 			) : (
 				<Container>
-					<Content>
-						<ContentText>
-							<Title>seu carrinho</Title>
-							<small>{totals.quantity} produtos</small>
-						</ContentText>
-						<section>
+					<Text>
+						<Title>seu carrinho</Title>
+						<small>{totals.quantity} produtos</small>
+					</Text>
+					<Main>
+						<ProductsContainer>
 							<ul>
 								{products.map((product) => (
 									<li key={product.id}>
@@ -41,14 +49,21 @@ export function MyCart() {
 									</li>
 								))}
 							</ul>
-						</section>
-					</Content>
+						</ProductsContainer>
+						<CheckoutFormContainer>
+							<CheckoutForm />
+						</CheckoutFormContainer>
 
-					<CheckoutContainer>
-						<CheckoutSummary />
-
-						<Checkout />
-					</CheckoutContainer>
+						<CheckoutSummaryContainer>
+							<Back>
+								<Link to="/#catalog">
+									<BsChevronCompactLeft />
+									<span> Voltar ao Catálogo</span>
+								</Link>
+							</Back>
+							<CheckoutSummary />
+						</CheckoutSummaryContainer>
+					</Main>
 				</Container>
 			)}
 		</>

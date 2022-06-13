@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { MainButton } from "../../../GlobalStyles";
-import { colors } from "../../../assets/styles";
+import { colors, mediaQueries } from "../../../assets/styles";
 
 export const Container = styled.form`
 	width: 100%;
@@ -11,26 +11,31 @@ export const Container = styled.form`
 	align-items: center;
 	gap: 20px;
 
-	position: fixed;
-	bottom: 0;
-
-	padding: 30px 15px 15px 15px;
-
-	background-color: ${colors.utils["dark-gray"][200]};
+	padding: 15px 20px;
 
 	color: ${colors.font.white[100]};
+
+	h1 {
+		font-size: 1.1rem;
+	}
 `;
 
 export const Fields = styled.fieldset`
+	width: 100%;
 	display: flex;
-	align-items: center;
-	gap: 30px;
+	gap: 15px;
 
 	border: none;
 
+	div {
+		width: 100%;
+	}
+
 	#field {
+		width: 100%;
 		color: ${colors.font.white[100]};
-		border-bottom: 1px solid ${colors.utils["light-gray"][200]};
+		border-bottom: 1px solid ${colors.utils["light-gray"][100]};
+		padding: 5px;
 
 		&:hover {
 			transition: all 0.2s ease;

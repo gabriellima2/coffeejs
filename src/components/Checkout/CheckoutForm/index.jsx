@@ -35,13 +35,8 @@ export function CheckoutForm() {
 			<Fields>
 				<CheckoutFormFields.Text
 					register={register}
-					input={{ type: "text", name: "name", id: "field" }}
-					inputLabel={{ label: "Nome" }}
-				/>
-				<CheckoutFormFields.Text
-					register={register}
-					input={{ type: "text", name: "surname", id: "field" }}
-					inputLabel={{ label: "Sobrenome" }}
+					input={{ type: "text", name: "full-name", id: "field" }}
+					inputLabel={{ label: "Nome Completo" }}
 				/>
 			</Fields>
 			<Fields>

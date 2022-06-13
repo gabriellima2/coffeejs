@@ -9,17 +9,19 @@ export function CheckoutSummary() {
 
 	return (
 		<Container>
-			<Title>resumo</Title>
+			<Title>Resumo</Title>
+
 			<section>
 				<Text>
-					subtotal<span>R${totals.price.toFixed(2)}</span>
+					Subtotal<span>R${totals.price.toFixed(2)}</span>
 				</Text>
 				<Text>
-					frete<span>R$5,00</span>
+					Frete<span>R$5,00</span>
 				</Text>
 			</section>
+
 			<Total>
-				<span>total</span> R${(totals.price + 5).toFixed(2)}
+				<span>Total</span> R${(totals.price + 5).toFixed(2)}
 			</Total>
 		</Container>
 	);
