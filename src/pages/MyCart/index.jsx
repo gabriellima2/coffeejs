@@ -1,17 +1,16 @@
 import { useEffect } from "react";
-import { BsCartXFill } from "react-icons/bs";
+import { BsCartCheckFill, BsCartXFill, BsX } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Error } from "../../components/Error";
 import { Product } from "../../components/Product";
 import { Checkout } from "../../components/Checkout";
-
-import { App } from "../../layouts/App";
+import { CheckoutSummary } from "../../components/Checkout/CheckoutSummary";
 
 import { cartSelect, updateTotals } from "../../redux/slices/cart";
 
 import { Title } from "../../GlobalStyles";
-import { Container, ContentText, Summary, Content } from "./styles";
+import { Container, ContentText, Content, CheckoutContainer } from "./styles";
 
 export function MyCart() {
 	const { products, totals } = useSelector(cartSelect);
@@ -20,7 +19,7 @@ export function MyCart() {
 	useEffect(() => dispatch(updateTotals()), [products]);
 
 	return (
-		<App>
+		<>
 			{products.length === 0 ? (
 				<Error
 					message={"Carrinho vazio"}
@@ -44,11 +43,14 @@ export function MyCart() {
 							</ul>
 						</section>
 					</Content>
-					<Summary>
+
+					<CheckoutContainer>
+						<CheckoutSummary />
+
 						<Checkout />
-					</Summary>
+					</CheckoutContainer>
 				</Container>
 			)}
-		</App>
+		</>
 	);
 }

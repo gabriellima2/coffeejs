@@ -1,27 +1,15 @@
-import { useSelector } from "react-redux";
+import { BsCartCheckFill, BsX } from "react-icons/bs";
 
-import { cartSelect } from "../../redux/slices/cart";
-
-import { Container, AmountsPayment, Total, BuyButton } from "./styles";
+import { CheckoutDialog } from "./CheckoutDialog";
+import { CheckoutForm } from "./CheckoutForm";
 
 export function Checkout() {
-	const { totals } = useSelector(cartSelect);
-
 	return (
-		<Container>
-			<h1>informações</h1>
-			<AmountsPayment>
-				<p>
-					subtotal<span>R${totals.price.toFixed(2)}</span>
-				</p>
-				<p>
-					frete<span>R$5,00</span>
-				</p>
-			</AmountsPayment>
-			<Total>
-				total <span>R${(totals.price + 5).toFixed(2)}</span>
-			</Total>
-			<BuyButton type="button">Comprar</BuyButton>
-		</Container>
+		<CheckoutDialog
+			trigger={{ element: BsCartCheckFill, style: { color: "#000" } }}
+			close={{ element: BsX, style: { color: "#000" } }}
+		>
+			<CheckoutForm />
+		</CheckoutDialog>
 	);
 }
