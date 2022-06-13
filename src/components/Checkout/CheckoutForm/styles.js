@@ -23,6 +23,7 @@ export const Container = styled.form`
 export const Fields = styled.fieldset`
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	gap: 15px;
 
 	border: none;
@@ -47,6 +48,19 @@ export const Fields = styled.fieldset`
 		font-size: 0.9rem;
 		color: ${colors.utils["light-gray"][200]};
 	}
+`;
+
+export const Address = styled.div`
+	min-height: 15px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+
+	font-weight: 500;
+
+	margin-top: 5px;
 `;
 
 export const SubmitButton = styled(MainButton)`
