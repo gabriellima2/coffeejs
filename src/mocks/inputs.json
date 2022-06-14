@@ -1,0 +1,36 @@
+[
+	{
+		"type": "text",
+		"name": "full-name",
+		"id": "field",
+		"rules": {
+			"required": "Campo de nome obrigatótio!",
+			"maxLength": {
+				"value": 30,
+				"message": "Nome com máximo de 30 caracteres!"
+			},
+			"minLength": {
+				"value": 2,
+				"message": "Nome com minímo de 2 caracteres!"
+			}
+		},
+		"label": "Nome Completo"
+	},
+	{
+		"type": "number",
+		"name": "zip-code",
+		"id": "field",
+		"rules": {
+			"required": "Campo CEP obrigatório!",
+			"maxLength": {
+				"value": 8,
+				"message": "CEP tem o máximo de 8 números!"
+			},
+			"minLength": {
+				"value": 8,
+				"message": "CEP tem o minímo de 8 números!"
+			}
+		},
+		"label": "CEP"
+	}
+]

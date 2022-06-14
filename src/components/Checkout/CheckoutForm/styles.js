@@ -58,6 +58,7 @@ export const Address = styled.div`
 	align-items: center;
 	gap: 10px;
 
+	text-align: center;
 	font-weight: 500;
 
 	margin-top: 5px;
@@ -65,4 +66,9 @@ export const Address = styled.div`
 
 export const SubmitButton = styled(MainButton)`
 	width: 100%;
+
+	&:disabled {
+		pointer-events: none;
+		opacity: 0.5;
+	}
 `;

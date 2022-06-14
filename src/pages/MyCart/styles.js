@@ -11,25 +11,12 @@ export const Container = styled.div`
 
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 20px;
 
 	background: url(${bgCartMobile});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-
-	@media screen and (min-width: ${mediaQueries.large}) {
-		height: 100vh;
-
-		background: url(${bgCartDesktop});
-	}
-`;
-
-export const Main = styled.main`
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
 
 	@media screen and (min-width: ${mediaQueries.large}) {
 		width: 100%;
@@ -38,6 +25,8 @@ export const Main = styled.main`
 		display: grid;
 		grid-template-columns: 1fr 0.4fr;
 		grid-template-rows: 1fr auto;
+
+		background: url(${bgCartDesktop});
 	}
 `;
 

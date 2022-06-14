@@ -11,7 +11,6 @@ import { cartSelect, updateTotals } from "../../redux/slices/cart";
 import { Title } from "../../GlobalStyles";
 import {
 	Container,
-	Main,
 	Text,
 	ProductsContainer,
 	CheckoutFormContainer,
@@ -36,34 +35,32 @@ export function MyCart() {
 				/>
 			) : (
 				<Container>
-					<Text>
-						<Title>seu carrinho</Title>
-						<small>{totals.quantity} produtos</small>
-					</Text>
-					<Main>
-						<ProductsContainer>
-							<ul>
-								{products.map((product) => (
-									<li key={product.id}>
-										<Product attrProduct={product} />
-									</li>
-								))}
-							</ul>
-						</ProductsContainer>
-						<CheckoutFormContainer>
-							<CheckoutForm />
-						</CheckoutFormContainer>
+					<ProductsContainer>
+						<Text>
+							<Title>seu carrinho</Title>
+							<small>{totals.quantity} produtos</small>
+						</Text>
+						<ul>
+							{products.map((product) => (
+								<li key={product.id}>
+									<Product attrProduct={product} />
+								</li>
+							))}
+						</ul>
+					</ProductsContainer>
+					<CheckoutFormContainer>
+						<CheckoutForm />
+					</CheckoutFormContainer>
 
-						<CheckoutSummaryContainer>
-							<Back>
-								<Link to="/#catalog">
-									<BsChevronCompactLeft />
-									<span> Voltar ao Catálogo</span>
-								</Link>
-							</Back>
-							<CheckoutSummary />
-						</CheckoutSummaryContainer>
-					</Main>
+					<CheckoutSummaryContainer>
+						<Back>
+							<Link to="/#catalog">
+								<BsChevronCompactLeft />
+								<span> Voltar ao Catálogo</span>
+							</Link>
+						</Back>
+						<CheckoutSummary />
+					</CheckoutSummaryContainer>
 				</Container>
 			)}
 		</>
