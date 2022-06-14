@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { MainButton } from "../../../GlobalStyles";
 import { colors, mediaQueries } from "../../../assets/styles";
 
+const BORDER_OPACITY_IN_HEX = "33";
+
 export const Container = styled.form`
 	width: 100%;
 
@@ -32,15 +34,16 @@ export const Fields = styled.fieldset`
 		width: 100%;
 	}
 
-	.fields {
+	input {
 		width: 100%;
 		color: ${colors.font.white[100]};
-		border-bottom: 1px solid ${colors.utils["light-gray"][100]};
+		border-bottom: 2px solid
+			${colors.utils["light-gray"][200] + BORDER_OPACITY_IN_HEX};
 		padding: 5px;
 
 		&:hover {
 			transition: all 0.2s ease;
-			opacity: 0.4;
+			opacity: 0.6;
 		}
 	}
 

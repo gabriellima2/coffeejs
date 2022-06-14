@@ -9,7 +9,6 @@ function Text({ onChange, input, label, register }) {
 			{...register(input.name, input.rules)}
 			onChange={onChange || null}
 			variant="standard"
-			className="fields"
 			required
 		/>
 	);
