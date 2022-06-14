@@ -6,6 +6,7 @@ const initialState = {
 		price: 0,
 		quantity: 0,
 	},
+	error: null,
 };
 
 export const cartSlice = createSlice({
@@ -18,17 +19,19 @@ export const cartSlice = createSlice({
 
 				payload = { ...payload, total };
 
+				state.error = "Produto adicionado ao carrinho!";
 				state.products = [...state.products, payload];
 			};
 
 			if (state.products.length === 0) return handleAddProduct();
 
 			if (state.products.length >= 1) {
-				const productAlreadyAdded = state.products.filter(
+				const productAlreadyAdded = state.products.some(
 					(product) => product.id === payload.id
 				);
 
-				if (productAlreadyAdded.length > 0) return;
+				if (productAlreadyAdded)
+					return (state.error = "Produto já adicionado!");
 
 				handleAddProduct();
 			}

@@ -20,7 +20,7 @@ export const Container = styled.div`
 
 	@media screen and (min-width: ${mediaQueries.large}) {
 		width: 100%;
-		height: 100%;
+		height: 100vh;
 
 		display: grid;
 		grid-template-columns: 1fr 0.4fr;
@@ -44,15 +44,7 @@ export const Text = styled.div`
 `;
 
 export const ProductsContainer = styled.section`
-	ul {
-		min-height: 600px;
-		max-height: 600px;
-		overflow-y: auto;
-	}
-
-	@media screen and (min-width: ${mediaQueries.large}) {
-		width: 80%;
-	}
+	width: 100%;
 `;
 
 export const CheckoutFormContainer = styled.section`
@@ -89,8 +81,6 @@ export const CheckoutSummaryContainer = styled.section`
 		padding: 40px 50px 25px 50px;
 
 		border-top-right-radius: 10px;
-
-		background-color: #10101066;
 	}
 `;
 

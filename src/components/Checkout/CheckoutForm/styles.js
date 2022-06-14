@@ -32,7 +32,7 @@ export const Fields = styled.fieldset`
 		width: 100%;
 	}
 
-	#field {
+	.fields {
 		width: 100%;
 		color: ${colors.font.white[100]};
 		border-bottom: 1px solid ${colors.utils["light-gray"][100]};

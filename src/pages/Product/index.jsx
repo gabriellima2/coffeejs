@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BsFillEmojiFrownFill } from "react-icons/bs";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { Error } from "../../components/Error";
@@ -11,7 +11,7 @@ import { App } from "../../layouts/App";
 
 import { products } from "../../mocks";
 
-import { addProduct } from "../../redux/slices/cart";
+import cart, { addProduct, cartSelect } from "../../redux/slices/cart";
 
 import { Describe, MainButton } from "../../GlobalStyles";
 import {
@@ -28,6 +28,7 @@ import {
 
 export function Product() {
 	const [currentProduct, setCurrentProduct] = useState(null);
+	const { error } = useSelector(cartSelect);
 	const dispatch = useDispatch();
 	const { id } = useParams();
 
