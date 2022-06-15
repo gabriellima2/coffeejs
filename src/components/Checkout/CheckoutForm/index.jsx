@@ -6,7 +6,7 @@ import { CheckoutFormFields } from "./CheckoutFormFields";
 
 import { debounce } from "../../../utils/debounce";
 
-import { Address, Container, Fields, SubmitButton } from "./styles";
+import { Address, Container, Fields, SubmitButton, Error } from "./styles";
 
 const inputAttributes = [
 	{
@@ -108,6 +108,7 @@ export function CheckoutForm() {
 						label={inputAttribute.label}
 						onChange={(e) => {
 							clearErrors(inputAttribute.input.id);
+							setAddress(null);
 
 							if (inputAttribute.input.id === "zip-code") {
 								debounce(() => validateZipCode(e.target.value), 1000);
@@ -115,7 +116,7 @@ export function CheckoutForm() {
 							}
 						}}
 					/>
-					<small>{errors[inputAttribute.input.id]?.message}</small>
+					<Error>{errors[inputAttribute.input.id]?.message}</Error>
 				</Fields>
 			))}
 
@@ -133,7 +134,7 @@ export function CheckoutForm() {
 				)}
 			</Address>
 			{requestError && (
-				<span>Erro! Por favor, verifique se foi digitado um CEP válido!</span>
+				<Error>Erro! Por favor, verifique se foi digitado um CEP válido!</Error>
 			)}
 
 			<SubmitButton type="submit" disabled={loadingAddress}>

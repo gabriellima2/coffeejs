@@ -34,7 +34,7 @@ export const Container = styled.span`
 		color: ${colors.font.white[100]};
 		text-align: center;
 
-		border: 1px solid ${colors.utils["dark-gray"][200]};
+		border: 1px solid ${colors.utils["dark-gray"][300]};
 		border-radius: 5px;
 
 		padding: 4px;

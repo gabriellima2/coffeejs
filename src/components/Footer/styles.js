@@ -8,7 +8,7 @@ export const Container = styled.footer`
 
 	padding: 25px 20px 0px 20px;
 
-	background: ${colors.utils["dark-gray"][100]};
+	background: ${colors.utils["dark-gray"][200]};
 `;
 
 export const MainContent = styled.section`
@@ -23,7 +23,7 @@ export const SmallContent = styled.section`
 
 	padding: 12px 0px;
 
-	border-top: 1px solid ${colors.utils["dark-gray"][200]};
+	border-top: 1px solid ${colors.utils["dark-gray"][300]};
 
 	small {
 		text-transform: capitalize;

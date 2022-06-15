@@ -11,14 +11,14 @@ export const Container = styled.form`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 20px;
 
-	padding: 15px 20px;
+	padding: 20px 15px;
 
 	color: ${colors.font.white[100]};
 
 	h1 {
 		font-size: 1.1rem;
+		margin-bottom: 6px;
 	}
 `;
 
@@ -39,7 +39,7 @@ export const Fields = styled.fieldset`
 		color: ${colors.font.white[100]};
 		border-bottom: 2px solid
 			${colors.utils["light-gray"][200] + BORDER_OPACITY_IN_HEX};
-		padding: 5px;
+		padding: 5px 10px;
 
 		&:hover {
 			transition: all 0.2s ease;
@@ -49,6 +49,7 @@ export const Fields = styled.fieldset`
 
 	label {
 		font-size: 0.9rem;
+		margin-left: 10px;
 		color: ${colors.utils["light-gray"][200]};
 	}
 `;
@@ -64,7 +65,7 @@ export const Address = styled.div`
 	text-align: center;
 	font-weight: 500;
 
-	margin-top: 5px;
+	margin: 5px 0px 15px 0px;
 `;
 
 export const SubmitButton = styled(MainButton)`
@@ -74,4 +75,10 @@ export const SubmitButton = styled(MainButton)`
 		pointer-events: none;
 		opacity: 0.5;
 	}
+`;
+
+export const Error = styled.small`
+	text-align: center;
+	font-weight: 600;
+	color: ${colors.font.accent};
 `;

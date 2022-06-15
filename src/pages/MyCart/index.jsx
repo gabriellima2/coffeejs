@@ -12,9 +12,10 @@ import { Title } from "../../GlobalStyles";
 import {
 	Container,
 	Text,
-	ProductsContainer,
-	CheckoutFormContainer,
-	CheckoutSummaryContainer,
+	Content,
+	ProductsOnCart,
+	ShoppingSummary,
+	BuyerDataForm,
 	Back,
 } from "./styles";
 import { Link } from "react-router-dom";
@@ -35,32 +36,33 @@ export function MyCart() {
 				/>
 			) : (
 				<Container>
-					<ProductsContainer>
-						<Text>
-							<Title>seu carrinho</Title>
-							<small>{totals.quantity} produtos</small>
-						</Text>
-						<ul>
-							{products.map((product) => (
-								<li key={product.id}>
-									<Product attrProduct={product} />
-								</li>
-							))}
-						</ul>
-					</ProductsContainer>
-					<CheckoutFormContainer>
-						<CheckoutForm />
-					</CheckoutFormContainer>
-
-					<CheckoutSummaryContainer>
-						<Back>
-							<Link to="/#catalog">
-								<BsChevronCompactLeft />
-								<span> Voltar ao Catálogo</span>
-							</Link>
-						</Back>
-						<CheckoutSummary />
-					</CheckoutSummaryContainer>
+					<Text>
+						<Title>seu carrinho</Title>
+						<small>{totals.quantity} produtos</small>
+					</Text>
+					<Content>
+						<ShoppingSummary>
+							<Back>
+								<Link to="/#catalog">
+									<BsChevronCompactLeft />
+									<span> Voltar ao Catálogo</span>
+								</Link>
+							</Back>
+							<CheckoutSummary />
+						</ShoppingSummary>
+						<ProductsOnCart>
+							<ul>
+								{products.map((product) => (
+									<li key={product.id}>
+										<Product attrProduct={product} />
+									</li>
+								))}
+							</ul>
+						</ProductsOnCart>
+						<BuyerDataForm>
+							<CheckoutForm />
+						</BuyerDataForm>
+					</Content>
 				</Container>
 			)}
 		</>

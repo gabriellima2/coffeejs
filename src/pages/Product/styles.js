@@ -49,7 +49,7 @@ export const Main = styled.main`
 
 		img {
 			max-width: 600px;
-			box-shadow: 25px 25px 0px ${colors.utils["dark-gray"][100]};
+			box-shadow: 25px 25px 0px ${colors.utils["dark-gray"][200]};
 		}
 	}
 
@@ -165,7 +165,7 @@ export const Reviews = styled.section`
 	margin: 30px 20px;
 	padding: 30px 25px;
 
-	border-top: 1px solid ${colors.utils["dark-gray"][200]};
+	border-top: 1px solid ${colors.utils["dark-gray"][300]};
 `;
 
 export const TitleReviews = styled(Title)``;

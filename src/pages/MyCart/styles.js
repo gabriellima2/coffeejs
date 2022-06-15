@@ -5,13 +5,14 @@ import bgCartMobile from "../../assets/img/background/bg-cart-mobile.png";
 
 import { colors, mediaQueries } from "../../assets/styles";
 
+const BACKGROUND_OPACITY = {
+	95: "f2",
+	75: "bf",
+};
+
 export const Container = styled.div`
 	width: 100%;
-	height: 100%;
-
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+	height: 100vh;
 
 	background: url(${bgCartMobile});
 	background-position: center;
@@ -22,11 +23,22 @@ export const Container = styled.div`
 		width: 100%;
 		height: 100vh;
 
-		display: grid;
-		grid-template-columns: 1fr 0.4fr;
-		grid-template-rows: 1fr auto;
+		padding: 0px 15px;
 
 		background: url(${bgCartDesktop});
+	}
+`;
+
+export const Content = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	@media screen and (min-width: ${mediaQueries.large}) {
+		display: grid;
+		grid-template-columns: 1fr 400px;
+		grid-template-rows: 90% auto;
+		gap: 15px;
 	}
 `;
 
@@ -43,52 +55,47 @@ export const Text = styled.div`
 	}
 `;
 
-export const ProductsContainer = styled.section`
+export const ProductsOnCart = styled.section`
 	width: 100%;
-`;
 
-export const CheckoutFormContainer = styled.section`
-	position: sticky;
-	bottom: 0;
-	order: 1;
-
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-
-	background-color: #141414f2;
+	ul {
+		overflow-y: auto;
+		max-height: 600px;
+	}
 
 	@media screen and (min-width: ${mediaQueries.large}) {
-		height: fit-content;
+		grid-column: 1/2;
+		grid-row: 1/4;
 
-		position: static;
-		order: 0;
-
-		padding: 10px;
-
-		border-radius: 5px;
-		background-color: #14141480;
+		border-bottom: 1px solid ${colors.utils["dark-gray"][300]};
 	}
 `;
 
-export const CheckoutSummaryContainer = styled.section`
+export const ShoppingSummary = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+
+	padding: 10px;
+
+	border: 1px solid ${colors.utils["dark-gray"][300]};
+
+	background-color: ${colors.utils["dark-gray"][100] + BACKGROUND_OPACITY[75]};
+
 	@media screen and (min-width: ${mediaQueries.large}) {
 		width: 100%;
+		justify-content: center;
 
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		position: relative;
 
-		padding: 40px 50px 25px 50px;
-
+		padding: 15px;
 		border-top-right-radius: 10px;
 	}
 `;
 
 export const Back = styled.span`
-	position: absolute;
-	top: 75px;
-	left: 15px;
-
+	align-self: flex-start;
 	font-size: 1.1rem;
 
 	a {
@@ -105,7 +112,8 @@ export const Back = styled.span`
 	@media screen and (min-width: ${mediaQueries.large}) {
 		width: 260px;
 
-		position: static;
+		position: absolute;
+		top: 15px;
 
 		font-size: 1.7rem;
 
@@ -116,5 +124,31 @@ export const Back = styled.span`
 		span {
 			font-size: 1rem;
 		}
+	}
+`;
+
+export const BuyerDataForm = styled.section`
+	position: sticky;
+	bottom: 0;
+	order: 1;
+
+	border-top: 1px solid ${colors.utils["dark-gray"][300]};
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+
+	background-color: ${colors.utils["dark-gray"][100] + BACKGROUND_OPACITY[95]};
+
+	@media screen and (min-width: ${mediaQueries.medium}) {
+		width: 50%;
+	}
+
+	@media screen and (min-width: ${mediaQueries.large}) {
+		width: 100%;
+
+		padding: 10px;
+		position: static;
+
+		border-radius: 0;
+		border-bottom-right-radius: 10px;
 	}
 `;

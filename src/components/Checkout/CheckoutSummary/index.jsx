@@ -2,22 +2,22 @@ import { useSelector } from "react-redux";
 
 import { cartSelect } from "../../../redux/slices/cart";
 
-import { Container, Total, Title, Text } from "./styles";
+import { Container, Total, Price } from "./styles";
 
 export function CheckoutSummary() {
 	const { totals } = useSelector(cartSelect);
 
 	return (
 		<Container>
-			<Title>Resumo</Title>
+			<h1 style={{ display: "none" }}>Resumo</h1>
 
 			<section>
-				<Text>
+				<Price>
 					Subtotal<span>R${totals.price.toFixed(2)}</span>
-				</Text>
-				<Text>
+				</Price>
+				<Price>
 					Frete<span>R$5,00</span>
-				</Text>
+				</Price>
 			</section>
 
 			<Total>

@@ -7,6 +7,8 @@ export const Container = styled.section`
 	align-items: center;
 	gap: 20px;
 
+	padding-bottom: 10px;
+
 	font-family: "Montserrat", sans-serif;
 	text-transform: capitalize;
 
@@ -15,15 +17,7 @@ export const Container = styled.section`
 	}
 `;
 
-export const Title = styled.h1`
-	text-transform: uppercase;
-
-	@media screen and (min-width: ${mediaQueries.large}) {
-		display: none;
-	}
-`;
-
-export const Text = styled.p`
+export const Price = styled.p`
 	display: flex;
 	justify-content: space-between;
 	gap: 40px;
@@ -50,7 +44,7 @@ export const Text = styled.p`
 export const Total = styled.h2`
 	span {
 		text-transform: uppercase;
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		font-weight: 500;
 	}
 

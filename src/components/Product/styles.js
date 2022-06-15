@@ -14,7 +14,7 @@ export const Container = styled.section`
 
 	padding: 15px 10px;
 
-	border-top: 1px solid ${colors.utils["dark-gray"][200]};
+	border-top: 1px solid ${colors.utils["dark-gray"][300]};
 
 	background: ${({ bgColor }) => (!bgColor ? " #13131380" : "transparent")};
 
