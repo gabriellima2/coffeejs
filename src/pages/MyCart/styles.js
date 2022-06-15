@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 	@media screen and (min-width: ${mediaQueries.large}) {
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 
 		padding: 0px 15px;
 
@@ -30,6 +30,8 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+	height: 100%;
+
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -57,10 +59,15 @@ export const Text = styled.div`
 
 export const ProductsOnCart = styled.section`
 	width: 100%;
+	min-height: 430px;
 
 	ul {
+		min-height: 430px;
+		max-height: 430px;
+
 		overflow-y: auto;
-		max-height: 600px;
+
+		border-bottom: 1px solid ${colors.utils["dark-gray"][300]};
 	}
 
 	@media screen and (min-width: ${mediaQueries.large}) {
@@ -128,13 +135,15 @@ export const Back = styled.span`
 `;
 
 export const BuyerDataForm = styled.section`
-	position: sticky;
-	bottom: 0;
+	width: 100%;
 	order: 1;
 
+	position: sticky;
+	bottom: 0;
+
 	border-top: 1px solid ${colors.utils["dark-gray"][300]};
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 
 	background-color: ${colors.utils["dark-gray"][100] + BACKGROUND_OPACITY[95]};
 
