@@ -18,7 +18,7 @@ export function Product({ attrProduct }) {
 	};
 
 	return (
-		<Container bgColor={attrProduct.id % 2 === 0}>
+		<Container elementPosition={attrProduct.index}>
 			<ProductData>
 				<img src={attrProduct.image.src} alt={attrProduct.image.alt} />
 				<p>{attrProduct.name}</p>

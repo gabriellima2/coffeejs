@@ -10,6 +10,8 @@ const BACKGROUND_OPACITY = {
 	75: "bf",
 };
 
+const BORDER_DETAIL = `1px solid ${colors.utils["dark-gray"][300]}`;
+
 export const Container = styled.div`
 	width: 100%;
 	height: 100vh;
@@ -19,10 +21,11 @@ export const Container = styled.div`
 	background-repeat: no-repeat;
 	background-size: cover;
 
-	@media screen and (min-width: ${mediaQueries.large}) {
-		width: 100%;
-		height: 100%;
+	@media screen and (min-width: ${mediaQueries.default}) {
+		overflow-y: hidden;
+	}
 
+	@media screen and (min-width: ${mediaQueries.large}) {
 		padding: 0px 15px;
 
 		background: url(${bgCartDesktop});
@@ -36,11 +39,17 @@ export const Content = styled.div`
 	flex-direction: column;
 	gap: 10px;
 
-	@media screen and (min-width: ${mediaQueries.large}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: minmax(300px, 320px) 1fr;
+
+		padding: 10px 20px;
+	}
+
+	@media screen and (min-width: ${mediaQueries.large}) {
 		grid-template-columns: 1fr 400px;
-		grid-template-rows: 90% auto;
-		gap: 15px;
+		grid-template-rows: 1fr 400px;
 	}
 `;
 
@@ -59,22 +68,30 @@ export const Text = styled.div`
 
 export const ProductsOnCart = styled.section`
 	width: 100%;
-	min-height: 430px;
 
 	ul {
-		min-height: 430px;
-		max-height: 430px;
-
 		overflow-y: auto;
 
-		border-bottom: 1px solid ${colors.utils["dark-gray"][300]};
+		border-bottom: ${BORDER_DETAIL};
+	}
+
+	@media screen and (min-width: ${mediaQueries.default}) {
+		grid-column: span 2;
+		grid-row: span 2;
+
+		border-bottom: none;
+
+		border: ${BORDER_DETAIL};
+
+		ul {
+			max-height: 80%;
+			overflow-y: auto;
+		}
 	}
 
 	@media screen and (min-width: ${mediaQueries.large}) {
 		grid-column: 1/2;
 		grid-row: 1/4;
-
-		border-bottom: 1px solid ${colors.utils["dark-gray"][300]};
 	}
 `;
 
@@ -82,22 +99,27 @@ export const ShoppingSummary = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	gap: 15px;
 
 	padding: 10px;
 
-	border: 1px solid ${colors.utils["dark-gray"][300]};
+	position: relative;
 
+	border: ${BORDER_DETAIL};
 	background-color: ${colors.utils["dark-gray"][100] + BACKGROUND_OPACITY[75]};
 
-	@media screen and (min-width: ${mediaQueries.large}) {
+	@media screen and (min-width: ${mediaQueries.default}) {
 		width: 100%;
-		justify-content: center;
-
-		position: relative;
 
 		padding: 15px;
+		position: relative;
+	}
+
+	@media screen and (min-width: ${mediaQueries.large}) {
 		border-top-right-radius: 10px;
+		grid-column: 2/4;
+		grid-row: 1/2;
 	}
 `;
 
@@ -116,11 +138,13 @@ export const Back = styled.span`
 		letter-spacing: 1px;
 	}
 
-	@media screen and (min-width: ${mediaQueries.large}) {
-		width: 260px;
-
+	@media screen and (min-width: ${mediaQueries.default}) {
 		position: absolute;
 		top: 15px;
+	}
+
+	@media screen and (min-width: ${mediaQueries.large}) {
+		width: 260px;
 
 		font-size: 1.7rem;
 
@@ -141,23 +165,28 @@ export const BuyerDataForm = styled.section`
 	position: sticky;
 	bottom: 0;
 
-	border-top: 1px solid ${colors.utils["dark-gray"][300]};
+	border-top: ${BORDER_DETAIL};
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 
 	background-color: ${colors.utils["dark-gray"][100] + BACKGROUND_OPACITY[95]};
 
-	@media screen and (min-width: ${mediaQueries.medium}) {
-		width: 50%;
+	@media screen and (min-width: ${mediaQueries.default}) {
+		width: 100%;
+		grid-column: 2/3;
+		grid-row: 1/2;
+
+		border-radius: 0;
+		border: ${BORDER_DETAIL};
 	}
 
 	@media screen and (min-width: ${mediaQueries.large}) {
-		width: 100%;
-
 		padding: 10px;
 		position: static;
 
-		border-radius: 0;
+		grid-column: 2/4;
+		grid-row: 2/4;
+
 		border-bottom-right-radius: 10px;
 	}
 `;

@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import { colors, mediaQueries } from "../../assets/styles";
 
+const elementPositionIsDivisibleByTwo = (position) => position % 2 === 0;
+
 export const Container = styled.section`
 	width: 100%;
 
@@ -14,9 +16,13 @@ export const Container = styled.section`
 
 	padding: 15px 10px;
 
-	border-top: 1px solid ${colors.utils["dark-gray"][300]};
+	border-top: ${({ elementPosition }) =>
+		elementPosition !== 0 && `1px solid ${colors.utils["dark-gray"][300]}`};
 
-	background: ${({ bgColor }) => (!bgColor ? " #13131380" : "transparent")};
+	background: ${({ elementPosition }) =>
+		elementPositionIsDivisibleByTwo(elementPosition)
+			? " #13131380"
+			: "transparent"};
 
 	p {
 		font-weight: 600;
@@ -74,6 +80,8 @@ export const ProductInfo = styled.div`
 `;
 
 export const Price = styled.p`
+	min-width: 70px;
+
 	display: flex;
 	flex-direction: column;
 	gap: 5px;

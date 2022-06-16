@@ -52,9 +52,9 @@ export function MyCart() {
 						</ShoppingSummary>
 						<ProductsOnCart>
 							<ul>
-								{products.map((product) => (
+								{products.map((product, index) => (
 									<li key={product.id}>
-										<Product attrProduct={product} />
+										<Product attrProduct={{ ...product, index }} />
 									</li>
 								))}
 							</ul>
