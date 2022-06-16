@@ -6,7 +6,10 @@ const initialState = {
 		price: 0,
 		quantity: 0,
 	},
-	error: null,
+	messageToUser: {
+		type: null,
+		value: null,
+	},
 };
 
 export const cartSlice = createSlice({
@@ -19,7 +22,10 @@ export const cartSlice = createSlice({
 
 				payload = { ...payload, total };
 
-				state.error = "Produto adicionado ao carrinho!";
+				state.messageToUser = {
+					type: "success",
+					value: "Produto adicionado ao carrinho!",
+				};
 				state.products = [...state.products, payload];
 			};
 
@@ -30,8 +36,13 @@ export const cartSlice = createSlice({
 					(product) => product.id === payload.id
 				);
 
-				if (productAlreadyAdded)
-					return (state.error = "Produto já adicionado!");
+				if (productAlreadyAdded) {
+					state.messageToUser = {
+						type: "error",
+						value: "Produto já adicionado!",
+					};
+					return;
+				}
 
 				handleAddProduct();
 			}

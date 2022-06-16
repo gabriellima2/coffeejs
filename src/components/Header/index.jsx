@@ -6,7 +6,8 @@ import { SidebarMobile } from "./SidebarMobile";
 
 import { Logo } from "../../infra/Logo";
 
-import { CartButton, Container, Content, ControlVisibility } from "./styles";
+import { Container, Content, ControlVisibility } from "./styles";
+import { ViewCartButton } from "../Buttons/ViewCartButton";
 
 export default function Header() {
 	return (
@@ -18,11 +19,7 @@ export default function Header() {
 					<Nav />
 				</ControlVisibility>
 
-				<Link to={"/mycart"}>
-					<CartButton>
-						<BsCartFill />
-					</CartButton>
-				</Link>
+				<ViewCartButton />
 
 				<SidebarMobile />
 			</Content>

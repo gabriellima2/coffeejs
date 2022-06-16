@@ -36,19 +36,3 @@ export const Content = styled.section`
 	align-items: center;
 	gap: 20px;
 `;
-
-export const CartButton = styled.span`
-	display: flex;
-	align-items: center;
-	gap: 5px;
-
-	padding: 10px;
-	border-radius: 100%;
-
-	background-color: ${colors.accent.orange};
-
-	&:hover {
-		transition: all 0.2s ease;
-		opacity: 0.8;
-	}
-`;
