@@ -26,45 +26,45 @@ export function MyCart() {
 
 	useEffect(() => dispatch(updateTotals()), [products]);
 
+	if (products.length === 0) {
+		return (
+			<Error
+				message={"Carrinho vazio"}
+				icon={BsCartXFill}
+				link={{ text: "Vamos às compras!", href: "/" }}
+			/>
+		);
+	}
+
 	return (
-		<>
-			{products.length === 0 ? (
-				<Error
-					message={"Carrinho vazio"}
-					icon={BsCartXFill}
-					link={{ text: "Vamos às compras!", href: "/" }}
-				/>
-			) : (
-				<Container>
-					<Text>
-						<Title>seu carrinho</Title>
-						<small>{totals.quantity} produtos</small>
-					</Text>
-					<Content>
-						<ShoppingSummary>
-							<Back>
-								<Link to="/#catalog">
-									<BsChevronCompactLeft />
-									<span> Voltar ao Catálogo</span>
-								</Link>
-							</Back>
-							<CheckoutSummary />
-						</ShoppingSummary>
-						<ProductsOnCart>
-							<ul>
-								{products.map((product, index) => (
-									<li key={product.id}>
-										<Product attrProduct={{ ...product, index }} />
-									</li>
-								))}
-							</ul>
-						</ProductsOnCart>
-						<BuyerDataForm>
-							<CheckoutForm />
-						</BuyerDataForm>
-					</Content>
-				</Container>
-			)}
-		</>
+		<Container>
+			<Text>
+				<Title>seu carrinho</Title>
+				<small>{totals.quantity} produtos</small>
+			</Text>
+			<Content>
+				<ShoppingSummary>
+					<Back>
+						<Link to="/#catalog">
+							<BsChevronCompactLeft />
+							<span> Voltar ao Catálogo</span>
+						</Link>
+					</Back>
+					<CheckoutSummary />
+				</ShoppingSummary>
+				<ProductsOnCart>
+					<ul>
+						{products.map((product, index) => (
+							<li key={product.id}>
+								<Product attrProduct={{ ...product, index }} />
+							</li>
+						))}
+					</ul>
+				</ProductsOnCart>
+				<BuyerDataForm>
+					<CheckoutForm />
+				</BuyerDataForm>
+			</Content>
+		</Container>
 	);
 }
