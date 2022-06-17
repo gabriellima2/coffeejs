@@ -7,12 +7,14 @@ const BORDER_OPACITY_IN_HEX = "33";
 
 export const Container = styled.form`
 	width: 100%;
+	height: 100%;
 
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	align-items: center;
 
-	padding: 20px 15px;
+	padding: 15px 10px;
 
 	color: ${colors.font.white[100]};
 

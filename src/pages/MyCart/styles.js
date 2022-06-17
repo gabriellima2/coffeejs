@@ -81,10 +81,9 @@ export const ProductsOnCart = styled.section`
 
 		border-bottom: none;
 
-		border: ${BORDER_DETAIL};
-
 		ul {
-			max-height: 80%;
+			height: 85%;
+			border: ${BORDER_DETAIL};
 			overflow-y: auto;
 		}
 	}
@@ -92,6 +91,8 @@ export const ProductsOnCart = styled.section`
 	@media screen and (min-width: ${mediaQueries.large}) {
 		grid-column: 1/2;
 		grid-row: 1/4;
+
+		height: 100%;
 	}
 `;
 
@@ -181,12 +182,5 @@ export const BuyerDataForm = styled.section`
 	}
 
 	@media screen and (min-width: ${mediaQueries.large}) {
-		padding: 10px;
-		position: static;
-
-		grid-column: 2/4;
-		grid-row: 2/4;
-
-		border-bottom-right-radius: 10px;
 	}
 `;
