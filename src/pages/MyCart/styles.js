@@ -182,5 +182,14 @@ export const BuyerDataForm = styled.section`
 	}
 
 	@media screen and (min-width: ${mediaQueries.large}) {
+		height: 330px;
+
+		padding: 10px;
+		position: static;
+
+		grid-column: 2/4;
+		grid-row: 2/4;
+
+		border-bottom-right-radius: 10px;
 	}
 `;
