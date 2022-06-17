@@ -4,7 +4,7 @@ import { cartSelect } from "../../../redux/slices/cart";
 
 import { Container, Total, Price } from "./styles";
 
-export function CheckoutSummary() {
+export function Summary() {
 	const { totals } = useSelector(cartSelect);
 
 	return (

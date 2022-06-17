@@ -1,13 +1,10 @@
-import { BsCartFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
-
 import { Nav } from "./Nav";
 import { SidebarMobile } from "./SidebarMobile";
+import { Button } from "../Button";
 
 import { Logo } from "../../infra/Logo";
 
 import { Container, Content, ControlVisibility } from "./styles";
-import { ViewCartButton } from "../Buttons/ViewCartButton";
 
 export default function Header() {
 	return (
@@ -19,7 +16,7 @@ export default function Header() {
 					<Nav />
 				</ControlVisibility>
 
-				<ViewCartButton />
+				<Button.ViewCart />
 
 				<SidebarMobile />
 			</Content>

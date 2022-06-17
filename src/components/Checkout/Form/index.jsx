@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Loading } from "../../Loading";
-import { CheckoutFormFields } from "./CheckoutFormFields";
+import { FormFields } from "./FormFields";
 
 import { debounce } from "../../../utils/debounce";
 
@@ -56,7 +56,7 @@ function testZipCodeWithRegex(zipCode) {
 	return regexZipCode.test(zipCode);
 }
 
-export function CheckoutForm() {
+export function Form() {
 	const [requestError, setRequestError] = useState(false);
 	const [loadingAddress, setLoadingAddress] = useState(false);
 	const [address, setAddress] = useState(null);
@@ -99,7 +99,7 @@ export function CheckoutForm() {
 
 			{inputAttributes.map((inputAttribute) => (
 				<Fields key={inputAttribute.input.id}>
-					<CheckoutFormFields.Text
+					<FormFields.Text
 						register={register}
 						input={{
 							...inputAttribute.input,

@@ -14,4 +14,4 @@ function Text({ onChange, input, label, register }) {
 	);
 }
 
-export const CheckoutFormFields = { Text };
+export const FormFields = { Text };

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Error } from "../../components/Error";
 import { Product } from "../../components/Product";
-import { CheckoutForm, CheckoutSummary } from "../../components/Checkout";
+import { Checkout } from "../../components/Checkout";
 
 import { cartSelect, updateTotals } from "../../redux/slices/cart";
 
@@ -50,7 +50,7 @@ export function MyCart() {
 							<span> Voltar ao Catálogo</span>
 						</Link>
 					</Back>
-					<CheckoutSummary />
+					<Checkout.Summary />
 				</ShoppingSummary>
 				<ProductsOnCart>
 					<ul>
@@ -62,7 +62,7 @@ export function MyCart() {
 					</ul>
 				</ProductsOnCart>
 				<BuyerDataForm>
-					<CheckoutForm />
+					<Checkout.Form />
 				</BuyerDataForm>
 			</Content>
 		</Container>

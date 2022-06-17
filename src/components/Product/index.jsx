@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 
-import { ChangeQuantityButton, RemoveButton } from "../Buttons";
+import { Button } from "../Button";
 
 import { removeProduct, updateProductData } from "../../redux/slices/cart";
 
@@ -28,7 +28,7 @@ export function Product({ attrProduct }) {
 				<Price>
 					<span>Preço</span> R${attrProduct.price.toFixed(2)}
 				</Price>
-				<ChangeQuantityButton
+				<Button.ChangeQuantity
 					quantity={attrProduct.quantity}
 					runAfterQuantityChange={handleChangeQuantity}
 				/>
@@ -38,7 +38,7 @@ export function Product({ attrProduct }) {
 				</Price>
 			</ProductInfo>
 
-			<RemoveButton actionToClick={handleClickRemoveButton} />
+			<Button.Remove actionToClick={handleClickRemoveButton} />
 		</Container>
 	);
 }

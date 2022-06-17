@@ -1,4 +1,4 @@
-import { CheckoutForm } from "./CheckoutForm";
-import { CheckoutSummary } from "./CheckoutSummary";
+import { Form } from "./Form";
+import { Summary } from "./Summary";
 
-export { CheckoutForm, CheckoutSummary };
+export const Checkout = { Form, Summary };

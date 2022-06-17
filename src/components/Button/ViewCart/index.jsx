@@ -6,7 +6,7 @@ import { cartSelect } from "../../../redux/slices/cart";
 
 import { Container } from "./styles";
 
-export function ViewCartButton() {
+export function ViewCart() {
 	const { totals } = useSelector(cartSelect);
 
 	return (
