@@ -71,6 +71,7 @@ export const ProductsOnCart = styled.section`
 
 	ul {
 		overflow-y: auto;
+		min-height: 50vh;
 
 		border-bottom: ${BORDER_DETAIL};
 	}
@@ -82,8 +83,8 @@ export const ProductsOnCart = styled.section`
 		border-bottom: none;
 
 		ul {
-			height: 85%;
-			border: ${BORDER_DETAIL};
+			min-height: auto;
+
 			overflow-y: auto;
 		}
 	}
