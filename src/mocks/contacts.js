@@ -10,7 +10,7 @@ export default [
 	{
 		id: 1,
 		title: "linkedin",
-		href: "https://www.linkedin.com/in/gabriel-lima-860612236/",
+		href: "https://www.linkedin.com/in/gabriel-lima-860612236",
 		icon: BsLinkedin,
 	},
 ];

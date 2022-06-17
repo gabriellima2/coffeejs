@@ -10,6 +10,7 @@ export function Contacts() {
 			{contacts.map((contact) => (
 				<ListItem key={contact.id}>
 					<a
+						target="_blank"
 						href={contact.href}
 						title={`Link para ${contact.title.toUpperCase()}`}
 					>

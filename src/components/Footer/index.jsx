@@ -4,25 +4,19 @@ import { Logo } from "../../infra/Logo";
 
 import { Contacts } from "./Contacts";
 
-import { Container, Company, MainContent, SmallContent } from "./styles";
+import { Container, Company } from "./styles";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
 	return (
 		<Container>
-			<MainContent>
-				<Company>
-					<Logo width={90} />
-				</Company>
-
-				<section>
-					<Contacts />
-				</section>
-			</MainContent>
-			<SmallContent>
+			<Company>
+				<Logo width={70} />
 				<small>projeto pessoal. gabriel lima - {CURRENT_YEAR}</small>
-			</SmallContent>
+			</Company>
+
+			<Contacts />
 		</Container>
 	);
 }
