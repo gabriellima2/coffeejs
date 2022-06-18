@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsCartXFill, BsChevronCompactLeft } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Error } from "../../components/Error";
 import { Product } from "../../components/Product";
 import { Checkout } from "../../components/Checkout";
+import { Dialog } from "../../components/Dialog";
 
 import { cartSelect, updateTotals } from "../../redux/slices/cart";
 
@@ -21,10 +22,13 @@ import {
 import { Link } from "react-router-dom";
 
 export function MyCart() {
+	const [checkoutIsCompleted, setCheckoutIsCompleted] = useState(false);
 	const { products, totals } = useSelector(cartSelect);
 	const dispatch = useDispatch();
 
 	useEffect(() => dispatch(updateTotals()), [products]);
+
+	const completeCheckout = (data) => setCheckoutIsCompleted(true);
 
 	if (products.length === 0) {
 		return (
@@ -38,6 +42,8 @@ export function MyCart() {
 
 	return (
 		<Container>
+			{checkoutIsCompleted && <Dialog.Success isOpen={checkoutIsCompleted} />}
+			<Dialog.Success />
 			<Text>
 				<Title>seu carrinho</Title>
 				<small>{totals.quantity} produtos</small>
@@ -62,7 +68,7 @@ export function MyCart() {
 					</ul>
 				</ProductsOnCart>
 				<BuyerDataForm>
-					<Checkout.Form />
+					<Checkout.Form handleOnSubmit={completeCheckout} />
 				</BuyerDataForm>
 			</Content>
 		</Container>

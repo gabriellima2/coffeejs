@@ -56,7 +56,7 @@ function testZipCodeWithRegex(zipCode) {
 	return regexZipCode.test(zipCode);
 }
 
-export function Form() {
+export function Form({ handleOnSubmit }) {
 	const [requestError, setRequestError] = useState(false);
 	const [loadingAddress, setLoadingAddress] = useState(false);
 	const [address, setAddress] = useState(null);
@@ -68,7 +68,7 @@ export function Form() {
 		formState: { errors },
 	} = useForm();
 
-	const formSubmit = (data) => {};
+	const formSubmit = (data) => handleOnSubmit(data);
 
 	const searchAddressWithZipCode = async (zipCode) => {
 		setLoadingAddress(true);
@@ -80,11 +80,14 @@ export function Form() {
 
 			const data = await response.json();
 
-			setLoadingAddress(false);
+			if (data.erro) throw new Error();
+
 			setAddress(data);
 		} catch (err) {
 			setRequestError(true);
 		}
+
+		setLoadingAddress(false);
 	};
 
 	const validateZipCode = (zipCode) => {

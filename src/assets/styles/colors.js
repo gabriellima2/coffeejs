@@ -27,6 +27,8 @@ const colors = {
 			100: "#CAC6C6",
 			200: "#B8B4B4",
 		},
+
+		green: "#4FB62A",
 	},
 
 	transparent: "#F4ECEC",

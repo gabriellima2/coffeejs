@@ -1,5 +1,11 @@
 import { Circle } from "./styles";
 
-export function Loading() {
-	return <Circle></Circle>;
+import { colors } from "../../assets/styles";
+
+export function Loading({ color }) {
+	return <Circle color={color}></Circle>;
 }
+
+Loading.defaultProps = {
+	color: colors.accent.orange,
+};
