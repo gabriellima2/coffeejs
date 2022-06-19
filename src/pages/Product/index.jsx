@@ -12,7 +12,7 @@ import { App } from "../../layouts/App";
 
 import { products } from "../../mocks";
 
-import { addProduct, updateTotals, cartSelect } from "../../redux/slices/cart";
+import { addProduct, cartSelect } from "../../redux/slices/cart";
 
 import { Describe, MainButton } from "../../GlobalStyles";
 import {
@@ -46,7 +46,6 @@ export function Product() {
 
 	const handleClickAddButton = () => {
 		dispatch(addProduct({ ...currentProduct, quantity: 1 }));
-		dispatch(updateTotals());
 
 		snackbarRef?.current.handleOpenSnackbar();
 	};

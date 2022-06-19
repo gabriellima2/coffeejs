@@ -26,6 +26,8 @@ export const cartSlice = createSlice({
 					type: "success",
 					value: "Produto adicionado ao carrinho!",
 				};
+				state.totals.price += total;
+				state.totals.quantity += payload.quantity;
 				state.products = [...state.products, payload];
 			};
 
@@ -49,9 +51,7 @@ export const cartSlice = createSlice({
 		},
 
 		removeProduct: (state, { type, payload }) => {
-			state.products = state.products.filter(
-				(product) => product.id !== payload
-			);
+			state.products.splice(payload, payload + 1);
 		},
 
 		updateProductData: (state, { type, payload }) => {
