@@ -68,7 +68,11 @@ export function Form({ handleOnSubmit }) {
 		formState: { errors },
 	} = useForm();
 
-	const formSubmit = (data) => handleOnSubmit(data);
+	const formSubmit = (data) => {
+		if (fetch.errorRequest) return;
+
+		handleOnSubmit(data);
+	};
 
 	const searchAddressWithZipCode = async (zipCode) => {
 		clearErrors();
