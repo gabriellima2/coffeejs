@@ -57,7 +57,7 @@ export const Fields = styled.fieldset`
 `;
 
 export const Address = styled.div`
-	min-height: 15px;
+	min-height: 10px;
 
 	display: flex;
 	flex-direction: column;

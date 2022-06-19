@@ -7,6 +7,7 @@ import { FormFields } from "./FormFields";
 import { debounce } from "../../../utils/debounce";
 
 import { Address, Container, Fields, SubmitButton, Error } from "./styles";
+import { useFetch } from "../../../hooks/useFetch";
 
 const inputAttributes = [
 	{
@@ -57,9 +58,8 @@ function testZipCodeWithRegex(zipCode) {
 }
 
 export function Form({ handleOnSubmit }) {
-	const [requestError, setRequestError] = useState(false);
-	const [loadingAddress, setLoadingAddress] = useState(false);
-	const [address, setAddress] = useState(null);
+	const [address, setAddress] = useState({});
+	const fetch = useFetch();
 
 	const {
 		register,
@@ -71,29 +71,26 @@ export function Form({ handleOnSubmit }) {
 	const formSubmit = (data) => handleOnSubmit(data);
 
 	const searchAddressWithZipCode = async (zipCode) => {
-		setLoadingAddress(true);
-		setRequestError(false);
 		clearErrors();
 
-		try {
-			const response = await fetch(`https://viacep.com.br/ws/${zipCode}/json/`);
+		const response = await fetch.makeRequisition(
+			`https://viacep.com.br/ws/${zipCode}/json/`
+		);
 
-			const data = await response.json();
+		if (!response) return;
 
-			if (data.erro) throw new Error();
-
-			setAddress(data);
-		} catch (err) {
-			setRequestError(true);
-		}
-
-		setLoadingAddress(false);
+		setAddress(response);
 	};
 
 	const validateZipCode = (zipCode) => {
 		if (!zipCode || !testZipCodeWithRegex(zipCode)) return;
 
 		searchAddressWithZipCode(zipCode);
+	};
+
+	const allClean = () => {
+		fetch.clearState();
+		setAddress({});
 	};
 
 	return (
@@ -111,7 +108,7 @@ export function Form({ handleOnSubmit }) {
 						label={inputAttribute.label}
 						onChange={(e) => {
 							clearErrors(inputAttribute.input.id);
-							setAddress(null);
+							allClean();
 
 							if (inputAttribute.input.id === "zip-code") {
 								debounce(() => validateZipCode(e.target.value), 1000);
@@ -124,7 +121,7 @@ export function Form({ handleOnSubmit }) {
 			))}
 
 			<Address>
-				{loadingAddress && <Loading />}
+				{fetch.isLoading && <Loading />}
 				{address && (
 					<>
 						<small>
@@ -136,11 +133,11 @@ export function Form({ handleOnSubmit }) {
 					</>
 				)}
 			</Address>
-			{requestError && (
+			{fetch.errorRequest && (
 				<Error>Erro! Por favor, verifique se foi digitado um CEP válido!</Error>
 			)}
 
-			<SubmitButton type="submit" disabled={loadingAddress}>
+			<SubmitButton type="submit" disabled={fetch.isLoading}>
 				Comprar
 			</SubmitButton>
 		</Container>
