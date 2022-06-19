@@ -115,7 +115,7 @@ export function Form({ handleOnSubmit }) {
 							allClean();
 
 							if (inputAttribute.input.id === "zip-code") {
-								debounce(() => validateZipCode(e.target.value), 1000);
+								debounce(() => validateZipCode(e.target.value), 800);
 								clearErrors("zip-code");
 							}
 						}}

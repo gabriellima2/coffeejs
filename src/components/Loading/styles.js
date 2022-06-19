@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { mediaQueries } from "../../assets/styles";
 
 const spin = keyframes`
 	100% {
@@ -7,12 +8,15 @@ const spin = keyframes`
 `;
 
 export const Circle = styled.span`
-	width: 30px;
-	height: 30px;
+	padding: 10px;
 
 	border: 3px solid #ffffff33;
 	border-radius: 50%;
 	border-top-color: ${({ color }) => color};
 
 	animation: ${spin} 1s infinite;
+
+	@media screen and (min-width: ${mediaQueries.small}) {
+		padding: 15px;
+	}
 `;
