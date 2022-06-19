@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 import { Container } from "./styles";
 
-export function ChangeQuantity({ quantity, runAfterQuantityChange }) {
+export function ChangeQuantity({ quantity, callbackToHandleQuantity }) {
 	const [currentQuantity, setCurrentQuantity] = useState(quantity || 1);
 
-	useEffect(() => runAfterQuantityChange(currentQuantity), [currentQuantity]);
+	useEffect(() => callbackToHandleQuantity(currentQuantity), [currentQuantity]);
 
 	const handleDecrement = () => {
 		if (currentQuantity === 1) return;
@@ -19,7 +19,7 @@ export function ChangeQuantity({ quantity, runAfterQuantityChange }) {
 		setCurrentQuantity((prev) => prev + 1);
 	};
 
-	const handleQuantityChange = ({ target }) => {
+	const handleInputChange = ({ target }) => {
 		if (target.value.length >= 3) return;
 
 		if (target.value == 0) return setCurrentQuantity(1);
@@ -34,7 +34,7 @@ export function ChangeQuantity({ quantity, runAfterQuantityChange }) {
 				<span>Quantidade de Produtos</span>
 				<input
 					type="number"
-					onChange={handleQuantityChange}
+					onChange={handleInputChange}
 					value={currentQuantity}
 				/>
 			</label>

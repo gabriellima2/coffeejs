@@ -13,7 +13,7 @@ export function Product({ attrProduct }) {
 		dispatch(removeProduct(attrProduct.id));
 	};
 
-	const handleChangeQuantity = (newQuantity) => {
+	const handleQuantityChange = (newQuantity) => {
 		dispatch(updateProductData({ id: attrProduct.id, newQuantity }));
 	};
 
@@ -30,7 +30,7 @@ export function Product({ attrProduct }) {
 				</Price>
 				<Button.ChangeQuantity
 					quantity={attrProduct.quantity}
-					runAfterQuantityChange={handleChangeQuantity}
+					callbackToHandleQuantity={handleQuantityChange}
 				/>
 				<Price>
 					<span>Total</span> R$

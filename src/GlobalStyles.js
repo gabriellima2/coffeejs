@@ -17,6 +17,12 @@ export const GlobalStyles = createGlobalStyle`
 		background-color: ${colors.background};
 	}
 
+	input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+  }
+
 	a {
 		text-decoration: none;
 		color: ${colors.font.white[100]};
