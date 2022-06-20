@@ -9,8 +9,8 @@ import { Container, ProductData, ProductInfo, Price } from "./styles";
 export function Product({ attrProduct }) {
 	const dispatch = useDispatch();
 
-	const handleClickRemoveButton = (productIndexToRemove) => {
-		dispatch(removeProduct(productIndexToRemove));
+	const handleClickRemoveButton = () => {
+		dispatch(removeProduct(attrProduct.id));
 	};
 
 	const handleQuantityChange = (newQuantity) => {
@@ -38,9 +38,7 @@ export function Product({ attrProduct }) {
 				</Price>
 			</ProductInfo>
 
-			<Button.Remove
-				actionToClick={() => handleClickRemoveButton(attrProduct.index)}
-			/>
+			<Button.Remove actionToClick={handleClickRemoveButton} />
 		</Container>
 	);
 }
