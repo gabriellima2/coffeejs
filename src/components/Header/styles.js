@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { mediaQueries, colors } from "../../assets/styles";
+import { mediaQueries } from "../../assets/styles";
 
 export const Container = styled.header`
 	width: 100%;
@@ -16,7 +16,7 @@ export const Container = styled.header`
 
 	background: none;
 
-	padding: 5px 40px 5px 40px;
+	padding: 5px 30px 5px 30px;
 
 	button {
 		@media screen and (min-width: ${mediaQueries.medium}) {

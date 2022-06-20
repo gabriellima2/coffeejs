@@ -1,14 +1,16 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { BsList, BsX } from "react-icons/bs";
 
-import { Trigger, Content, Close } from "./styles";
-
 import { Nav } from "../Nav";
+
+import { scrollToTop } from "../../../utils/scrollToTop";
+
+import { Trigger, Content, Close } from "./styles";
 
 export function SidebarMobile() {
 	return (
 		<Dialog.Root>
-			<Trigger>
+			<Trigger onClick={scrollToTop}>
 				<BsList />
 			</Trigger>
 			<Content>

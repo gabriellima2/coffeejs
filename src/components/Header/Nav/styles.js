@@ -13,6 +13,7 @@ export const Container = styled.nav`
 
 export const List = styled.ul`
 	display: flex;
+	align-items: center;
 	gap: 30px;
 
 	@media screen and (max-width: ${mediaQueries.medium}) {
