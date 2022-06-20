@@ -8,19 +8,19 @@ export default [
 	{
 		id: 0,
 		title: "início",
-		href: "/",
+		href: "/#home",
 		icon: BsHouseFill,
 	},
 	{
 		id: 1,
 		title: "produtos",
-		href: "#products",
+		href: "/#products",
 		icon: BsInboxesFill,
 	},
 	{
 		id: 2,
 		title: "contato",
-		href: "#contact",
+		href: "/#contact",
 		icon: BsFillTelephoneFill,
 	},
 ];

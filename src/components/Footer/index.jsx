@@ -10,7 +10,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
 	return (
-		<Container>
+		<Container id="contact">
 			<Company>
 				<Logo width={70} />
 				<small>projeto pessoal. gabriel lima - {CURRENT_YEAR}</small>

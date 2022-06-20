@@ -18,17 +18,17 @@ import {
 export function Home() {
 	return (
 		<Default>
-			<Main>
+			<Main id="home">
 				<TextArea>
 					<h1>Não precisa de motivos para pedir pizza</h1>
 
-					<a href="#">Veja nossas promoções</a>
+					<a href="#products">Veja nossas promoções</a>
 				</TextArea>
 
 				<img src={arrow} alt="" />
 			</Main>
 
-			<Catalog>
+			<Catalog id="products">
 				<CatalogTitle>nossos produtos</CatalogTitle>
 				<section>
 					<List>
