@@ -17,12 +17,15 @@ export const GlobalStyles = createGlobalStyle`
 		background-color: ${colors.background};
 	}
 
-	input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
 		-webkit-appearance: none;
-		-moz-appearance: textfield;
 		margin: 0;
-  }
+	}
+
+	input[type=number] {
+		-moz-appearance: textfield;
+	}
 
 	a {
 		text-decoration: none;
