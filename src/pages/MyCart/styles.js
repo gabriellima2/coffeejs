@@ -81,7 +81,7 @@ export const ProductsOnCart = styled.section`
 		border-bottom: ${BORDER_DETAIL};
 
 		&::-webkit-scrollbar {
-			width: 6px;
+			width: 5px;
 		}
 
 		&::-webkit-scrollbar-track {
@@ -89,7 +89,7 @@ export const ProductsOnCart = styled.section`
 		}
 
 		&::-webkit-scrollbar-thumb {
-			background-color: ${colors.utils["light-gray"][200]};
+			background-color: ${colors.utils["dark-gray"][300]};
 		}
 	}
 

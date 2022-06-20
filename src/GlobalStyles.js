@@ -15,6 +15,18 @@ export const GlobalStyles = createGlobalStyle`
 
 		overflow-x: hidden;
 		background-color: ${colors.background};
+
+		&::-webkit-scrollbar {
+			width: 8px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: ${colors.utils["dark-gray"][100]};
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: ${colors.utils["light-gray"][200]};
+		}
 	}
 
 	input::-webkit-outer-spin-button,
