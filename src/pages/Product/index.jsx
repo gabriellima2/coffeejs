@@ -74,7 +74,7 @@ export function Product() {
 					ref={snackbarRef}
 				/>
 				<Main>
-					<img src={currentProduct.image.src} alt="" />
+					<img src={currentProduct.image.src} alt={currentProduct.image.alt} />
 					<Content>
 						<ProductData>
 							<h1>{currentProduct.name}</h1>

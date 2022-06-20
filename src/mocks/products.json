@@ -1,7 +1,7 @@
 [
 	{
 		"image": {
-			"src": "/src/assets/img/pizza1.jpg",
+			"src": "/pizza1.jpg",
 			"alt": "Deliciosa Pizza de Calabresa com Cebola"
 		},
 		"id": 0,
@@ -33,7 +33,7 @@
 	},
 	{
 		"image": {
-			"src": "/src/assets/img/pizza2.jpg",
+			"src": "/pizza2.jpg",
 			"alt": "Pizza de Bacon com Cebola e Folhas"
 		},
 		"id": 1,
@@ -59,7 +59,7 @@
 	},
 	{
 		"image": {
-			"src": "/src/assets/img/pizza3.jpg",
+			"src": "/pizza3.jpg",
 			"alt": "Pizza de Bacon."
 		},
 		"id": 2,
@@ -71,7 +71,7 @@
 	},
 	{
 		"image": {
-			"src": "/src/assets/img/pizza1.jpg",
+			"src": "/pizza1.jpg",
 			"alt": "Deliciosa Pizza de Calabresa com Cebola"
 		},
 		"id": 3,
@@ -103,7 +103,7 @@
 	},
 	{
 		"image": {
-			"src": "/src/assets/img/pizza2.jpg",
+			"src": "/pizza2.jpg",
 			"alt": "Pizza de Bacon com Cebola e Folhas"
 		},
 		"id": 4,
@@ -129,7 +129,7 @@
 	},
 	{
 		"image": {
-			"src": "/src/assets/img/pizza3.jpg",
+			"src": "/pizza3.jpg",
 			"alt": "Pizza de Bacon."
 		},
 		"id": 5,
@@ -141,7 +141,7 @@
 	},
 	{
 		"image": {
-			"src": "/src/assets/img/pizza1.jpg",
+			"src": "/pizza1.jpg",
 			"alt": "Deliciosa Pizza de Calabresa com Cebola"
 		},
 		"id": 6,
@@ -173,7 +173,7 @@
 	},
 	{
 		"image": {
-			"src": "/src/assets/img/pizza2.jpg",
+			"src": "/pizza2.jpg",
 			"alt": "Pizza de Bacon com Cebola e Folhas"
 		},
 		"id": 7,
@@ -199,7 +199,7 @@
 	},
 	{
 		"image": {
-			"src": "/src/assets/img/pizza3.jpg",
+			"src": "/pizza3.jpg",
 			"alt": "Pizza de Bacon."
 		},
 		"id": 8,
