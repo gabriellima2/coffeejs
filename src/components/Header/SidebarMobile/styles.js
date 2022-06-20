@@ -1,16 +1,8 @@
 import styled from "styled-components";
-import * as Dialog from "@radix-ui/react-dialog";
+import { Dialog } from "@headlessui/react";
 
-export const Trigger = styled(Dialog.Trigger)`
-	background: none;
-	border: none;
-
-	font-size: 30px;
-	cursor: pointer;
-`;
-
-export const Content = styled(Dialog.Content)`
-	width: 350px;
+export const Content = styled(Dialog.Panel)`
+	width: 300px;
 	height: 100vh;
 
 	display: flex;
@@ -28,11 +20,11 @@ export const Content = styled(Dialog.Content)`
 	background-color: #0f0f0f;
 `;
 
-export const Close = styled(Dialog.Close)`
+export const Close = styled.button`
 	background: none;
 	border: none;
 
 	font-size: 40px;
 	cursor: pointer;
-	transform: translateX(115px);
+	transform: translateX(100px);
 `;

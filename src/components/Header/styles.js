@@ -36,3 +36,11 @@ export const Content = styled.section`
 	align-items: center;
 	gap: 20px;
 `;
+
+export const OpenSidebarButton = styled.button`
+	background: none;
+	border: none;
+
+	font-size: 30px;
+	cursor: pointer;
+`;

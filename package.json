@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@headlessui/react": "^1.6.5",
     "@mui/material": "^5.8.3",
     "@radix-ui/react-dialog": "^0.1.7",
     "@reduxjs/toolkit": "^1.8.2",

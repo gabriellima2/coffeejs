@@ -1,22 +1,34 @@
-import * as Dialog from "@radix-ui/react-dialog";
-import { BsList, BsX } from "react-icons/bs";
+import { forwardRef, useState, useImperativeHandle } from "react";
+import { Dialog } from "@headlessui/react";
+import { BsX } from "react-icons/bs";
 
 import { Nav } from "../Nav";
 
-import { Trigger, Content, Close } from "./styles";
+import { Content, Close } from "./styles";
 
-export function SidebarMobile() {
+function SidebarMobile(props, ref) {
+	const [isOpen, setIsOpen] = useState(false);
+
+	useImperativeHandle(ref, () => {
+		return {
+			handleOpenSidebar: handleOpen,
+		};
+	});
+
+	const handleOpen = () => setIsOpen(true);
+
+	const handleClose = () => setIsOpen(false);
+
 	return (
-		<Dialog.Root>
-			<Trigger>
-				<BsList />
-			</Trigger>
+		<Dialog open={isOpen} onClose={handleClose}>
 			<Content>
-				<Close>
+				<Close onClick={handleClose}>
 					<BsX />
 				</Close>
-				<Nav />
+				<Nav closeSidebarOnClick={handleClose} />
 			</Content>
-		</Dialog.Root>
+		</Dialog>
 	);
 }
+
+export default forwardRef(SidebarMobile);
