@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BsCartXFill, BsChevronCompactLeft } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { Error } from "../../components/Error";
 import { Product } from "../../components/Product";
@@ -8,6 +9,8 @@ import { Checkout } from "../../components/Checkout";
 import { Dialog } from "../../components/Dialog";
 
 import { cartSelect, updateTotals } from "../../redux/slices/cart";
+
+import { scrollToTop } from "../../utils/scrollToTop";
 
 import { Title } from "../../GlobalStyles";
 import {
@@ -19,12 +22,13 @@ import {
 	BuyerDataForm,
 	Back,
 } from "./styles";
-import { Link } from "react-router-dom";
 
 export function MyCart() {
 	const [checkoutIsCompleted, setCheckoutIsCompleted] = useState(false);
 	const { products, totals } = useSelector(cartSelect);
 	const dispatch = useDispatch();
+
+	useEffect(() => scrollToTop(), []);
 
 	useEffect(() => dispatch(updateTotals()), [products]);
 

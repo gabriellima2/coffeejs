@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { products } from "../../mocks";
@@ -5,6 +6,8 @@ import { products } from "../../mocks";
 import { Default } from "../../layouts/Default";
 
 import arrow from "../../assets/img/arrow.svg";
+
+import { scrollToTop } from "../../utils/scrollToTop";
 
 import {
 	Main,
@@ -16,6 +19,8 @@ import {
 } from "./styles";
 
 export function Home() {
+	useEffect(() => scrollToTop(), []);
+
 	return (
 		<Default>
 			<Main id="home">

@@ -14,6 +14,8 @@ import { products } from "../../mocks";
 
 import { addProduct, cartSelect } from "../../redux/slices/cart";
 
+import { scrollToTop } from "../../utils/scrollToTop";
+
 import { Describe, MainButton } from "../../GlobalStyles";
 import {
 	Container,
@@ -35,6 +37,8 @@ export function Product() {
 	const dispatch = useDispatch();
 
 	const { id } = useParams();
+
+	useEffect(() => scrollToTop(), []);
 
 	useEffect(() => {
 		const [productFound] = products.filter(
