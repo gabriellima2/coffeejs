@@ -10,11 +10,15 @@
   <img src="./public/pizzajs.gif" alt="demonstração do projeto" width="600" >
 </div>
 
+<p align="center"><a href="https://pizzajs-react.netlify.app/">Acessar Projeto</a></p>
+
 # Sobre
+
 Esse projeto é um ecommerce fictício de pizza, com fluxo de escolha, edição, carrinho e finalização do pedido.
 Consumindo a api [via-cep](https://viacep.com.br/) para dar um complemento e seguindo o conceito Mobile-First.
 
 # Tecnologias
+
 <p>Foram usadas as seguintes tecnologias:</p>
 
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript);
@@ -24,9 +28,11 @@ Consumindo a api [via-cep](https://viacep.com.br/) para dar um complemento e seg
 - [Redux-Toolkit](https://redux-toolkit.js.org/).
 
 # Objetivo
+
 Fazer um projeto que demanda-se mais tempo, planejamento e lógica.
 
 # Aprendizados
+
 - Fluxo de trabalho do Redux;
 - Estruturar um projeto maior;
 - Usar alguns componentes do MaterialUI, que por sinal são bem legais!;
@@ -48,4 +54,5 @@ $ yarn dev / npm run dev
 
 4. O servidor será aberto em http://localhost:3000
 ```
+
 <p align="center">Feito com 💙 por <a href="https://www.linkedin.com/in/gabriel-lima-860612236">Gabriel Lima</a></p>
