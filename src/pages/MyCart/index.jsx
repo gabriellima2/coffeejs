@@ -10,8 +10,6 @@ import { Dialog } from "../../components/Dialog";
 
 import { cartSelect, updateTotals } from "../../redux/slices/cart";
 
-import { scrollToTop } from "../../utils/scrollToTop";
-
 import { Title } from "../../GlobalStyles";
 import {
 	Container,
@@ -22,13 +20,12 @@ import {
 	BuyerDataForm,
 	Back,
 } from "./styles";
+import { ScrollToTop } from "../../HOC/ScrollToTop";
 
-export function MyCart() {
+function MyCart() {
 	const [checkoutIsCompleted, setCheckoutIsCompleted] = useState(false);
 	const { products, totals } = useSelector(cartSelect);
 	const dispatch = useDispatch();
-
-	useEffect(() => scrollToTop(), []);
 
 	useEffect(() => dispatch(updateTotals()), [products]);
 
@@ -78,3 +75,5 @@ export function MyCart() {
 		</Container>
 	);
 }
+
+export default ScrollToTop(MyCart);

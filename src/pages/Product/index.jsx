@@ -8,13 +8,13 @@ import { CustomerReview } from "../../components/CustomerReview";
 import { Stars } from "../../components/Stars";
 import Snackbar from "../../components/Snackbar";
 
+import { ScrollToTop } from "../../HOC/ScrollToTop";
+
 import { App } from "../../layouts/App";
 
 import { products } from "../../mocks";
 
 import { addProduct, cartSelect } from "../../redux/slices/cart";
-
-import { scrollToTop } from "../../utils/scrollToTop";
 
 import { Describe, MainButton } from "../../GlobalStyles";
 import {
@@ -29,7 +29,7 @@ import {
 	ReviewList,
 } from "./styles";
 
-export function Product() {
+function Product() {
 	const [currentProduct, setCurrentProduct] = useState(null);
 	const snackbarRef = useRef();
 
@@ -37,8 +37,6 @@ export function Product() {
 	const dispatch = useDispatch();
 
 	const { id } = useParams();
-
-	useEffect(() => scrollToTop(), []);
 
 	useEffect(() => {
 		const [productFound] = products.filter(
@@ -134,3 +132,5 @@ export function Product() {
 		</App>
 	);
 }
+
+export default ScrollToTop(Product);

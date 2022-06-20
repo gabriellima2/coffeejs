@@ -3,14 +3,12 @@ import { BsList, BsX } from "react-icons/bs";
 
 import { Nav } from "../Nav";
 
-import { scrollToTop } from "../../../utils/scrollToTop";
-
 import { Trigger, Content, Close } from "./styles";
 
 export function SidebarMobile() {
 	return (
 		<Dialog.Root>
-			<Trigger onClick={scrollToTop}>
+			<Trigger>
 				<BsList />
 			</Trigger>
 			<Content>
