@@ -36,9 +36,31 @@ export const ListItem = styled.li`
 
 		padding: 7px;
 
+		position: relative;
+
+		&::after {
+			content: "";
+			display: block;
+
+			width: 0;
+			height: 2px;
+
+			position: absolute;
+			bottom: 0;
+			left: 0;
+
+			transition: all 0.4s ease;
+			opacity: 0.6;
+			background-color: ${colors.accent.red};
+		}
+
+		&:hover::after {
+			width: 100%;
+		}
+
 		&:hover {
-			transition: all 0.2s ease;
-			opacity: 0.7;
+			transition: all 0.6s ease;
+			color: ${colors.font.accent};
 		}
 
 		@media screen and (max-width: ${mediaQueries.medium}) {
