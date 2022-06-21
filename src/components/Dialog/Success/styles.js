@@ -1,15 +1,13 @@
 import styled from "styled-components";
-import * as RadixDialog from "@radix-ui/react-dialog";
 
 import { colors } from "../../../assets/styles";
 
 const BACKGROUND_OPACITY = "f2";
 
 export const Container = styled.section`
-	width: fit-content;
+	width: 90%;
 	max-width: 450px;
 	height: fit-content;
-	max-height: 300px;
 
 	display: flex;
 	flex-direction: column;
@@ -24,18 +22,19 @@ export const Container = styled.section`
 	z-index: 30000;
 
 	border-radius: 5px;
+	border: 1px solid ${colors.utils["dark-gray"][400]};
 
 	font-family: "Montserrat", sans-serif;
 	text-align: center;
 
-	padding: 40px 50px;
+	padding: 20px 10px;
 
 	background-color: ${colors.utils["dark-gray"][200] + BACKGROUND_OPACITY};
 
 	h1 {
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 		text-transform: capitalize;
-		letter-spacing: 0.5px;
+		letter-spacing: 0.4px;
 		color: ${colors.font.white[100]};
 	}
 
@@ -48,17 +47,17 @@ export const Container = styled.section`
 
 export const Check = styled.i`
 	color: ${colors.utils.green};
-	font-size: 3.5rem;
+	font-size: 3.4rem;
 `;
 
 export const ConfirmButton = styled.a`
 	border: 1px solid ${colors.utils.green};
-	padding: 15px 35px;
+	padding: 15px 30px;
 	margin-top: 20px;
 
 	position: relative;
 
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	color: ${colors.utils.green};
 	font-weight: 600;
 
