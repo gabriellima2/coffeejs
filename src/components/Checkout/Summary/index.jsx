@@ -2,7 +2,11 @@ import { useSelector } from "react-redux";
 
 import { cartSelect } from "../../../redux/slices/cart";
 
+import { randomNumberGenerator } from "../../../utils/randomNumberGenerator";
+
 import { Container, Total, Price } from "./styles";
+
+const SHIPPING_COST = randomNumberGenerator(5, 20);
 
 export function Summary() {
 	const { totals } = useSelector(cartSelect);
@@ -16,7 +20,7 @@ export function Summary() {
 					Subtotal<span>R${totals.price.toFixed(2)}</span>
 				</Price>
 				<Price>
-					Frete<span>R$5,00</span>
+					Frete<span>R${SHIPPING_COST.toFixed(2)}</span>
 				</Price>
 			</section>
 
