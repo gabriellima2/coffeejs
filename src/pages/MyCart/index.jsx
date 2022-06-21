@@ -14,6 +14,7 @@ import { Title } from "../../GlobalStyles";
 import {
 	Container,
 	Text,
+	Quantity,
 	Content,
 	ProductsOnCart,
 	ShoppingSummary,
@@ -47,7 +48,10 @@ function MyCart() {
 			<Dialog.Success />
 			<Text>
 				<Title>seu carrinho</Title>
-				<small>{totals.quantity} produtos</small>
+				<Quantity>
+					<span>{totals.quantity}</span>{" "}
+					{totals.quantity === 1 ? "produto" : "produtos"}
+				</Quantity>
 			</Text>
 			<Content>
 				<ShoppingSummary>

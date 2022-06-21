@@ -71,6 +71,19 @@ export const Text = styled.div`
 	}
 `;
 
+export const Quantity = styled.small`
+	font-weight: 500;
+	font-size: 0.7rem;
+	letter-spacing: 0.4px;
+	text-transform: capitalize;
+
+	span {
+		font-size: 2rem;
+		font-weight: 600;
+		color: ${colors.font.accent};
+	}
+`;
+
 export const ProductsOnCart = styled.section`
 	width: 100%;
 	height: 100%;
