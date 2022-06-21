@@ -1,13 +1,13 @@
 import * as MaterialUI from "@mui/material";
 
-function Text({ onChange, input, label, register }) {
+function Text({ input, methods, label, register }) {
 	return (
 		<MaterialUI.TextField
-			error={input.errors && Object.keys(input?.errors) !== 0}
 			{...input}
-			label={label.value}
 			{...register(input.name, input.rules)}
-			onChange={onChange || null}
+			{...methods}
+			label={label.value}
+			error={input.errors && Object.keys(input?.errors) !== 0}
 			variant="standard"
 			required
 		/>

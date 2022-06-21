@@ -18,8 +18,8 @@ const inputAttributes = [
 			rules: {
 				required: "Campo de nome obrigatótio!",
 				maxLength: {
-					value: 30,
-					message: "Nome com máximo de 30 caracteres!",
+					value: 90,
+					message: "Nome com máximo de 90 caracteres!",
 				},
 				minLength: {
 					value: 2,
@@ -69,7 +69,7 @@ export function Form({ handleOnSubmit }) {
 	} = useForm();
 
 	const formSubmit = (data) => {
-		if (fetch.errorRequest) return;
+		if (fetch.errorRequest || !Object.keys(data).length) return;
 
 		handleOnSubmit(data);
 	};
@@ -97,6 +97,16 @@ export function Form({ handleOnSubmit }) {
 		setAddress({});
 	};
 
+	const handleFieldsChange = (e, field) => {
+		clearErrors(field.input.id);
+		allClean();
+
+		if (field.input.id === "zip-code") {
+			debounce(() => validateZipCode(e.target.value), 800);
+			clearErrors("zip-code");
+		}
+	};
+
 	return (
 		<Container onSubmit={handleSubmit(formSubmit)}>
 			<h1>Preencha os Campos</h1>
@@ -110,14 +120,8 @@ export function Form({ handleOnSubmit }) {
 							errors: errors[inputAttribute.input.id],
 						}}
 						label={inputAttribute.label}
-						onChange={(e) => {
-							clearErrors(inputAttribute.input.id);
-							allClean();
-
-							if (inputAttribute.input.id === "zip-code") {
-								debounce(() => validateZipCode(e.target.value), 800);
-								clearErrors("zip-code");
-							}
+						methods={{
+							onChange: (e) => handleFieldsChange(e, inputAttribute),
 						}}
 					/>
 					<Error>{errors[inputAttribute.input.id]?.message}</Error>
