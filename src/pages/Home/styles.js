@@ -117,6 +117,7 @@ export const ListItem = styled.li`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-between;
 	gap: 15px;
 
 	border: 2px solid ${colors.accent.orange}${"3a"};
@@ -135,6 +136,7 @@ export const ListItem = styled.li`
 		font-size: 0.9rem;
 		text-align: center;
 		word-break: normal;
+		min-height: 35px;
 	}
 
 	h2 {
