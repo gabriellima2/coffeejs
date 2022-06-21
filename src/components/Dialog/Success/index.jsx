@@ -40,7 +40,7 @@ export function Success({ isOpen }) {
 	useEffect(() => {
 		const timer = setTimeout(
 			() => setIsProcessing(false),
-			randomNumberGenerator(10000, 30000)
+			randomNumberGenerator(1000, 5000)
 		);
 
 		return () => clearTimeout(timer);
