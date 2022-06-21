@@ -26,9 +26,6 @@ export const Container = styled.div`
 		height: 100%;
 		min-height: auto;
 		max-height: auto;
-
-		display: grid;
-		grid-template-rows: minmax(90px, 10vh) minmax(90vh, auto);
 	}
 
 	@media screen and (min-width: ${mediaQueries["xx-large"]}) {
@@ -39,13 +36,15 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-	height: 100%;
-
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 
 	@media screen and (min-width: ${mediaQueries.default}) {
+		height: 100%;
+		min-height: 100vh;
+		max-height: fit-content;
+
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 350px auto;
@@ -53,7 +52,7 @@ export const Content = styled.div`
 
 	@media screen and (min-width: ${mediaQueries["xx-large"]}) {
 		grid-template-columns: 1fr 400px;
-		grid-template-rows: auto 330px;
+		grid-template-rows: minmax(400px, 55vh) 345px;
 
 		padding-bottom: 25px;
 	}
@@ -78,8 +77,6 @@ export const ProductsOnCart = styled.section`
 	min-height: 50vh;
 
 	ul {
-		border-bottom: ${BORDER_DETAIL};
-
 		&::-webkit-scrollbar {
 			width: 5px;
 		}
@@ -107,8 +104,7 @@ export const ProductsOnCart = styled.section`
 		grid-row: span 2;
 
 		ul {
-			min-height: 530px;
-			max-height: 90vh;
+			max-height: 100%;
 			overflow-y: auto;
 		}
 	}

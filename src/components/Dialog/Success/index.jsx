@@ -34,7 +34,7 @@ export function Success({ isOpen }) {
 	const [isProcessing, setIsProcessing] = useState(true);
 
 	useEffect(() => {
-		const timer = setTimeout(() => setIsProcessing(false), 2000);
+		const timer = setTimeout(() => setIsProcessing(false), 1000);
 
 		return () => clearTimeout(timer);
 	}, []);

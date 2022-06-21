@@ -5,14 +5,6 @@ import { colors } from "../../../assets/styles";
 
 const BACKGROUND_OPACITY = "f2";
 
-export const Content = styled(RadixDialog.Content)`
-	height: 100vh;
-
-	background-color: red;
-
-	position: relative;
-`;
-
 export const Container = styled.section`
 	width: fit-content;
 	max-width: 450px;
