@@ -19,7 +19,7 @@ export function useFetch() {
 			setErrorRequest(true);
 		}
 
-		setIsLoading(false);
+		setTimeout(() => setIsLoading(false), 5000);
 	};
 
 	const clearState = () => {

@@ -10,6 +10,8 @@ import { Dialog } from "../../components/Dialog";
 
 import { cartSelect, updateTotals } from "../../redux/slices/cart";
 
+import { ScrollToTop } from "../../HOC/ScrollToTop";
+
 import { Title } from "../../GlobalStyles";
 import {
 	Container,
@@ -21,7 +23,6 @@ import {
 	BuyerDataForm,
 	Back,
 } from "./styles";
-import { ScrollToTop } from "../../HOC/ScrollToTop";
 
 function MyCart() {
 	const [checkoutIsCompleted, setCheckoutIsCompleted] = useState(false);
@@ -73,7 +74,7 @@ function MyCart() {
 					</ul>
 				</ProductsOnCart>
 				<BuyerDataForm>
-					<Checkout.Form handleOnSubmit={completeCheckout} />
+					<Checkout.Form sendData={completeCheckout} />
 				</BuyerDataForm>
 			</Content>
 		</Container>

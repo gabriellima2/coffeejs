@@ -11,6 +11,7 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@headlessui/react": "^1.6.5",
+    "@hookform/resolvers": "^2.9.1",
     "@mui/material": "^5.8.3",
     "@radix-ui/react-dialog": "^0.1.7",
     "@reduxjs/toolkit": "^1.8.2",
@@ -21,7 +22,8 @@
     "react-redux": "^7.2.8",
     "react-router-dom": "^6.2.2",
     "redux": "^4.1.2",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",

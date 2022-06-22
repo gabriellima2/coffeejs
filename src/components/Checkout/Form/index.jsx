@@ -1,55 +1,14 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 
-import { Loading } from "../../Loading";
-import { FormFields } from "./FormFields";
-
-import { debounce } from "../../../utils/debounce";
-
-import { Address, Container, Fields, SubmitButton, Error } from "./styles";
 import { useFetch } from "../../../hooks/useFetch";
 
-const inputAttributes = [
-	{
-		input: {
-			type: "text",
-			name: "full-name",
-			id: "full-name",
-			rules: {
-				required: "Campo de nome obrigatótio!",
-				maxLength: {
-					value: 90,
-					message: "Nome com máximo de 90 caracteres!",
-				},
-				minLength: {
-					value: 2,
-					message: "Nome com minímo de 2 caracteres!",
-				},
-			},
-		},
-		label: { value: "Nome Completo" },
-	},
-	{
-		input: {
-			type: "number",
-			name: "zip-code",
-			id: "zip-code",
-			rules: {
-				required: "Campo CEP obrigatório!",
-				maxLength: {
-					value: 8,
-					message: "CEP tem o máximo de 8 números!",
-				},
-				minLength: {
-					value: 8,
-					message: "CEP tem o minímo de 8 números!",
-				},
-				pattern: /^[0-9]{8}$/,
-			},
-		},
-		label: { value: "CEP" },
-	},
-];
+import { Loading } from "../../Loading";
+import { DynamicForm } from "../../DynamicForm";
+
+import { debounce } from "../../../utils/debounce";
+import { fieldAttributes, schema } from "./utils";
+
+import { Address } from "./styles";
 
 function testZipCodeWithRegex(zipCode) {
 	const regexZipCode = /^[0-9]{8}$/;
@@ -57,27 +16,18 @@ function testZipCodeWithRegex(zipCode) {
 	return regexZipCode.test(zipCode);
 }
 
-export function Form({ handleOnSubmit }) {
+export function Form({ sendData }) {
 	const [address, setAddress] = useState({});
-	const fetch = useFetch();
+	const { clearState, errorRequest, isLoading, makeRequisition } = useFetch();
 
-	const {
-		register,
-		handleSubmit,
-		clearErrors,
-		formState: { errors },
-	} = useForm();
+	const handleFormSubmit = (data) => {
+		if (errorRequest) return;
 
-	const formSubmit = (data) => {
-		if (fetch.errorRequest || !Object.keys(data).length) return;
-
-		handleOnSubmit(data);
+		sendData(data);
 	};
 
 	const searchAddressWithZipCode = async (zipCode) => {
-		clearErrors();
-
-		const response = await fetch.makeRequisition(
+		const response = await makeRequisition(
 			`https://viacep.com.br/ws/${zipCode}/json/`
 		);
 
@@ -92,62 +42,43 @@ export function Form({ handleOnSubmit }) {
 		searchAddressWithZipCode(zipCode);
 	};
 
-	const allClean = () => {
-		fetch.clearState();
-		setAddress({});
-	};
+	const handleFieldsChange = (e) => {
+		clearState();
 
-	const handleFieldsChange = (e, field) => {
-		clearErrors(field.input.id);
-		allClean();
-
-		if (field.input.id === "zip-code") {
+		if (e.target.id === "zip-code") {
 			debounce(() => validateZipCode(e.target.value), 800);
-			clearErrors("zip-code");
 		}
 	};
 
 	return (
-		<Container onSubmit={handleSubmit(formSubmit)}>
-			<h1>Preencha os Campos</h1>
-
-			{inputAttributes.map((inputAttribute) => (
-				<Fields key={inputAttribute.input.id}>
-					<FormFields.Text
-						register={register}
-						input={{
-							...inputAttribute.input,
-							errors: errors[inputAttribute.input.id],
-						}}
-						label={inputAttribute.label}
-						methods={{
-							onChange: (e) => handleFieldsChange(e, inputAttribute),
-						}}
-					/>
-					<Error>{errors[inputAttribute.input.id]?.message}</Error>
-				</Fields>
-			))}
-
+		<DynamicForm
+			fields={{
+				attributes: fieldAttributes,
+				handleEvents: {
+					onChange: handleFieldsChange,
+				},
+			}}
+			yupSchema={schema}
+			handleFormSubmit={handleFormSubmit}
+			disableSubmitButton={isLoading || !Object.keys(address).length}
+		>
 			<Address>
-				{fetch.isLoading && <Loading />}
+				{isLoading && <Loading />}
 				{address && (
 					<>
 						<small>
-							{address?.logradouro} {address?.bairro}
+							{address?.logradouro || "Logradouro"}
+							{" - "}
+							{address?.bairro || "Bairro"}
 						</small>
 						<small>
-							{address?.localidade} {address?.uf}
+							{address?.localidade || "Cidade"}
+							{" - "}
+							{address?.uf || "UF"}
 						</small>
 					</>
 				)}
 			</Address>
-			{fetch.errorRequest && (
-				<Error>Erro! Por favor, verifique se foi digitado um CEP válido!</Error>
-			)}
-
-			<SubmitButton type="submit" disabled={fetch.isLoading}>
-				Comprar
-			</SubmitButton>
-		</Container>
+		</DynamicForm>
 	);
 }
