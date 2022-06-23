@@ -4,7 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Fields } from "./Fields";
 
-import { Container, Error, Fieldset, SubmitButton } from "./styles";
+import { Error } from "../../GlobalStyles";
+import { Container, Fieldset, SubmitButton } from "./styles";
 
 export function DynamicForm({
 	fields,
@@ -35,9 +36,9 @@ export function DynamicForm({
 	return (
 		<Container onSubmit={handleSubmit(validateFormFieldsToSubmit)}>
 			<h1>PREENCHA OS CAMPOS</h1>
-			<Fieldset>
+			<section>
 				{fields?.attributes.map((attribute) => (
-					<React.Fragment key={attribute.input.id}>
+					<Fieldset key={attribute.input.id}>
 						<Fields.Text
 							input={{
 								...attribute.input,
@@ -48,9 +49,9 @@ export function DynamicForm({
 							register={register}
 						/>
 						<Error role="alert">{errors[attribute.input.id]?.message}</Error>
-					</React.Fragment>
+					</Fieldset>
 				))}
-			</Fieldset>
+			</section>
 			{children}
 			<SubmitButton type="submit" disabled={disableSubmitButton || !isValid}>
 				Comprar

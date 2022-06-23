@@ -194,6 +194,7 @@ export const BuyerDataForm = styled.section`
 
 	position: sticky;
 	bottom: 0;
+	padding: 15px;
 
 	border-top: ${BORDER_DETAIL};
 	border-top-left-radius: 5px;
@@ -209,8 +210,6 @@ export const BuyerDataForm = styled.section`
 	}
 
 	@media screen and (min-width: ${mediaQueries["xx-large"]}) {
-		padding: 10px;
-
 		border-bottom-right-radius: 10px;
 	}
 `;

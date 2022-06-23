@@ -105,3 +105,9 @@ export const Title = styled.h1`
 export const Describe = styled.span`
 	display: none;
 `;
+
+export const Error = styled.small`
+	text-align: center;
+	font-weight: 600;
+	color: ${colors.font.accent};
+`;

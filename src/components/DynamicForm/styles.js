@@ -14,13 +14,15 @@ export const Container = styled.form`
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 15px 10px;
-
 	color: ${colors.font.white[100]};
 
 	h1 {
 		font-size: 1.1rem;
 		margin-bottom: 6px;
+	}
+
+	section {
+		width: 100%;
 	}
 `;
 
@@ -63,10 +65,4 @@ export const SubmitButton = styled(MainButton)`
 		pointer-events: none;
 		opacity: 0.5;
 	}
-`;
-
-export const Error = styled.small`
-	text-align: center;
-	font-weight: 600;
-	color: ${colors.font.accent};
 `;

@@ -8,12 +8,30 @@ import { DynamicForm } from "../../DynamicForm";
 import { debounce } from "../../../utils/debounce";
 import { fieldAttributes, schema } from "./utils";
 
-import { Address } from "./styles";
+import { Error } from "../../../GlobalStyles";
+import { ContainerAddress, DynamicEvents } from "./styles";
 
 function testZipCodeWithRegex(zipCode) {
 	const regexZipCode = /^[0-9]{8}$/;
 
 	return regexZipCode.test(zipCode);
+}
+
+function Address({ logradouro, bairro, localidade, uf }) {
+	return (
+		<ContainerAddress>
+			<small>
+				{logradouro || "Logradouro"}
+				{" - "}
+				{bairro || "Bairro"}
+			</small>
+			<small>
+				{localidade || "Cidade"}
+				{" - "}
+				{uf || "UF"}
+			</small>
+		</ContainerAddress>
+	);
 }
 
 export function Form({ sendData }) {
@@ -47,6 +65,7 @@ export function Form({ sendData }) {
 
 		if (e.target.id === "zip-code") {
 			debounce(() => validateZipCode(e.target.value), 800);
+			setAddress({});
 		}
 	};
 
@@ -62,23 +81,16 @@ export function Form({ sendData }) {
 			handleFormSubmit={handleFormSubmit}
 			disableSubmitButton={isLoading || !Object.keys(address).length}
 		>
-			<Address>
-				{isLoading && <Loading />}
-				{address && (
+			<DynamicEvents>
+				{isLoading && (
 					<>
-						<small>
-							{address?.logradouro || "Logradouro"}
-							{" - "}
-							{address?.bairro || "Bairro"}
-						</small>
-						<small>
-							{address?.localidade || "Cidade"}
-							{" - "}
-							{address?.uf || "UF"}
-						</small>
+						<Loading />
+						<small>Buscando CEP...</small>
 					</>
 				)}
-			</Address>
+				{!isLoading && !errorRequest.message && <Address {...address} />}
+				<Error>{errorRequest?.message}</Error>
+			</DynamicEvents>
 		</DynamicForm>
 	);
 }
