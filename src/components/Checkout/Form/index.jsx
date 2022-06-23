@@ -39,7 +39,7 @@ export function Form({ sendData }) {
 	const { clearState, errorRequest, isLoading, makeRequisition } = useFetch();
 
 	const handleFormSubmit = (data) => {
-		if (errorRequest) return;
+		if (errorRequest.message) return;
 
 		sendData(data);
 	};
