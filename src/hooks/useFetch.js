@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export function useFetch() {
 	const [isLoading, setIsLoading] = useState(false);
-	const [errorRequest, setErrorRequest] = useState(false);
+	const [errorRequest, setErrorRequest] = useState({ message: null });
 
 	const makeRequisition = async (url, options = null) => {
 		setIsLoading(true);
@@ -16,15 +16,13 @@ export function useFetch() {
 
 			return data;
 		} catch (err) {
-			setErrorRequest(true);
+			setErrorRequest({ message: "Por favor, verifique o CEP digitado!" });
 		}
-
-		setTimeout(() => setIsLoading(false), 5000);
 	};
 
 	const clearState = () => {
 		setIsLoading(false);
-		setErrorRequest(false);
+		setErrorRequest({ message: null });
 	};
 
 	return {
