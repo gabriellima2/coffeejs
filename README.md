@@ -7,7 +7,7 @@
 <h3 align="center">Projeto de um ecommerce fictício de pizza</h3>
 
 <div align="center" >
-  <img src="./public/pizzajs.gif" alt="demonstração do projeto" width="600" >
+  <img src="./public/pizzajs.gif" alt="demonstração do projeto" >
 </div>
 
 <p align="center"><a href="https://pizzajs-react.netlify.app/">Acessar Projeto</a></p>
