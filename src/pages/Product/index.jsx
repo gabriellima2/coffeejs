@@ -117,7 +117,7 @@ function Product() {
 					<section>
 						<ReviewList>
 							{currentProduct.customerReviews?.map((review) => (
-								<li key={review.id} tabIndex={0}>
+								<li key={review.id}>
 									<CustomerReview
 										name={review.name}
 										text={review.text}
