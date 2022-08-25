@@ -55,17 +55,30 @@ export function Form({ sendData }) {
 	};
 
 	const validateZipCode = (zipCode) => {
-		if (!zipCode || !testZipCodeWithRegex(zipCode)) return;
+		const withoutTrace = zipCode.replace("-", "");
+		if (!withoutTrace || !testZipCodeWithRegex(withoutTrace)) return;
 
-		searchAddressWithZipCode(zipCode);
+		searchAddressWithZipCode(withoutTrace);
 	};
+
+	const handleZipCode = (e) => {
+		const value = e.target.value;
+		const userAction = e.nativeEvent.inputType;
+
+		// Para criar uma espécie de mascára de CEP. E não executar quando estiver apagando.
+		if (userAction !== "deleteContentBackward" && value.length === 5) {
+			e.target.value += "-";
+		}
+
+		debounce(() => validateZipCode(value), 800);
+		setAddress({});
+	}
 
 	const handleFieldsChange = (e) => {
 		clearState();
 
 		if (e.target.id === "zip-code") {
-			debounce(() => validateZipCode(e.target.value), 800);
-			setAddress({});
+			handleZipCode(e);
 		}
 	};
 

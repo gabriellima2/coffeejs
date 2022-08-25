@@ -23,7 +23,7 @@ export const fieldAttributes = [
 		label: { value: "CEP" },
 		yup: yup
 			.string()
-			.matches(/^[0-9]{5}[0-9]{3}$/, "Por favor, digite um CEP válido")
+			.matches(/^[0-9]{5}-[0-9]{3}$/, "Por favor, digite um CEP válido")
 			.required(),
 	},
 ];
