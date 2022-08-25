@@ -9,6 +9,10 @@ export const GlobalStyles = createGlobalStyle`
 		margin: 0;
 	}
 
+	html {
+		scroll-behavior: smooth;
+	}
+
 	body {
 		color: ${colors.font.white[100]};
 		font-family: 'Raleway', sans-serif;
