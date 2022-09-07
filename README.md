@@ -27,6 +27,14 @@ Consumindo a api [via-cep](https://viacep.com.br/) para dar um complemento e seg
 - [MaterialUI](https://mui.com/pt/);
 - [Redux-Toolkit](https://redux-toolkit.js.org/).
 
+# Prototipagem
+
+<div align="center">
+  <img src="./public/github/pizzajs-figma.png" alt="demonstração do protótipo do projeto" >
+</div>
+
+<h4 align="center">Feito com <a href="https://www.figma.com/">Figma</a></h4>
+
 # Objetivo
 
 Fazer um projeto que demanda-se mais tempo, planejamento e lógica.
